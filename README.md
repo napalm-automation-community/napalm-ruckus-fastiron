@@ -4,17 +4,17 @@ Welcome To NAPALM driver for Ruckus FastIron
 NAPALM (Network Automation and Programmability Abstraction Layer with Multivendor support) is a Python library that implements a set of functions to interact with different router vendor devices using a unified API.
 
 Current methods supported
------------------------------------
+=======
 
 Configuration Support Matrix
-=======
+-----------------------------------
 - load_replace_candidate()
 - load_merge_candidate()
 - compare_config()
 - rollback()
 
 Getters Support Matrix
-=======
+-----------------------------------
 - get_arp_table()
 - get_config()
 - get_environment()
@@ -32,7 +32,7 @@ Getters Support Matrix
 - IsAlilve()
 
 Currently Testing not publicly available
-=======
+-----------------------------------
 - load_template()
 - get_network_instance()
 - get_optics()
