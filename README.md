@@ -38,15 +38,15 @@ Current methods supported
 
 Currently Testing not implement
 =======
-load_template()
-get_network_instance()
-get_bgp_congfig()
-get_bgp_neighbors_detail()
-get_route_to()
-get_snmp information()
-ping()
-tracerroute()
-get_optics()
+- load_template()
+- get_network_instance()
+- get_bgp_congfig()
+- get_bgp_neighbors_detail()
+- get_route_to()
+- get_snmp information()
+- ping()
+- tracerroute()
+- get_optics()
 
 
 Authors
