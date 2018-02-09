@@ -31,7 +31,7 @@ Getters Support Matrix
 - get_users()
 - IsAlilve()
 
-Currently Testing not publicly available
+Currently Testing [not publicly available]
 =======
 - load_template()
 - get_network_instance()
