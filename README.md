@@ -48,6 +48,11 @@ Roapmapped
 =======
 - get_ipv6_neighbors_table
 
+Requirements
+=======
+Netmiko v2.0.2
+FI v8.0.30
+
 Authors
 =======
  * Jesús Mendez ([mendezj@staticoverride.us](mailto:mendezj@staticoverride.us))
