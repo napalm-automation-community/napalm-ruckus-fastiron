@@ -50,8 +50,8 @@ Roapmapped
 
 Requirements
 =======
-Netmiko v2.0.2
-FI v8.0.30
+- Netmiko v2.0.2
+- FI v8.0.30
 
 Authors
 =======
