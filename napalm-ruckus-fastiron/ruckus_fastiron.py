@@ -134,7 +134,7 @@ class FastIronDriver(NetworkDriver):
         """Raised when port speed does not match available inputs"""
 
         def __init_(self, arg):
-            print("unexpected speed: ", arg, " please submit bug with port speed")
+            print("unexpected speed: %s please submit bug with port speed" %arg)
             sys.exit(1)
 
     @staticmethod
