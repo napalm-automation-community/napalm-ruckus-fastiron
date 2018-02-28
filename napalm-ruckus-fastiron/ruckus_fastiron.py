@@ -165,7 +165,7 @@ class FastIronDriver(NetworkDriver):
         for m in range(0, size):                    # Iterates through size of word list
             pos = int(pos_list.pop())               # pops element position and word pair in list
             word = word_list.pop()
-            if sentence.__contains__(word):         # checks if word is contained in text
+            if word in sentence:                    # checks if word is contained in text
                 indx = sentence.index(word)         # records the index of word
                 dictionary[word] = sentence[indx + pos]
 
@@ -193,7 +193,7 @@ class FastIronDriver(NetworkDriver):
     def __delete_if_contains(nline_list, del_word):
         temp_list = list()                          # Creates a list to store variables
         for a_string in nline_list:                 # iterates through list
-            if a_string .__contains__(del_word):    # if word matches, word is skipped
+            if del_word in a_string:                # if word matches, word is skipped
                 continue
             else:
                 temp_list.append(a_string.split())  # Word didn't match store in list
@@ -226,7 +226,7 @@ class FastIronDriver(NetworkDriver):
 
     @staticmethod
     def __facts_hostname(string):
-        if string.__contains__("hostname"):
+        if "hostname" in string:
             hostname = FastIronDriver.__retrieve_all_locations(string, "hostname", 0)[0]
             return hostname                         # returns the hostname if configured
         else:
@@ -253,9 +253,8 @@ class FastIronDriver(NetworkDriver):
 
             if trigger == 0:
                 interfaces_list.append(port_det[pos])
-            else:
-                if port_det[pos].__contains__("ve") or port_det[pos].__contains__("lb") or \
-                        port_det[pos].__contains__("tunnel"):   # removes non physical interface
+            else:                                           # removes non physical interface
+                if any(x in port_det[pos] for x in ["ve", "lb", "tunnel"]):
                     continue
                 else:
                     interfaces_list.append(port_det[pos])       # adds phys interface to list
@@ -267,7 +266,7 @@ class FastIronDriver(NetworkDriver):
         new_lines = FastIronDriver.__creates_list_of_nlines(shw_int_port)
 
         for val in new_lines:
-            if val .__contains__("name"):           # If line contains "name" is skipped
+            if "name" in val:
                 continue
             t_port.append(FastIronDriver.__facts_uptime(val))     # adds time to ports
 
@@ -360,7 +359,7 @@ class FastIronDriver(NetworkDriver):
         port_status = list()                            # Creates list
         shw_int_name = FastIronDriver.__creates_list_of_nlines(shw_int_name)
         for val in shw_int_name:                        # iterates through n lines
-            if val .__contains__("No port name"):       # port does not have name
+            if "No port name" in val:
                 port_status.append("")                  # appends nothing for port name
             else:
                 port_status.append(val.replace("Port name is", ""))     # Removes fluff add name
@@ -460,7 +459,7 @@ class FastIronDriver(NetworkDriver):
         unit = FastIronDriver.__retrieve_all_locations(string, "Fan", 0)
         my_dict = {}  # creates list
 
-        if string.__contains__("Fanless"):              # If string input contains word fanless
+        if "Fanless" in string:
             return {"fan": {None}}                      # no fans are in unit and returns None
 
         for val in range(0, len(fan)):
@@ -937,7 +936,7 @@ class FastIronDriver(NetworkDriver):
         output = output.replace('"', '')
         output = (output.replace('+', ' '))
 
-        if output.__contains__("No neighbors"):     # no neighbors found on this interface
+        if "No neighbors" in output:                # no neighbors found on this interface
             return None
 
         par_int = FastIronDriver.__retrieve_all_locations(output, "Local", 1)[0]
@@ -1094,7 +1093,7 @@ class FastIronDriver(NetworkDriver):
             remote, refid, stra, when, hostpoll, \
                 reach, delay, offset, jitter = sentence.split()
 
-            if sentence .__contains__('*'):
+            if "*" in sentence:
                 isbool = True
 
             # sentence[0] = sentence[0].replace('*', '')
@@ -1153,7 +1152,7 @@ class FastIronDriver(NetworkDriver):
                 last_port = sentence[0] + " " + sentence[1]     # grabs port description
                 pos = 2                                         # New position of IP address
 
-                if ipv6_output.__contains__(last_port):         # will return ipv6 address
+                if last_port in ipv6_output:
                     ip6_dict = FastIronDriver.__output_parser(ipv6_output, last_port)
 
             ip4_dict.update({                                   # updates ipv4 dictionary
@@ -1351,10 +1350,10 @@ class FastIronDriver(NetworkDriver):
         vrf_interface = dict()
         check = self.device.send_command('show version')
 
-        if check.__contains__('7150'):                              # ICX7150 does not support VRF
+        if "7150" in check:                                         # ICX7150 does not support VRF
             return {}
 
-        if check.__contains__('SPR'):                               # check if router version
+        if "SPR" in check:                                          # check if router version
             vrf_type = 'L3VRF'                                      # adds vrf of type router
         else:
             vrf_type = 'L2VRF'                                      # adds vrf of type switch
