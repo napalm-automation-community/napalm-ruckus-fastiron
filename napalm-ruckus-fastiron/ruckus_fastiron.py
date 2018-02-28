@@ -1350,13 +1350,16 @@ class FastIronDriver(NetworkDriver):
         vrf_interface = dict()
         check = self.device.send_command('show version')
 
-        if "7150" in check:                                         # ICX7150 does not support VRF
-            return {}
+        if any(x in check for x in ["7150", "SPS"]):                # ICX7150 does not support VRF
+            return {}                                               # neither does switch image
 
-        if "SPR" in check:                                          # check if router version
-            vrf_type = 'L3VRF'                                      # adds vrf of type router
-        else:
-            vrf_type = 'L2VRF'                                      # adds vrf of type switch
+        if "7250" in check:
+            cur_version = FastIronDriver.__retrieve_all_locations(check, 'Version', 1)
+
+            if cur_version.pop() > "8.0.50":
+                pass
+            else:
+                return {}
 
         if name != '':                                              # Name was entered must look
             output = self.device.send_command('show vrf ' + name)   # grabs vrf of specified name
@@ -1371,7 +1374,7 @@ class FastIronDriver(NetworkDriver):
 
             return {
                 name: {
-                    u'name': name, u'type': vrf_type, u'state': {
+                    u'name': name, u'type': 'L3VRF', u'state': {
                         u'route_distinguisher': rid
                     },
                     u'interfaces': {
