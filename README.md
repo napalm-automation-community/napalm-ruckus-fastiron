@@ -24,16 +24,16 @@ Getters Support Matrix
 - get_lldp_neighbors()
 - get_lldp_neighbors_detail()
 - get_mac_address_table()
+- get_network_instance()
 - get_ntp_peers()
 - get_ntp_servers()
 - get_ntp_stats()
 - get_users()
-- IsAlilve()
+- IsAlive()
 
 Currently Testing [not publicly available]
 =======
 - load_template()
-- get_network_instance()
 - get_optics()
 - get_bgp_congfig()
 - get_bgp_neighbors()
