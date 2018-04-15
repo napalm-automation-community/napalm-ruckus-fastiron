@@ -62,11 +62,7 @@ class FastIronDriver(NetworkDriver):
         We need to make sure the connection is closed properly and the configuration DB
         is released (unlocked).
         """
-        try:
-            if self.is_alive()["is_alive"]:
-                self.close()
-        except napalm.base.exceptions.CommandErrorException:
-            pass
+        self.close()
 
     def open(self):
         """
@@ -101,15 +97,14 @@ class FastIronDriver(NetworkDriver):
         underlying SSH session is still open etc.
         """
         null = chr(0)
-        try:
+        try:                                # send null byte see if alive
             self.device.send_command(null)
+            return {'is_alive': self.device.remote_conn.transport.is_active()}
+
         except (socket.error, EOFError):
-            return {
-                'is_alive': False
-            }
-        return {
-            'is_alive': self.device.remote_conn.transport.is_active()
-        }
+            return {'is_alive': False}
+        except AttributeError:
+            return {'is_alive': False}
 
     def _send_command(self, command):
         """Wrapper for self.device.send.command().
@@ -1393,7 +1388,7 @@ class FastIronDriver(NetworkDriver):
             rd = vrf_rd.pop()                                           # pops the next router id
             vrf_dict.update({                                           # updates the dictionary
                 vrf: {
-                    u'name': vrf, u'type': vrf_type, u'state': {
+                    u'name': vrf, u'type': 'L3VRF', u'state': {
                         u'route_distinguisher': rd
                     },
                     u'interfaces': {
