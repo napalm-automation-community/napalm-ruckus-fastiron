@@ -1,5 +1,5 @@
 # napalm-ruckus-fastiron
-- version 1.0.0
+- version 1.0.1
 
 NAPALM (Network Automation and Programmability Abstraction Layer with Multivendor support) is a Python library that implements a set of functions to interact with different router vendor devices using a unified API.
 
