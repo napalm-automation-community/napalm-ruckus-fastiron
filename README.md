@@ -55,14 +55,14 @@ Requirements
 
 Netmiko methods
 =======
-- send_config
-- config_mode
-- check_config_mode
-- exit_config_mode
-- enable
-- exit_enable
-- clear_buffer
-- prompt
+- send_config()
+- config_mode()
+- check_config_mode()
+- exit_config_mode()
+- enable()
+- exit_enable()
+- clear_buffer()
+- prompt()
 
 Authors
 =======
