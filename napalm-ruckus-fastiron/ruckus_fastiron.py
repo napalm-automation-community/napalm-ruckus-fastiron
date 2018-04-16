@@ -12,7 +12,7 @@
 # License for the specific language governing permissions and limitations under
 # the License.
 
-# Ruckus Napalm Version 1.0.0
+# Ruckus Napalm Version 1.0.1
 
 # Python3 support
 from __future__ import print_function
@@ -311,31 +311,6 @@ class FastIronDriver(NetworkDriver):
 
         return speed
 
-    """ 
-    @staticmethod
-    def __get_interface_up(shw_int_brief):
-        port_stat = list()                          # Creates list
-        for line in shw_int_brief:                  # input has a n x 1 of words
-            if line == "Up":
-                port_stat.append(True)              # appends true if up false if port is down
-            else:
-                port_stat.append(False)
-        return port_stat                            # returns list of port status "up/down"
-
-    
-    
-    @staticmethod
-    def __get_interfaces_en(shw_int_brief):
-        port_status = list()                        # creates list
-        for line in shw_int_brief:                  # input is a n x 1 of words
-            if line == "None" or line == "N/A":     # if either match is found reports false
-                port_status.append(False)
-            else:
-                port_status.append(True)            # Otherwise true
-        return port_status                          # return port status
-
-    """
-
     @staticmethod
     def __unite_strings(output):
         """ removes all the new line and excess spacing in a string"""
@@ -351,22 +326,6 @@ class FastIronDriver(NetworkDriver):
                     my_string += ' '                # next char of string is not another space
 
         return my_string                            # returns stored string
-    """ 
-    @staticmethod
-    def get_interface_flap(shw_int_up, shw_int_flapped):
-        port_status = list()                            # creates list
-
-        for val in range(0, len(shw_int_up)):           # will use index iterate
-            if shw_int_up[val] == "Down":               # checks if current value is "down"
-                port_status.append(-1)
-            else:
-                if val < len(shw_int_flapped):
-                    port_status.append(shw_int_flapped[val])
-                else:
-                    port_status.append(-1)              # error if both matrix not same size
-        return port_status
-
-    """
 
     @staticmethod
     def __get_interface_name(shw_int_name, size):
@@ -455,17 +414,6 @@ class FastIronDriver(NetworkDriver):
                                                         'output': pwr_used}
 
         return {'power': my_dic}                        # returns dictionary containing pwr info
-    """
-    @staticmethod
-    def fast_find(input_string, word):
-        index_list = list()                             # creates a list
-        input_string = input_string.split()             # breaks input into list of strings
-        for val in range(len(input_string)):            # iterates depending on size
-            if input_string[val] == word:               # if word is contained in list of words
-                index_list.append(val)                  # append to index
-        return index_list                               # returns list
-
-    """
 
     @staticmethod
     def __environment_fan(string):
@@ -1000,6 +948,44 @@ class FastIronDriver(NetworkDriver):
 
         return cli_output
 
+    # Netmiko methods
+    def send_config(self, commands):
+        """ send a set of configurations commands to a remote device"""
+        if type(commands) is not list:
+            raise TypeError('Please enter a valid list of commands!')
+
+        self.device.send_config_set(commands)
+
+    def config_mode(self):
+        """ Enter into config mode"""
+        self.device.config_mode()
+
+    def check_config_mode(self):
+        """ Check if you are in config mode, return boolean"""
+        return self.device.check_config_mode()
+
+    def exit_config_mode(self):
+        """ Exit config mode"""
+        self.device.exit_config_mode()
+
+    def enable(self):
+        """ Enter enable mode"""
+        self.device.enable()
+
+    def exit_enable_mode(self):
+        """ Exit enable mode"""
+        self.device.exit_enable_mode()
+
+    def clear_buffer(self):
+        """ Clear the output buffer on the remote device"""
+        self.device.clear_buffer()
+
+    def prompt(self):
+        """ Return the current router prompt"""
+        self.device.find_prompt()
+    ################################################################
+
+    # Napalm Base Functions
     def get_arp_table(self):
 
         """
