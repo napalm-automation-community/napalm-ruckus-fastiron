@@ -55,6 +55,7 @@ class FastIronDriver(NetworkDriver):
         self.config_replace = None
         self.config_merge = None
         self.rollback_cfg = optional_args.get('rollback_cfg', 'rollback_config.txt')
+        self.image_type = None
 
     def __del__(self):
         """
@@ -77,6 +78,11 @@ class FastIronDriver(NetworkDriver):
                                          timeout=self.timeout,
                                          verbose=True)
             self.device.session_preparation()
+            image_type = self.device.send_command("show version")   # find the image type
+            if image_type.find("SPS") != -1:
+                self.image_type = "Switch"
+            else:
+                self.image_type = "Router"
 
         except Exception:
             raise ConnectionException("Cannot connect to switch: %s:%s" % (self.hostname,
@@ -172,14 +178,13 @@ class FastIronDriver(NetworkDriver):
         temp = ""                       # sets empty string, will add char respectively
         my_list = list()                # creates list
         for val in range(0, len(my_string)):    # iterates through the length of input
+
             if my_string[val] == '\n' and temp == "":
                 continue
-            elif my_string[val] == '\n' or val >= len(my_string):    # add what was found
+            elif my_string[val] == '\n' or val == len(my_string) - 1:    # add what was found
                 my_list.append(temp)
                 temp = ""
             else:
-                if my_string[val] == ' ' and my_string[val+1] == '\n':
-                    continue
                 temp += my_string[val]
 
         return my_list
@@ -239,9 +244,21 @@ class FastIronDriver(NetworkDriver):
         return serial                               # returns serial number
 
     @staticmethod
+    def __physical_interface_list(shw_int_brief, only_physical=True):
+        interface_list = list()
+        n_line_output = FastIronDriver.__creates_list_of_nlines(shw_int_brief)
+
+        for line in n_line_output:
+            line_list = line.split()
+            if only_physical == 1:
+                interface_list.append(line_list[0])
+        return interface_list
+
+    @staticmethod
     def __facts_interface_list(shw_int_brief, pos=0, del_word="Port", trigger=0):
         interfaces_list = list()
         n_line_output = FastIronDriver.__creates_list_of_nlines(shw_int_brief)
+
         interface_details = FastIronDriver.__delete_if_contains(n_line_output, del_word)
 
         for port_det in interface_details:
@@ -752,17 +769,19 @@ class FastIronDriver(NetworkDriver):
         """
         version_output = self.device.send_command('show version')   # show version output
         interfaces_up = self.device.send_command('show int brief')  # show int brief output
+        token = interfaces_up.find("Name") + len("Name") + 1
+        interfaces_up = interfaces_up[token:len(interfaces_up)]
         host_name = self.device.send_command('show running | i hostname')
 
         return{
-            'uptime': FastIronDriver.__facts_uptime(version_output),  # time of device in sec
-            'vendor': 'Ruckus',                                     # Vendor of ICX switches
-            'model':  FastIronDriver.__facts_model(version_output),   # Model type of switch
-            'hostname':  FastIronDriver.__facts_hostname(host_name),  # Host name if configured
+            'uptime': FastIronDriver.__facts_uptime(version_output),    # time of device in sec
+            'vendor': 'Ruckus',                                         # Vendor of ICX switches
+            'model':  FastIronDriver.__facts_model(version_output),     # Model type of switch
+            'hostname':  FastIronDriver.__facts_hostname(host_name),    # Host name if configured
             'fqdn': None,
             'os_version':  FastIronDriver.__facts_os_version(version_output),
             'serial_number':  FastIronDriver.__facts_serial(version_output),
-            'interface_list':  FastIronDriver.__facts_interface_list(interfaces_up)
+            'interface_list':  FastIronDriver.__physical_interface_list(interfaces_up)
         }
 
     def get_interfaces(self):
@@ -932,7 +951,7 @@ class FastIronDriver(NetworkDriver):
         output = (output.replace('+', ' '))
 
         if "No neighbors" in output:                # no neighbors found on this interface
-            return None
+            return {}
 
         par_int = FastIronDriver.__retrieve_all_locations(output, "Local", 1)[0]
         chas_id = FastIronDriver.__retrieve_all_locations(output, "Chassis", 3)[0]
@@ -990,21 +1009,33 @@ class FastIronDriver(NetworkDriver):
         """
         output = self.device.send_command('show arp')
         token = output.find('Status') + len('Status') + 1
+        vtoken = output.find('VLAN') + len('VLAN') + 1
+
+        if vtoken != 0:                # router version does not contain default vlan in arp
+            token = vtoken
+
         output = FastIronDriver.__creates_list_of_nlines(output[token:len(output)])
-        arp_counters = dict()
+        arp_table = list()
 
         for val in output:
-            val = val.split()
-            __, ip, mac, __, age, interface = val.split()
 
-            arp_counters.update({
+            check = val
+            if len(check.split()) < 7:
+                continue
+
+            if vtoken == 0:
+                __, ip, mac, __, age, interface, __ = val.split()
+            else:
+                __, ip, mac, __, age, interface, __, vlan = val.split()
+
+            arp_table.append({
                 'interfaces': interface,
                 'mac': mac,
                 'ip': ip,
                 'age': age,
             })
 
-        return arp_counters
+        return arp_table
 
     def get_ntp_peers(self):
 
@@ -1125,6 +1156,9 @@ class FastIronDriver(NetworkDriver):
         Each IP Address dictionary has the following keys:
             * prefix_length (int)
         """
+        if self.image_type == "Switch":
+            print("Switch image does not have ip interface")
+            return {}
 
         ip_interface = dict()
         ip4_dict = dict()                                       # ip4 dict
@@ -1226,7 +1260,7 @@ class FastIronDriver(NetworkDriver):
 
         n_line = FastIronDriver.__creates_list_of_nlines(output[token:len(output)])
         for line in n_line:
-            line = line.split()
+
             user, password, encrpt, priv, status, exptime = line.split()
 
             if int(priv) == 0:
