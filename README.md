@@ -53,7 +53,7 @@ Requirements
 - Netmiko v2.0.2
 - FastIron v8.0.30
 
-NetMiko methods
+Netmiko methods
 =======
 - send_config
 - config_mode
