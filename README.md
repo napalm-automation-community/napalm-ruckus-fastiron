@@ -53,6 +53,17 @@ Requirements
 - Netmiko v2.0.2
 - FastIron v8.0.30
 
+NetMiko methods
+=======
+- send_config
+- config_mode
+- check_config_mode
+- exit_config_mode
+- enable
+- exit_enable
+- clear_buffer
+- prompt
+
 Authors
 =======
  * Jesús Mendez ([mendezj@staticoverride.us](mailto:mendezj@staticoverride.us))
