@@ -12,8 +12,12 @@
 # License for the specific language governing permissions and limitations under
 # the License.
 
-"""napalm.fi package."""
-from napalm.fi.fi import FastIronDriver
+"""napalm-ruckus-fastiron package."""
+import pkg_resources
 
+try:
+    __version__ = pkg_resources.get_distribution('napalm-ruckus-fastiron').version
+except pkg_resources.DistributionNotFound:
+    __version__ = "Not Installed"
 
 __all__ = ['FastIronDriver']
