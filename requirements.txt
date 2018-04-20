@@ -1,2 +1,3 @@
 napalm_base
 netmiko>=2.0.2
+pytest
