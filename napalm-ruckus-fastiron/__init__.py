@@ -13,4 +13,4 @@
 # the License.
 
 """napalm-ruckus-fastiron package."""
-from ruckus-fastiron import Ruckus-fastironDriver
+from ruckus_fastiron import FastIronDriver
