@@ -1,3 +1,8 @@
+![PyPI](https://img.shields.io/pypi/v/napalm-ruckus-fastiron.svg)](https://pypi.python.org/pypi/napalm-ruckus-fastiron)
+[![PyPI](https://img.shields.io/pypi/dm/napalm-ruckus-fastiron.svg)](https://pypi.python.org/pypi/napalm-ruckus-fastiron)
+[![Build Status](https://travis-ci.org/Static0verride/napalm-ruckus-fastiron.svg?branch=master)](https://travis-ci.org/Static0verride/napalm-ruckus-fastiron)
+[![Coverage Status](https://coveralls.io/repos/github/napalm-automation/napalm-napalm-ruckus-fastiron/badge.svg?branch=master)](https://coveralls.io/github/napalm-automation/napalm-napalm-ruckus-fastiron)
+
 # napalm-ruckus-fastiron
 - version 1.0.1
 
