@@ -13,11 +13,4 @@
 # the License.
 
 """napalm-ruckus-fastiron package."""
-import pkg_resources
-
-try:
-    __version__ = pkg_resources.get_distribution('napalm-ruckus-fastiron').version
-except pkg_resources.DistributionNotFound:
-    __version__ = "Not Installed"
-
-__all__ = ['FastIronDriver']
+from ruckus-fastiron import Ruckus-fastironDriver
