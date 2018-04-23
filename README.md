@@ -3,10 +3,6 @@
 [![Build Status](https://travis-ci.org/Static0verride/napalm-ruckus-fastiron.svg?branch=master)](https://travis-ci.org/Static0verride/napalm-ruckus-fastiron)
 [![Coverage Status](https://coveralls.io/repos/github/napalm-automation/napalm-napalm-ruckus-fastiron/badge.svg?branch=master)](https://coveralls.io/github/napalm-automation/napalm-napalm-ruckus-fastiron)
 
-
-# napalm-ruckus-fastiron
-- version 1.0.21
-
 NAPALM (Network Automation and Programmability Abstraction Layer with Multivendor support) is a Python library that implements a set of functions to interact with different router vendor devices using a unified API.
 
 Current methods supported
