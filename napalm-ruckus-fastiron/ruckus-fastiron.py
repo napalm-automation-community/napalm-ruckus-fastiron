@@ -12,8 +12,6 @@
 # License for the specific language governing permissions and limitations under
 # the License.
 
-# Ruckus Napalm Version 1.0.2
-
 # Python3 support
 from __future__ import print_function
 from __future__ import unicode_literals
