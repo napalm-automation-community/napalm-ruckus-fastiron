@@ -12,7 +12,7 @@ reqs = [str(ir.req) for ir in install_reqs]
 
 setup(
     name="napalm-ruckus-fastiron",
-    version="1.0.1",
+    version="1.0.2",
     packages=find_packages(),
     author="Jesus Mendez",
     author_email="mendezj@staticoverride.us",
