@@ -1,1 +1,3 @@
 include requirements.txt
+include napalm_ruckus_fastiron/templates/*.j2
+include napalm_ruckus_fastiron/utils/textfsm_templates/*.tpl
