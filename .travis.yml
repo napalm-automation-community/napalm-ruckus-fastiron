@@ -7,7 +7,14 @@ python:
 install:
 - pip install tox-travis
 - pip install coveralls
-
+deploy:
+  provider: pypi
+  user: staticoverride
+  on:
+    tags: true
+    branch: master
+  password:
+    secure:
 script:
 - tox
 after_success:
