@@ -9,7 +9,7 @@ install:
 - pip install coveralls
 deploy:
   provider: pypi
-  user: staticoverride
+  user: Static0verride
   on:
     tags: true
     branch: master
