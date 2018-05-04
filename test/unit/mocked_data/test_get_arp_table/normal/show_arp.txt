@@ -1,0 +1,8 @@
+All ARPs: 6, maximum capacity: 4096
+No.   IP              MAC            Type     Age Port           Status VLAN
+1     10.176.217.3    cc4e.2491.5c00 Dynamic  0   mgmt1          Valid  1
+2     10.176.217.140  000c.2968.ea15 Dynamic  0   mgmt1          Valid  1
+3     10.176.217.1    02e0.5267.d5d9 Dynamic  0   mgmt1          Valid  1
+4     10.176.217.2    cc4e.248f.2300 Dynamic  0   mgmt1          Valid  1
+5     10.176.217.142  cc4e.2439.1600 Dynamic  1   mgmt1          Valid  1
+6     10.176.217.121  cc4e.246d.11b8 Dynamic  9   mgmt1          Valid  1
