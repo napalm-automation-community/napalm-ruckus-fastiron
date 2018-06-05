@@ -14,3 +14,10 @@
 
 """napalm-ruckus-fastiron package."""
 from napalm_ruckus_fastiron.FastIron import FastIronDriver
+
+try:
+    __version__ = pkg_resources.get_distribution('napalm-ruckus-fastiron').version
+except pkg_resources.DistributionNotFound:
+    __version__ = "Not installed"
+
+__all__ = ["FastIronDriver"]
