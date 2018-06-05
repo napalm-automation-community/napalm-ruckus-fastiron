@@ -1,8 +1,6 @@
 """setup.py file."""
+from setuptools import find_packages, setup
 
-import uuid
-
-from setuptools import setup, find_packages
 from os import path
 
 __author__ = 'Jesus Mendez <mendezj@staticoverride.us>'
