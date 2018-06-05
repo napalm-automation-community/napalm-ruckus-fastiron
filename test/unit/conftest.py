@@ -2,9 +2,9 @@
 from builtins import super
 
 import pytest
-from napalm_base.test import conftest as parent_conftest
+from napalm.base.test import conftest as parent_conftest
 
-from napalm_base.test.double import BaseTestDouble
+from napalm.base.test.double import BaseTestDouble
 
 from napalm_ruckus_fastiron import FastIron
 
