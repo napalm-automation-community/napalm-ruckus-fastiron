@@ -17,7 +17,7 @@
 import unittest
 
 from napalm_ruckus_fastiron import FastIron
-from napalm_base.test.base import TestConfigNetworkDriver
+from napalm.base.test.base import TestConfigNetworkDriver
 
 
 class TestConfigFastIronDriver(unittest.TestCase, TestConfigNetworkDriver):
