@@ -14,6 +14,3 @@
 
 """napalm-ruckus-fastiron package."""
 from napalm_ruckus_fastiron.FastIron import FastIronDriver
-
-
-
