@@ -1328,7 +1328,7 @@ class FastIronDriver(NetworkDriver):
                 * route_distinguisher (unicode)
               * interfaces (dict)
                 * interface (dict)
-                  * interface name: (dict) 
+                  * interface name: (dict)
         """
         vrf_dict = dict()                                           # Dictionary that will append
         vrf_interface = dict()
