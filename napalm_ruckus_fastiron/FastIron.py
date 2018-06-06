@@ -1318,17 +1318,6 @@ class FastIronDriver(NetworkDriver):
 
         Args:
             name(string) - Name of the network instance to return, default is all.
-
-        Returns:
-            A dictionary of network instances in OC format:
-            * name (dict)
-              * name (unicode)
-              * type (unicode)
-              * state (dict)
-                * route_distinguisher (unicode)
-              * interfaces (dict)
-                * interface (dict)
-                  * interface name: (dict)
         """
         vrf_dict = dict()                                           # Dictionary that will append
         vrf_interface = dict()
