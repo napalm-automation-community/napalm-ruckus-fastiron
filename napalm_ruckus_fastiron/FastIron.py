@@ -440,8 +440,8 @@ class FastIronDriver(NetworkDriver):
 
     @staticmethod
     def __output_parser(output, word):
-        """If the word is found in the output, it will return the ip address until a new interface is found
-        for example."""
+        """If the word is found in the output, it will return the ip
+            address until a new interface is found."""
         token = output.find(word) + len(word)           # saves pos of where word is contained
         count = 0                                       # counter variable
         output = output[token:len(output)].replace('/', ' ')
@@ -514,11 +514,11 @@ class FastIronDriver(NetworkDriver):
                 diff_list.append(temp_list)
 
         return diff_list
-    
+
     @staticmethod
-    def __compare_away(my_list):
+    def __compare_away(diff_1, diff_2):
         mystring = ""
-        
+
         for cb_1 in diff_1:
             mystring += cb_1[0] + '\n'
             for cb_2 in diff_2:
@@ -527,23 +527,23 @@ class FastIronDriver(NetworkDriver):
                         mystring += cb_2[value_2] + '\n'
             for input_1 in range(1, len(cb_1)):
                 mystring += cb_1[input_1] + '\n'
-    
+
         return mystring
-                
+
     @staticmethod
-    def __compare_vice(my_list):
+    def __compare_vice(diff_2, diff_1):
         mystring = ""
-        
+
         for cb_2 in diff_2:
             found = False
             for cb_1 in diff_1:
                 if cb_2[0] in cb_1:
                     found = True
-        
+
             if found == 0:
                 for input_2 in cb_2:
                     mystring += input_2 + '\n'
-    
+
         return mystring
 
     def load_replace_candidate(self, filename=None, config=None):
@@ -650,8 +650,8 @@ class FastIronDriver(NetworkDriver):
         diff_1 = FastIronDriver.__comparing_list(rc, stored_conf, "+")
         diff_2 = FastIronDriver.__comparing_list(stored_conf, rc, "-")
 
-        str_diff1 = FastIronDriver.__compare_away(diff_1)
-        str_diff2 = FastIronDriver.__compare_vice(diff_2)
+        str_diff1 = FastIronDriver.__compare_away(diff_1, diff_2)
+        str_diff2 = FastIronDriver.__compare_vice(diff_2, diff_1)
 
         return str_diff1 + str_diff2
 
