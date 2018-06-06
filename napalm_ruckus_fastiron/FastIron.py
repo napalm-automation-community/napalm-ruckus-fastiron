@@ -514,6 +514,37 @@ class FastIronDriver(NetworkDriver):
                 diff_list.append(temp_list)
 
         return diff_list
+    
+    @staticmethod
+    def __compare_away(my_list):
+        mystring = ""
+        
+        for cb_1 in diff_1:
+            mystring += cb_1[0] + '\n'
+            for cb_2 in diff_2:
+                if cb_1[0] in cb_2:
+                    for value_2 in range(1, len(cb_2)):
+                        mystring += cb_2[value_2] + '\n'
+            for input_1 in range(1, len(cb_1)):
+                mystring += cb_1[input_1] + '\n'
+    
+        return mystring
+                
+    @staticmethod
+    def __compare_vice(my_list):
+        mystring = ""
+        
+        for cb_2 in diff_2:
+            found = False
+            for cb_1 in diff_1:
+                if cb_2[0] in cb_1:
+                    found = True
+        
+            if found == 0:
+                for input_2 in cb_2:
+                    mystring += input_2 + '\n'
+    
+        return mystring
 
     def load_replace_candidate(self, filename=None, config=None):
         """
@@ -605,7 +636,6 @@ class FastIronDriver(NetworkDriver):
         if self.replace_config is not True and self.merge_config is not True:
             return -1                           # Configuration was never loaded
 
-        mystring = ""
         running_config = FastIronDriver.get_config(self, 'running')
         rc = running_config.get('running')
         stored_conf = None
@@ -620,26 +650,10 @@ class FastIronDriver(NetworkDriver):
         diff_1 = FastIronDriver.__comparing_list(rc, stored_conf, "+")
         diff_2 = FastIronDriver.__comparing_list(stored_conf, rc, "-")
 
-        for cb_1 in diff_1:
-            mystring += cb_1[0] + '\n'
-            for cb_2 in diff_2:
-                if cb_1[0] in cb_2:
-                    for value_2 in range(1, len(cb_2)):
-                        mystring += cb_2[value_2] + '\n'
-            for input_1 in range(1, len(cb_1)):
-                mystring += cb_1[input_1] + '\n'
+        str_diff1 = FastIronDriver.__compare_away(diff_1)
+        str_diff2 = FastIronDriver.__compare_vice(diff_2)
 
-        for cb_2 in diff_2:
-            found = False
-            for cb_1 in diff_1:
-                if cb_2[0] in cb_1:
-                    found = True
-
-            if found == 0:
-                for input_2 in cb_2:
-                    mystring += input_2 + '\n'
-
-        return mystring
+        return str_diff1 + str_diff2
 
     def commit_config(self):
         """
