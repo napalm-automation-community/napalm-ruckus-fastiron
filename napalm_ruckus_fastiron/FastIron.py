@@ -1330,7 +1330,6 @@ class FastIronDriver(NetworkDriver):
                 * interface (dict)
                   * interface name: (dict) 
         """
-                  
         vrf_dict = dict()                                           # Dictionary that will append
         vrf_interface = dict()
         check = self.device.send_command('show version')
