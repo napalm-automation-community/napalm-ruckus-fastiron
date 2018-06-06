@@ -1313,54 +1313,6 @@ class FastIronDriver(NetworkDriver):
         return config_dic
 
     def get_network_instances(self, name=''):
-        """
-        Return a dictionary of network instances (VRFs) configured, including default/global.
-
-        Args:
-            name(string) - Name of the network instance to return, default is all.
-
-        Returns:
-            A dictionary of network instances in OC format:
-            * name (dict)
-              * name (unicode)
-              * type (unicode)
-              * state (dict)
-                * route_distinguisher (unicode)
-              * interfaces (dict)
-                * interface (dict)
-                  * interface name: (dict)
-
-        Example:
-        {
-            u'MGMT': {
-                u'name': u'MGMT',
-                u'type': u'L3VRF',
-                u'state': {
-                    u'route_distinguisher': u'123:456',
-                },
-                u'interfaces': {
-                    u'interface': {
-                        u'Management1': {}
-                    }
-                }
-            }
-            u'default': {
-                u'name': u'default',
-                u'type': u'DEFAULT_INSTANCE',
-                u'state': {
-                    u'route_distinguisher': None,
-                },
-                u'interfaces: {
-                    u'interface': {
-                        u'Ethernet1': {}
-                        u'Ethernet2': {}
-                        u'Ethernet3': {}
-                        u'Ethernet4': {}
-                    }
-                }
-            }
-        }
-        """
         vrf_dict = dict()                                           # Dictionary that will append
         vrf_interface = dict()
         check = self.device.send_command('show version')
