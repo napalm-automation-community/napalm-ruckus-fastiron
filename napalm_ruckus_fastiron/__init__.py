@@ -13,6 +13,7 @@
 # the License.
 
 """napalm-ruckus-fastiron package."""
+import pkg_resources
 from napalm_ruckus_fastiron.FastIron import FastIronDriver
 
 try:
