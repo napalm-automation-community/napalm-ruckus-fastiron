@@ -1313,7 +1313,7 @@ class FastIronDriver(NetworkDriver):
         return config_dic
 
     def get_network_instances(self, name=''):
-        """Return a dictionary of network instances (VRFs) configured"""
+        """Return a dictionary of network instances (VRFs) configured."""
         vrf_dict = dict()                                           # Dictionary that will append
         vrf_interface = dict()
         check = self.device.send_command('show version')
