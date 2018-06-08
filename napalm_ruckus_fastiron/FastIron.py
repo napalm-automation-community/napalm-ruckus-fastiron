@@ -24,7 +24,7 @@ import sys
 # import re
 
 # local modules
-import napalm.base.exceptions
+# import napalm.base.exceptions
 # import napalm.base.helpers
 from napalm.base.exceptions import ReplaceConfigException, \
     MergeConfigException, ConnectionException, ConnectionClosedException
@@ -135,7 +135,7 @@ class FastIronDriver(NetworkDriver):
         """Raised when port speed does not match available inputs"""
 
         def __init_(self, arg):
-            print("unexpected speed: %s please submit bug with port speed" %arg)
+            print("unexpected speed: %s please submit bug with port speed" % arg)
             sys.exit(1)
 
     @staticmethod
@@ -485,6 +485,19 @@ class FastIronDriver(NetworkDriver):
         return config_block
 
     @staticmethod
+    def __compare_blocks(cb_1, config_blocks_2, cmd, symbol):
+        temp_list = list()
+        for cb_2 in config_blocks_2:                # grabs a single config block
+            if cmd == cb_2[0]:                      # checks cmd not found
+                stat = True
+                for single_cmd in cb_1:             # iterates through cmd of config block
+                    if single_cmd == cmd:           # if this is first command add as base
+                        temp_list.append(single_cmd)  # add to list with no changes
+                    elif single_cmd not in cb_2:
+                        temp_list.append(symbol + " " + single_cmd)
+        return temp_list, stat
+
+    @staticmethod
     def __comparing_list(list_1, list_2, symbol):
         diff_list = list()
         config_blocks_1 = FastIronDriver.__creates_config_block(list_1)
@@ -492,19 +505,12 @@ class FastIronDriver(NetworkDriver):
 
         for cb_1 in config_blocks_1:                # Grabs a single config block
             is_found = False
-            temp_list = list()
 
             if cb_1 not in config_blocks_2:         # checks if config block already exisit
                 cmd = cb_1[0]                       # grabs first cmd of config block
 
-                for cb_2 in config_blocks_2:        # grabs a single config block
-                    if cmd == cb_2[0]:              # checks cmd not found
-                        is_found = True
-                        for single_cmd in cb_1:     # iterates through cmd of config block
-                            if single_cmd == cmd:   # if this is first command add as base
-                                temp_list.append(single_cmd)    # add to list with no changes
-                            elif single_cmd not in cb_2:
-                                temp_list.append(symbol + " " + single_cmd)
+                temp_list, is_found = FastIronDriver.__compare_blocks(cb_1, config_blocks_2,
+                                                                      cmd, symbol)
 
                 if is_found == 0:
                     for value in cb_1:
