@@ -52,17 +52,9 @@ class PatchedFastIronDriver(FastIron.FastIronDriver):
 class FakeFastIronDevice(BaseTestDouble):
     """FastIron device test double."""
 
-    def run_commands(self, command_list, encoding='json'):
-        """Fake run_commands."""
-        result = list()
+    def send_command(self, command, **kwargs):
+        filename = '{}.text'.format(self.sanitize_text(command))
+        full_path = self.find_file(filename)
+        result = self.read_txt_file(full_path)
+        return py23_compat.text_type(result)
 
-        for command in command_list:
-            filename = '{}.{}'.format(self.sanitize_text(command), encoding)
-            full_path = self.find_file(filename)
-
-            if encoding == 'json':
-                result.append(self.read_json_file(full_path))
-            else:
-                result.append({'output': self.read_txt_file(full_path)})
-
-        return result
