@@ -36,7 +36,7 @@ class PatchedFastIronDriver(FastIron.FastIronDriver):
 
         self.patched_attrs = ['device']
         self.device = FakeFastIronDevice()
-        
+
     def close(self):
         pass
 
@@ -47,7 +47,6 @@ class PatchedFastIronDriver(FastIron.FastIronDriver):
 
     def open(self):
         pass
-
 
 class FakeFastIronDevice(BaseTestDouble):
     """FastIron device test double."""
