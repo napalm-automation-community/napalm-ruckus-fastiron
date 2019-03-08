@@ -1038,7 +1038,7 @@ class FastIronDriver(NetworkDriver):
                 'interface': interface,
                 'mac': mac,
                 'ip': ip,
-                'age': age,
+                'age': float(age),
             })
 
         return arp_table
