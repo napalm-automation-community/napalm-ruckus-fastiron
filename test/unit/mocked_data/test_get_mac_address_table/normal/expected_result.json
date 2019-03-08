@@ -2,7 +2,7 @@
   {
   'mac': "0000.0034.1234",
   'interface': "15",
-  'vlan': "1",
+  'vlan': 1,
   'static': False,
   'active': True,
   'moves': None,
@@ -11,7 +11,7 @@
   {
   'mac': "0000.0038.2f24",
   'interface': "14",
-  'vlan': "1",
+  'vlan': 1,
   'static': True,
   'active': True,
   'moves': None,
@@ -20,7 +20,7 @@
   {
   'mac': "0000.0038.2f00",
   'interface': "13",
-  'vlan': "1",
+  'vlan': 1,
   'static': True,
   'active': False,
   'moves': None,
@@ -29,7 +29,7 @@
   {
   'mac': "0000.0086.b159",
   'interface': "10",
-  'vlan': "1",
+  'vlan': 1,
   'static': True,
   'active': True,
   'moves': None,
