@@ -1238,7 +1238,7 @@ class FastIronDriver(NetworkDriver):
             mac_tbl.append({                            # appends data
                 'mac': sentence[0],
                 'interface': sentence[1],
-                'vlan': sentence[3],
+                'vlan': int(sentence[3]),
                 'static': is_dynamic,
                 'active': is_active,
                 'moves': None,
