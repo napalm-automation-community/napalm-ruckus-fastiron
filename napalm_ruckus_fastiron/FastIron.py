@@ -1035,7 +1035,7 @@ class FastIronDriver(NetworkDriver):
                 __, ip, mac, __, age, interface, __, vlan = val.split()
 
             arp_table.append({
-                'interfaces': interface,
+                'interface': interface,
                 'mac': mac,
                 'ip': ip,
                 'age': age,
