@@ -57,4 +57,3 @@ class FakeFastIronDevice(BaseTestDouble):
         full_path = self.find_file(filename)
         result = self.read_txt_file(full_path)
         return py23_compat.text_type(result)
-
