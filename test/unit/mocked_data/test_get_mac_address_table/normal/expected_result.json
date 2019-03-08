@@ -5,7 +5,7 @@
   'vlan': 1,
   'static': False,
   'active': True,
-  'moves': null,
+  'moves': "null",
   'last_move': 0
   },
   {
@@ -14,7 +14,7 @@
   'vlan': 1,
   'static': True,
   'active': True,
-  'moves': null,
+  'moves': "null",
   'last_move': None 
   },
   {
@@ -23,7 +23,7 @@
   'vlan': 1,
   'static': True,
   'active': False,
-  'moves': null,
+  'moves': "null",
   'last_move': None 
   },
   {
@@ -32,7 +32,7 @@
   'vlan': 1,
   'static': True,
   'active': True,
-  'moves': null,
+  'moves': "null",
   'last_move': None 
   }
 ]
