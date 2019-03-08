@@ -45,9 +45,6 @@ class PatchedFastIronDriver(FastIron.FastIronDriver):
             'is_alive': True  # In testing everything works..
         }
     
-    def get_mac_address_table(self):
-        pass
-
     def open(self):
         pass
 
