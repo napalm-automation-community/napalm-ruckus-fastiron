@@ -1,4 +1,4 @@
-\"""Test fixtures."""
+"""Test fixtures."""
 from builtins import super
 
 import pytest
