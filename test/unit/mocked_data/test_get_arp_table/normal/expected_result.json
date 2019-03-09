@@ -1,1 +1,38 @@
-[{"interface": "mgmt1", "mac": "cc4e.2491.5c00", "ip": "10.176.217.3", "age": 0}, {"interface": "mgmt1", "mac": "000c.2968.ea15", "ip": "10.176.217.140", "age": 0}, {"interface": "mgmt1", "mac": "02e0.5267.d5d9", "ip": "10.176.217.1", "age": 0}, {"interface": "mgmt1", "mac": "cc4e.248f.2300", "ip": "10.176.217.2", "age": 0}, {"interface": "mgmt1", "mac": "cc4e.2439.1600", "ip": "10.176.217.142", "age": 1}, {"interface": "mgmt1", "mac": "cc4e.246d.11b8", "ip": "10.176.217.121", "age": 9}]
+[
+  {
+    "interface": "mgmt1", 
+    "mac": "cc4e.2491.5c00", 
+    "ip": "10.176.217.3", 
+    "age": 0
+  }, 
+  {
+    "interface": "mgmt1", 
+    "mac": "000c.2968.ea15", 
+    "ip": "10.176.217.140", 
+    "age": 0
+  }, 
+  {
+    "interface": "mgmt1", 
+    "mac": "02e0.5267.d5d9", 
+    "ip": "10.176.217.1", 
+    "age": 0
+  }, 
+  {
+    "interface": "mgmt1", 
+    "mac": "cc4e.248f.2300", 
+    "ip": "10.176.217.2", 
+    "age": 0
+  }, 
+  {
+    "interface": "mgmt1", 
+    "mac": "cc4e.2439.1600", 
+    "ip": "10.176.217.142",
+     "age": 1
+  }, 
+  {
+    "interface": "mgmt1",
+    "mac": "cc4e.246d.11b8", 
+    "ip": "10.176.217.121", 
+    "age": 9
+  }
+]

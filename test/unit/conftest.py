@@ -21,7 +21,6 @@ def set_device_parameters(request):
     request.cls.vendor = 'FastIron'
     parent_conftest.set_device_parameters(request)
 
-
 def pytest_generate_tests(metafunc):
     """Generate test cases dynamically."""
     parent_conftest.pytest_generate_tests(metafunc, __file__)
@@ -33,7 +32,6 @@ class PatchedFastIronDriver(FastIron.FastIronDriver):
     def __init__(self, hostname, username, password, timeout=60, optional_args=None):
         """Patched FastIron Driver constructor."""
         super().__init__(hostname, username, password, timeout, optional_args)
-
         self.patched_attrs = ['device']
         self.device = FakeFastIronDevice()
 
@@ -44,7 +42,7 @@ class PatchedFastIronDriver(FastIron.FastIronDriver):
         return {
             'is_alive': True  # In testing everything works..
         }
-    
+
     def open(self):
         pass
 
