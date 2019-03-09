@@ -5,8 +5,8 @@
   'vlan': 1,
   'static': False,
   'active': True,
-  'moves': NULL,
-  'last_move': NULL
+  'moves': "",
+  'last_move': ""
   },
   {
   'mac': "0000.0038.2f24",
@@ -14,8 +14,8 @@
   'vlan': 1,
   'static': True,
   'active': True,
-  'moves': NULL,
-  'last_move': NULL 
+  'moves': "",
+  'last_move': "" 
   },
   {
   'mac': "0000.0038.2f00",
@@ -23,8 +23,8 @@
   'vlan': 1,
   'static': True,
   'active': False,
-  'moves': NULL,
-  'last_move': NULL 
+  'moves': "",
+  'last_move': "" 
   },
   {
   'mac': "0000.0086.b159",
@@ -32,7 +32,7 @@
   'vlan': 1,
   'static': True,
   'active': True,
-  'moves': NULL,
-  'last_move': NULL 
+  'moves': "",
+  'last_move': "" 
   }
 ]
