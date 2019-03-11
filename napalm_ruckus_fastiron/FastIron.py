@@ -1241,8 +1241,8 @@ class FastIronDriver(NetworkDriver):
                 'vlan': int(sentence[3]),
                 'static': is_dynamic,
                 'active': is_active,
-                'moves': None,
-                'last_move': None
+                'moves': 0,
+                'last_move': 0
             })
 
         return mac_tbl
