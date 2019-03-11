@@ -21,6 +21,7 @@ def set_device_parameters(request):
     request.cls.vendor = 'FastIron'
     parent_conftest.set_device_parameters(request)
 
+
 def pytest_generate_tests(metafunc):
     """Generate test cases dynamically."""
     parent_conftest.pytest_generate_tests(metafunc, __file__)
