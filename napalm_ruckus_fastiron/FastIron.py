@@ -1242,7 +1242,7 @@ class FastIronDriver(NetworkDriver):
                 'static': is_dynamic,
                 'active': is_active,
                 'moves': 0,
-                'last_move': 0
+                'last_move': 0.0
             })
 
         return mac_tbl
