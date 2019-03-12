@@ -3,8 +3,8 @@
     "mac": "0000.0034.1234",
     "interface": "15",
     "vlan": 1,
-    "moves": 0,
-    "last_move": 0,
+    "moves": Null,
+    "last_move": Null,
     "static": False,
     "active": True
   },
@@ -12,8 +12,8 @@
     "mac": "0000.0038.2f24",
     "interface": "14",
     "vlan": 1,
-    "moves": 0,
-    "last_move": 0,
+    "moves": Null,
+    "last_move": Null,
     "static": True,
     "active": True
   },
@@ -21,8 +21,8 @@
     "mac": "0000.0038.2f00",
     "interface": "13",
     "vlan": 1,
-    "moves": 0,
-    "last_move": 0,
+    "moves": Null,
+    "last_move": Null,
     "static": True,
     "active": False
   },
@@ -30,8 +30,8 @@
     "mac": "0000.0086.b159",
     "interface": "10",
     "vlan": 1,
-    "moves": 0,
-    "last_move": 0,
+    "moves": Null,
+    "last_move": Null,
     "static": True,
     "active": True
   }
