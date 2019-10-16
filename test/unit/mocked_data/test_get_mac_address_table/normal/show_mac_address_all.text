@@ -1,0 +1,9 @@
+Total active entries from all ports = 3
+Total static entries from all ports = 1
+  MAC-Address    Port     Type   VLAN	Action
+0000.0034.1234     15   Static      1	forward
+0000.0038.2f24     14  Dynamic      1	forward
+0000.0038.2f00     13  Dynamic      1	block
+0000.0086.b159     10  Dynamic      1	forward
+
+

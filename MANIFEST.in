@@ -1,0 +1,3 @@
+include requirements.txt
+include napalm-ruckus-fastiron/templates/*.j2
+include napalm-ruckus-fastiron/utils/textfsm_templates/*.tpl
