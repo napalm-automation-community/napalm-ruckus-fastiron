@@ -37,11 +37,8 @@ from napalm.base import NetworkDriver
 class FastIronDriver(NetworkDriver):
     """Napalm driver for FastIron."""
 
-    def __init__(self, hostname, username, password, timeout=60, optional_args=None):
+    def __init__(self, hostname, username, password, timeout=60, **optional_args):
         """Constructor."""
-
-        if optional_args is None:
-            optional_args = {}
 
         self.device = None
         self.hostname = hostname
@@ -55,6 +52,7 @@ class FastIronDriver(NetworkDriver):
         self.config_replace = None
         self.config_merge = None
         self.rollback_cfg = optional_args.get('rollback_cfg', 'rollback_config.txt')
+        self.use_secret = optional_args.get('use_secret', False)
         self.image_type = None
 
     def __del__(self):
@@ -70,12 +68,18 @@ class FastIronDriver(NetworkDriver):
         Opens a connection to the device.
         """
         try:
+            if self.use_secret:
+                secret = self.password
+            else:
+                secret = ''
+
             self.device = ConnectHandler(device_type='ruckus_fastiron',
                                          ip=self.hostname,      # saves device parameters
                                          port=self.port,
                                          username=self.username,
                                          password=self.password,
                                          timeout=self.timeout,
+                                         secret=secret,
                                          verbose=True)
             self.device.session_preparation()
             # image_type = self.device.send_command("show version")   # find the image type
