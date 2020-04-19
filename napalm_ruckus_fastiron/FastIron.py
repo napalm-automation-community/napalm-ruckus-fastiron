@@ -491,6 +491,7 @@ class FastIronDriver(NetworkDriver):
     @staticmethod
     def __compare_blocks(cb_1, config_blocks_2, cmd, symbol):
         temp_list = list()
+        stat = False
         for cb_2 in config_blocks_2:                # grabs a single config block
             if cmd == cb_2[0]:                      # checks cmd not found
                 stat = True
@@ -510,6 +511,7 @@ class FastIronDriver(NetworkDriver):
         for cb_1 in config_blocks_1:                # Grabs a single config block
             is_found = False
 
+            temp_list = list()
             if cb_1 not in config_blocks_2:         # checks if config block already exisit
                 cmd = cb_1[0]                       # grabs first cmd of config block
 
