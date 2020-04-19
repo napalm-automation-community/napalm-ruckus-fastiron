@@ -491,6 +491,7 @@ class FastIronDriver(NetworkDriver):
     @staticmethod
     def __compare_blocks(cb_1, config_blocks_2, cmd, symbol):
         temp_list = list()
+        stat = False
         for cb_2 in config_blocks_2:                # grabs a single config block
             if cmd == cb_2[0]:                      # checks cmd not found
                 stat = True
@@ -510,6 +511,7 @@ class FastIronDriver(NetworkDriver):
         for cb_1 in config_blocks_1:                # Grabs a single config block
             is_found = False
 
+            temp_list = list()
             if cb_1 not in config_blocks_2:         # checks if config block already exisit
                 cmd = cb_1[0]                       # grabs first cmd of config block
 
@@ -657,8 +659,8 @@ class FastIronDriver(NetworkDriver):
         else:
             return -1                           # No configuration was found
 
-        diff_1 = FastIronDriver.__comparing_list(rc, stored_conf, "+")
-        diff_2 = FastIronDriver.__comparing_list(stored_conf, rc, "-")
+        diff_1 = FastIronDriver.__comparing_list(rc, stored_conf, "-")
+        diff_2 = FastIronDriver.__comparing_list(stored_conf, rc, "+")
 
         str_diff1 = FastIronDriver.__compare_away(diff_1, diff_2)
         str_diff2 = FastIronDriver.__compare_vice(diff_2, diff_1)
@@ -681,9 +683,9 @@ class FastIronDriver(NetworkDriver):
 
             for sentence in my_temp:
 
-                if sentence[0] == '-':
+                if sentence[0] == '+':
                     sentence = sentence[1:len(sentence)]
-                elif sentence[0] == '+':
+                elif sentence[0] == '-':
                     sentence = 'no' + sentence[1:len(sentence)]
                 replace_list.append(sentence)
 
