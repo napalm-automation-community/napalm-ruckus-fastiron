@@ -21,7 +21,7 @@ from __future__ import unicode_literals
 from netmiko import ConnectHandler
 import socket
 import sys
-# import re
+import re
 
 # local modules
 # import napalm.base.exceptions
@@ -489,16 +489,22 @@ class FastIronDriver(NetworkDriver):
         return config_block
 
     @staticmethod
+    def __strip_trailing_whitespace(cmd):
+        strip = re.compile(r"(\s*([^\s]*[\s]*[^\s+]+)+)\s*$")
+        return strip.match(cmd).group(1)
+
+    @staticmethod
     def __compare_blocks(cb_1, config_blocks_2, cmd, symbol):
         temp_list = list()
         stat = False
         for cb_2 in config_blocks_2:                # grabs a single config block
-            if cmd == cb_2[0]:                      # checks cmd not found
+            if FastIronDriver.__strip_trailing_whitespace(cmd) == FastIronDriver.__strip_trailing_whitespace(cb_2[0]):                      # checks cmd not found
                 stat = True
                 for single_cmd in cb_1:             # iterates through cmd of config block
-                    if single_cmd == cmd:           # if this is first command add as base
+                    if FastIronDriver.__strip_trailing_whitespace(single_cmd) == FastIronDriver.__strip_trailing_whitespace(cmd):           # if this is first command add as base
                         temp_list.append(single_cmd)  # add to list with no changes
-                    elif single_cmd not in cb_2:
+                    elif FastIronDriver.__strip_trailing_whitespace(single_cmd) not in list(map(FastIronDriver.__strip_trailing_whitespace, cb_2)):
+                        print(list(map(FastIronDriver.__strip_trailing_whitespace, cb_2)))
                         temp_list.append(symbol + " " + single_cmd)
         return temp_list, stat
 
