@@ -659,8 +659,8 @@ class FastIronDriver(NetworkDriver):
         else:
             return -1                           # No configuration was found
 
-        diff_1 = FastIronDriver.__comparing_list(rc, stored_conf, "+")
-        diff_2 = FastIronDriver.__comparing_list(stored_conf, rc, "-")
+        diff_1 = FastIronDriver.__comparing_list(rc, stored_conf, "-")
+        diff_2 = FastIronDriver.__comparing_list(stored_conf, rc, "+")
 
         str_diff1 = FastIronDriver.__compare_away(diff_1, diff_2)
         str_diff2 = FastIronDriver.__compare_vice(diff_2, diff_1)
@@ -683,9 +683,9 @@ class FastIronDriver(NetworkDriver):
 
             for sentence in my_temp:
 
-                if sentence[0] == '-':
+                if sentence[0] == '+':
                     sentence = sentence[1:len(sentence)]
-                elif sentence[0] == '+':
+                elif sentence[0] == '-':
                     sentence = 'no' + sentence[1:len(sentence)]
                 replace_list.append(sentence)
 
