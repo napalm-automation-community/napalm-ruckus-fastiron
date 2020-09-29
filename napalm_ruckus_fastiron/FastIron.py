@@ -21,7 +21,7 @@ from __future__ import unicode_literals
 from netmiko import ConnectHandler
 import socket
 import sys
-# import re
+import re
 
 # local modules
 # import napalm.base.exceptions
@@ -256,12 +256,32 @@ class FastIronDriver(NetworkDriver):
 
         for line in n_line_output:
             line = line.strip()
+            # Ignore empty lines
             if not line:
                 continue
             line_list = line.split()
-            if only_physical == 1:
-                interface_list.append(line_list[0])
+            # Exclude header rows
+            if only_physical == 1 and line_list[0] != 'Port':
+                interface_list.append(FastIronDriver.__standardize_interface_name(line_list[0]))
         return interface_list
+
+    @staticmethod
+    def __standardize_interface_name(interface):
+        # Convert lbX to loopbackX
+        interface = re.sub('^lb(\d+)$', 'loopback\\1', interface)
+        # Convert tnX to tunnelX
+        interface = re.sub('^tn(\d+)$', 'tunnel\\1', interface)
+        # Convert mgmt1 to management1
+        if interface == 'mgmt1':
+            interface = 'management1'
+        # Convert 1 to ethernet1
+        if re.match(r'^[\d|\/]+$', interface):
+            interface = re.sub('^(.*)$', 'ethernet\\1', interface)
+        # Convert 10GigabitEthernet6 or GigbitEthernet8 to ethernetX
+        if re.match(r'.*Ether', interface):
+            interface = re.sub('.*(Ethernet|mgmt)([\d|\/]+)', '\\1\\2', interface).lower()
+
+        return interface
 
     @staticmethod
     def __facts_interface_list(shw_int_brief, pos=0, del_word="Port", trigger=0):
