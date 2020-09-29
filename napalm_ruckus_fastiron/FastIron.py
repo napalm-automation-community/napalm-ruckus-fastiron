@@ -253,6 +253,9 @@ class FastIronDriver(NetworkDriver):
         n_line_output = FastIronDriver.__creates_list_of_nlines(shw_int_brief)
 
         for line in n_line_output:
+            line = line.strip()
+            if not line:
+                continue
             line_list = line.split()
             if only_physical == 1:
                 interface_list.append(line_list[0])
