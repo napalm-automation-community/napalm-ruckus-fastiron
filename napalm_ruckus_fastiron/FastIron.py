@@ -28,6 +28,7 @@ import re
 # import napalm.base.helpers
 from napalm.base.exceptions import ReplaceConfigException, \
     MergeConfigException, ConnectionException, ConnectionClosedException
+from napalm.base.helpers import textfsm_extractor
 
 # import napalm.base.constants as c
 # from napalm.base import validate
@@ -269,10 +270,14 @@ class FastIronDriver(NetworkDriver):
     def __standardize_interface_name(interface):
         # Convert lbX to loopbackX
         interface = re.sub('^lb(\d+)$', 'loopback\\1', interface)
+        # Convert Loopback 1 to loopback1
+        interface = re.sub('^Loopback (\d+)$', 'loopback\\1', interface)
         # Convert tnX to tunnelX
         interface = re.sub('^tn(\d+)$', 'tunnel\\1', interface)
+        # Convert Ve 10 to ve10
+        interface = re.sub('^Ve (\d+)$', 've\\1', interface)
         # Convert mgmt1 to management1
-        if interface == 'mgmt1':
+        if interface in ['mgmt1', 'Eth mgmt1']:
             interface = 'management1'
         # Convert 1 to ethernet1
         if re.match(r'^[\d|\/]+$', interface):
@@ -314,27 +319,25 @@ class FastIronDriver(NetworkDriver):
         return t_port
 
     @staticmethod
-    def __get_interface_speed(shw_int_speed):
-        speed = list()                                          # creates list
-        for val in shw_int_speed:                               # speed words contained and compared
-            if val == 'auto,' or val == '1Gbit,':               # appends speed hat
-                speed.append(1000)
-            elif val == '10Mbit,':
-                speed.append(10)
-            elif val == '100Mbit,':
-                speed.append(100)
-            elif val == '2.5Gbit,':
-                speed.append(2500)
-            elif val == '5Gbit,':
-                speed.append(5000)
-            elif val == '10Gbit,':
-                speed.append(10000)
-            elif val == '40Gbit,':
-                speed.append(40000)
-            elif val == '100Gbit,':
-                speed.append(100000)
-            else:
-                raise FastIronDriver.PortSpeedException(val)
+    def __get_interface_speed(val):
+        if val == 'auto' or val == '1Gbit':               # appends speed hat
+            speed = 1000
+        elif val == '10Mbit':
+            speed = 10
+        elif val == '100Mbit':
+            speed = 100
+        elif val == '2.5Gbit':
+            speed = 2500
+        elif val == '5Gbit':
+            speed = 5000
+        elif val == '10Gbit':
+            speed = 10000
+        elif val == '40Gbit':
+            speed = 40000
+        elif val == '100Gbit':
+            speed = 100000
+        else:
+            raise FastIronDriver.PortSpeedException(val)
 
         return speed
 
@@ -793,35 +796,21 @@ class FastIronDriver(NetworkDriver):
          * speed (int in Mbit)
          * mac_address (string)
         """
-        my_dict = {}
-        int_brief = self.device.send_command('show int brief')
-        flap_output = self.device.send_command('show interface | i Port')
-        speed_output = self.device.send_command('show interface | i speed')
-        nombre = self.device.send_command('show interface | i name')
-        interfaces = FastIronDriver.__facts_interface_list(int_brief)
-        int_up = FastIronDriver.__facts_interface_list(int_brief, pos=1, del_word="Link")
-        mac_ad = FastIronDriver.__facts_interface_list(int_brief, pos=9, del_word="MAC")
-        flapped = FastIronDriver.__port_time(flap_output)
-        size = len(interfaces)
-
-        is_en = FastIronDriver.__facts_interface_list(int_brief, pos=2, del_word="State")
-        int_speed = FastIronDriver.__facts_interface_list(speed_output, pos=2)
-        actual_spd = FastIronDriver.__get_interface_speed(int_speed)
-
-        flapped = FastIronDriver.__get_interfaces_speed(flapped, size)
-        actual_spd = FastIronDriver.__get_interfaces_speed(actual_spd, size)
-        nombre = FastIronDriver.__get_interface_name(nombre, size)
-
-        for val in range(0, len(interfaces)):   # TODO check size and converto to napalm format
-            my_dict.update({interfaces[val]: {
-                'is up': int_up[val],
-                'is enabled': is_en[val],
-                'description': nombre[val],     # TODO check VE,VLAN,LOPBACK NAME
-                'last flapped': flapped[val],
-                'speed': actual_spd[val],
-                'mac address': mac_ad[val]
-            }})
-        return my_dict
+        interfaces = textfsm_extractor(
+            self, "show_interface", self._send_command('show int')
+        )
+        result = {}
+        for intf in interfaces:
+            port = FastIronDriver.__standardize_interface_name(intf['port'])
+            result[port] = {
+                'is_up': intf['link'] == 'up',
+                'is_enabled': intf['portstate'].lower() == 'forwarding',
+                'description': intf['name'].strip(),
+                'last_flapped': -1,
+                'speed': FastIronDriver.__get_interface_speed(intf['speed']),
+                'mac_address': intf['mac'],
+            }
+        return result
 
     def get_lldp_neighbors(self):
         """
