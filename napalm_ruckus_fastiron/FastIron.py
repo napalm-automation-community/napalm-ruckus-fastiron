@@ -244,6 +244,8 @@ class FastIronDriver(NetworkDriver):
     @staticmethod
     def __facts_serial(string):
         serial = FastIronDriver.__retrieve_all_locations(string, "Serial", 0)[0]
+        if serial == '#:':                          # If there is a space before serial
+            serial = FastIronDriver.__retrieve_all_locations(string, "Serial", 1)[0]
         serial = serial.replace('#:', '')
         return serial                               # returns serial number
 
