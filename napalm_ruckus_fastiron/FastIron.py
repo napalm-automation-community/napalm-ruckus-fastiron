@@ -1201,8 +1201,12 @@ class FastIronDriver(NetworkDriver):
             if len(sentence) == 0:                              # if empty skip
                 continue
 
+            if sentence[0] == 'ace':                            # skip header row
+                continue
+
             if len(sentence) > 2:                               # parent interface,size not 1
                 last_port = sentence[0] + " " + sentence[1]     # grabs port description
+                last_port = FastIronDriver.__standardize_interface_name(last_port)
                 pos = 2                                         # New position of IP address
 
                 if last_port in ipv6_output:
