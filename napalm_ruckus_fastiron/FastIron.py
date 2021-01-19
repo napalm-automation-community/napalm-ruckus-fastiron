@@ -55,6 +55,8 @@ class FastIronDriver(NetworkDriver):
         self.rollback_cfg = optional_args.get('rollback_cfg', 'rollback_config.txt')
         self.use_secret = optional_args.get('use_secret', False)
         self.image_type = None
+        self._show_command_delay_factor = optional_args.pop('show_command_delay_factor', 1)
+
 
     def __del__(self):
         """
@@ -81,7 +83,7 @@ class FastIronDriver(NetworkDriver):
                                          password=self.password,
                                          timeout=self.timeout,
                                          secret=secret,
-                                         verbose=True)
+                                         verbose=False)
             self.device.session_preparation()
             # image_type = self.device.send_command("show version")   # find the image type
             # if image_type.find("SPS") != -1:
@@ -332,6 +334,8 @@ class FastIronDriver(NetworkDriver):
             speed = 5000
         elif val == '10Gbit':
             speed = 10000
+        elif val == '20Gbit':
+            speed = 20000
         elif val == '40Gbit':
             speed = 40000
         elif val == '100Gbit':
@@ -584,6 +588,79 @@ class FastIronDriver(NetworkDriver):
 
         return mystring
 
+    def interfaces_to_list(self, interfaces_string):
+        ''' Convert string like 'ethe 2/1 ethe 2/4 to 2/5' or 'e 2/1 to 2/4' to list of interfaces '''
+        interfaces = []
+
+        if 'ethernet' in interfaces_string:
+            split_string = 'ethernet'
+        elif 'ethe' in interfaces_string:
+            split_string = 'ethe'
+        else:
+            split_string = 'e'
+
+        sections = interfaces_string.split(split_string)
+        if '' in sections:
+            sections.remove('') # Remove empty list items
+        for section in sections:
+            section = section.strip() # Remove leading/trailing spaces
+
+            # Process sections like 2/4 to 2/6
+            if 'to' in section:
+                start_intf, end_intf = section.split(' to ')
+                if '/' in start_intf:
+                    slot, num = start_intf.split('/')
+                    slot, end_num = end_intf.split('/')
+                    num = int(num)
+                    end_num = int(end_num)
+
+                    while num <= end_num:
+                        intf_name = '{}/{}'.format(slot, num)
+                        interfaces.append(self.standardize_interface_name(intf_name))
+                        num += 1
+            # Process sections like 1 to 5
+                else:
+                    num = int(start_intf)
+                    end_num = int(end_intf)
+                    while num <= end_num:
+                        intf_name = num
+                        interfaces.append(self.standardize_interface_name(intf_name))
+                        num += 1
+
+            # Individual ports like '2/1'
+            else:
+                interfaces.append(self.standardize_interface_name(section))
+
+        return interfaces
+
+    def interface_list_conversion(self, ve, taggedports, untaggedports):
+        interfaces = []
+        if ve:
+            interfaces.append('ve{}'.format(ve))
+        if taggedports:
+            interfaces.extend(self.interfaces_to_list(taggedports))
+        if untaggedports:
+            interfaces.extend(self.interfaces_to_list(untaggedports))
+        return interfaces
+
+    def standardize_interface_name(self, port):
+        port = str(port)
+        # Convert lbX to loopbackX
+        port = re.sub('^lb(\d+)$', 'loopback\\1', port)
+        # Convert tnX to tunnelX
+        port = re.sub('^tn(\d+)$', 'tunnel\\1', port)
+        # Convert mgmt1 to management1
+        if port == 'mgmt1':
+            port = 'management1'
+        # Convert 1/1 to ethernet1/1
+        if re.match(r'\d+/\d+', port):
+            port = re.sub('^(.*)$', 'ethernet\\1', port)
+        # Convert 1 to ethernet1
+        if re.match(r'^\d+$', port):
+            port = re.sub('^(.*)$', 'ethernet\\1', port)
+
+        return port
+
     def load_replace_candidate(self, filename=None, config=None):
         """
         Populates the candidate configuration. You can populate it from a file or from a string.
@@ -811,6 +888,84 @@ class FastIronDriver(NetworkDriver):
                 'mac_address': intf['mac'],
             }
         return result
+
+    def get_interfaces_vlans(self):
+        ''' return dict as documented at https://github.com/napalm-automation/napalm/issues/919#issuecomment-485905491 '''
+
+        show_int_brief = self.device.send_command_timing('show int brief', delay_factor=self._show_command_delay_factor)
+        info = textfsm_extractor(
+            self, "show_interface_brief", show_int_brief
+        )
+
+        result = {}
+
+        # Create interfaces structure and correct mode
+        for interface in info:
+            intf = self.standardize_interface_name(interface['port'])
+            if interface['tag'] == 'No' or re.match(r'^ve', interface['port']):
+                mode = "access"
+            else:
+                mode = "trunk"
+            result[intf] = {
+                'mode': mode,
+                'access-vlan': -1,
+                'trunk-vlans': [],
+                'native-vlan': -1,
+                'tagged-native-vlan': False
+            }
+
+        # Add lags
+        # for lag in self.get_lags().keys():
+        #     result[lag] = {
+        #         'mode': 'trunk',
+        #         'access-vlan': -1,
+        #         'trunk-vlans': [],
+        #         'native-vlan': -1,
+        #         'tagged-native-vlan': False
+        #     }
+
+        show_running_config_vlan = self.device.send_command('show running-config vlan')
+        info = textfsm_extractor(
+            self, "show_running_config_vlan", show_running_config_vlan
+        )
+
+        # Assign VLANs to interfaces
+        for vlan in info:
+            access_ports = self.interface_list_conversion(
+                vlan['ve'],
+                '',
+                vlan['untaggedports']
+            )
+            trunk_ports = self.interface_list_conversion(
+                '',
+                vlan['taggedports'],
+                ''
+            )
+
+            for port in access_ports:
+                result[port]['access-vlan'] = vlan['vlan']
+
+            for port in trunk_ports:
+                result[port].update({
+                    'tagged-native-vlan': True,
+                    'native-vlan': 1
+                })
+                result[port]['trunk-vlans'].append(vlan['vlan'])
+
+        # # Add ports with VLANs from VLLs
+        # if not self.show_mpls_config:
+        #     self.show_mpls_config = self.device.send_command('show mpls config')
+        # info = textfsm_extractor(
+        #     self, "show_mpls_config", self.show_mpls_config
+        # )
+        # for vll in info:
+        #     interface = self.standardize_interface_name(vll['interface'])
+        #     # Ignore VLLs with no interface
+        #     if interface:
+        #         result[interface]['access-vlan'] = vll['vlan']
+
+        return result
+
 
     def get_lldp_neighbors(self):
         """
