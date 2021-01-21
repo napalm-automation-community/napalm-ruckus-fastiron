@@ -1,5 +1,5 @@
 Value Port (\S+)
-Value Link (Up|Down|Disabled|Empty|Disable)
+Value Link (Up|Down|Disabled|Empty|Disable|ERR-DIS)
 Value PortState (\S+)
 Value Dupl (\S+)
 Value Speed (\S+)

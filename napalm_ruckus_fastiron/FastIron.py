@@ -22,6 +22,7 @@ from netmiko import ConnectHandler
 import socket
 import sys
 import re
+from netaddr import IPAddress
 
 # local modules
 # import napalm.base.exceptions
@@ -57,6 +58,10 @@ class FastIronDriver(NetworkDriver):
         self.image_type = None
         self._show_command_delay_factor = optional_args.pop('show_command_delay_factor', 1)
 
+        # Cache command output
+        self.show_running_config = None
+        self.show_lag_deployed = None
+
 
     def __del__(self):
         """
@@ -83,6 +88,7 @@ class FastIronDriver(NetworkDriver):
                                          password=self.password,
                                          timeout=self.timeout,
                                          secret=secret,
+                                         conn_timeout=self.timeout,
                                          verbose=False)
             self.device.session_preparation()
             # image_type = self.device.send_command("show version")   # find the image type
@@ -270,6 +276,7 @@ class FastIronDriver(NetworkDriver):
 
     @staticmethod
     def __standardize_interface_name(interface):
+        interface = str(interface).strip()
         # Convert lbX to loopbackX
         interface = re.sub('^lb(\d+)$', 'loopback\\1', interface)
         # Convert Loopback 1 to loopback1
@@ -334,7 +341,7 @@ class FastIronDriver(NetworkDriver):
             speed = 5000
         elif val == '10Gbit':
             speed = 10000
-        elif val == '20Gbit':
+        elif val == '20G':
             speed = 20000
         elif val == '40Gbit':
             speed = 40000
@@ -591,6 +598,12 @@ class FastIronDriver(NetworkDriver):
     def interfaces_to_list(self, interfaces_string):
         ''' Convert string like 'ethe 2/1 ethe 2/4 to 2/5' or 'e 2/1 to 2/4' to list of interfaces '''
         interfaces = []
+        lag_sections = []
+
+        # Seperate lag section from ethernet
+        if 'lag' in interfaces_string:
+            lag_sections = interfaces_string.split('lag')
+            interfaces_string = lag_sections.pop(0)
 
         if 'ethernet' in interfaces_string:
             split_string = 'ethernet'
@@ -599,6 +612,7 @@ class FastIronDriver(NetworkDriver):
         else:
             split_string = 'e'
 
+        # Process ethernet entries
         sections = interfaces_string.split(split_string)
         if '' in sections:
             sections.remove('') # Remove empty list items
@@ -609,14 +623,15 @@ class FastIronDriver(NetworkDriver):
             if 'to' in section:
                 start_intf, end_intf = section.split(' to ')
                 if '/' in start_intf:
-                    slot, num = start_intf.split('/')
-                    slot, end_num = end_intf.split('/')
-                    num = int(num)
-                    end_num = int(end_num)
+                    start_intf, end_intf = section.split(' to ')
+                    start_intf_parts = start_intf.split('/')
+                    slot = "/".join(start_intf_parts[0:-1])
+                    num = int(start_intf_parts[-1])
+                    end_num = int(end_intf.split('/')[-1])
 
                     while num <= end_num:
                         intf_name = '{}/{}'.format(slot, num)
-                        interfaces.append(self.standardize_interface_name(intf_name))
+                        interfaces.append(self.__standardize_interface_name(intf_name))
                         num += 1
             # Process sections like 1 to 5
                 else:
@@ -624,12 +639,26 @@ class FastIronDriver(NetworkDriver):
                     end_num = int(end_intf)
                     while num <= end_num:
                         intf_name = num
-                        interfaces.append(self.standardize_interface_name(intf_name))
+                        interfaces.append(self.__standardize_interface_name(intf_name))
                         num += 1
 
             # Individual ports like '2/1'
             else:
-                interfaces.append(self.standardize_interface_name(section))
+                interfaces.append(self.__standardize_interface_name(section))
+
+        # Lags
+        for lag in lag_sections:
+            lag = lag.strip() # Remove leading/trailing spaces
+            if 'to' in lag:
+                start_intf, end_intf = lag.split(' to ')
+                num = int(start_intf)
+                end_num = int(end_intf)
+                while num <= end_num:
+                    intf_name = num
+                    interfaces.append(self.__standardize_interface_name("lag{}".format(intf_name)))
+                    num += 1
+            else:
+                interfaces.append(self.__standardize_interface_name("lag{}".format(lag)))
 
         return interfaces
 
@@ -642,24 +671,6 @@ class FastIronDriver(NetworkDriver):
         if untaggedports:
             interfaces.extend(self.interfaces_to_list(untaggedports))
         return interfaces
-
-    def standardize_interface_name(self, port):
-        port = str(port)
-        # Convert lbX to loopbackX
-        port = re.sub('^lb(\d+)$', 'loopback\\1', port)
-        # Convert tnX to tunnelX
-        port = re.sub('^tn(\d+)$', 'tunnel\\1', port)
-        # Convert mgmt1 to management1
-        if port == 'mgmt1':
-            port = 'management1'
-        # Convert 1/1 to ethernet1/1
-        if re.match(r'\d+/\d+', port):
-            port = re.sub('^(.*)$', 'ethernet\\1', port)
-        # Convert 1 to ethernet1
-        if re.match(r'^\d+$', port):
-            port = re.sub('^(.*)$', 'ethernet\\1', port)
-
-        return port
 
     def load_replace_candidate(self, filename=None, config=None):
         """
@@ -861,6 +872,28 @@ class FastIronDriver(NetworkDriver):
             'interface_list':  FastIronDriver.__physical_interface_list(interfaces_up)
         }
 
+    def get_lags(self):
+        result = {}
+
+        if not self.show_lag_deployed:
+            self.show_lag_deployed = self.device.send_command('show lag deployed')
+        info = textfsm_extractor(
+            self, "show_lag_deployed", self.show_lag_deployed
+        )
+        for lag in info:
+            port = 'lag{}'.format(lag['id'])
+            result[port] = {
+                'is_up': True,
+                'is_enabled': True,
+                'description': lag['name'],
+                'last_flapped': -1,
+                'speed': 0,
+                'mac_address': '',
+                'children': self.interfaces_to_list(lag['ports'])
+            }
+
+        return result
+
     def get_interfaces(self):
         """
         Returns a dictionary of dictionaries. The keys for the first dictionary will be the \
@@ -873,6 +906,7 @@ class FastIronDriver(NetworkDriver):
          * speed (int in Mbit)
          * mac_address (string)
         """
+        # Get loopback, mgmt, ethernet interfaces from show interface output
         interfaces = textfsm_extractor(
             self, "show_interface", self._send_command('show int')
         )
@@ -885,8 +919,96 @@ class FastIronDriver(NetworkDriver):
                 'description': intf['name'].strip(),
                 'last_flapped': -1,
                 'speed': FastIronDriver.__get_interface_speed(intf['speed']),
+                'mtu': intf['mtu'],
                 'mac_address': intf['mac'],
             }
+
+        # Process ve interfaces from running config & show int ve
+        if not self.show_running_config:
+            self.show_running_config = self.device.send_command('show running-config')
+        running_config_interfaces = textfsm_extractor(
+            self, "show_running_config_interface", self.show_running_config
+        )
+        for intf in [i for i in running_config_interfaces if i['interface'] == 've']:
+            ifname = FastIronDriver.__standardize_interface_name("{}{}".format(intf['interface'], intf['interfacenum']))
+            if ifname not in result.keys():
+                show_intf = self.device.send_command('show interface {} {}'.format(
+                    intf['interface'], intf['interfacenum']
+                ))
+                info = textfsm_extractor(
+                    self, "show_interface_detail", show_intf
+                )[0]
+                result[ifname] = {
+                    'is_up': True,
+                    'is_enabled': True,
+                    'description': info['name'],
+                    'last_flapped': -1,
+                    'speed': 0,
+                    'mtu': info['mtu'],
+                    'mac_address': info['mac'],
+                }
+
+        # Get lags
+        lags = self.get_lags()
+        result.update(lags)
+
+        return result
+
+    def get_interfaces_ip(self):
+        """
+        Returns all configured IP addresses on all interfaces as a dictionary of dictionaries.
+        Keys of the main dictionary represent the name of the interface.
+        Values of the main dictionary represent are dictionaries that may consist of two keys
+        'ipv4' and 'ipv6' (one, both or none) which are themselvs dictionaries witht the IP
+        addresses as keys.
+        Each IP Address dictionary has the following keys:
+            * prefix_length (int)
+        """
+        interfaces = {}
+
+        if not self.show_running_config:
+            self.show_running_config = self.device.send_command('show running-config')
+        info = textfsm_extractor(
+            self, "show_running_config_interface_ip", self.show_running_config
+        )
+
+        for intf in info:
+            port = intf['interface'] + intf['interfacenum']
+
+            if port not in interfaces:
+                interfaces[port] = {
+                    'ipv4': {},
+                    'ipv6': {},
+                }
+
+            if intf['ipv4address']:
+                prefix = IPAddress(intf['netmask']).netmask_bits()
+                interfaces[port]['ipv4'][intf['ipv4address']] = { 'prefix_length': prefix }
+            if intf['ipv6address']:
+                ipaddress, prefix = intf['ipv6address'].split('/')
+                interfaces[port]['ipv6'][ipaddress] = { 'prefix_length': prefix }
+
+        return interfaces
+
+    def get_vlans(self):
+        if not self.show_running_config:
+            self.show_running_config = self.device.send_command('show running-config')
+        info = textfsm_extractor(
+            self, "show_running_config_vlan", self.show_running_config
+        )
+
+        result = {}
+        for vlan in info:
+            if (vlan['taggedports'] or vlan['untaggedports']):
+                result[vlan['vlan']] = {
+                    'name': vlan['name'],
+                    'interfaces': self.interface_list_conversion(
+                        vlan['ve'],
+                        vlan['taggedports'],
+                        vlan['untaggedports']
+                    )
+                }
+
         return result
 
     def get_interfaces_vlans(self):
@@ -901,7 +1023,7 @@ class FastIronDriver(NetworkDriver):
 
         # Create interfaces structure and correct mode
         for interface in info:
-            intf = self.standardize_interface_name(interface['port'])
+            intf = self.__standardize_interface_name(interface['port'])
             if interface['tag'] == 'No' or re.match(r'^ve', interface['port']):
                 mode = "access"
             else:
@@ -915,57 +1037,46 @@ class FastIronDriver(NetworkDriver):
             }
 
         # Add lags
-        # for lag in self.get_lags().keys():
-        #     result[lag] = {
-        #         'mode': 'trunk',
-        #         'access-vlan': -1,
-        #         'trunk-vlans': [],
-        #         'native-vlan': -1,
-        #         'tagged-native-vlan': False
-        #     }
+        for lag in self.get_lags().keys():
+            result[lag] = {
+                'mode': 'trunk',
+                'access-vlan': -1,
+                'trunk-vlans': [],
+                'native-vlan': -1,
+                'tagged-native-vlan': False
+            }
 
-        show_running_config_vlan = self.device.send_command('show running-config vlan')
+        if not self.show_running_config:
+            self.show_running_config = self.device.send_command('show running-config')
         info = textfsm_extractor(
-            self, "show_running_config_vlan", show_running_config_vlan
+            self, "show_running_config_vlan", self.show_running_config
         )
 
         # Assign VLANs to interfaces
         for vlan in info:
-            access_ports = self.interface_list_conversion(
-                vlan['ve'],
-                '',
-                vlan['untaggedports']
-            )
-            trunk_ports = self.interface_list_conversion(
-                '',
-                vlan['taggedports'],
-                ''
-            )
+            if (vlan['taggedports'] or vlan['untaggedports']):
+                access_ports = self.interface_list_conversion(
+                    vlan['ve'],
+                    '',
+                    vlan['untaggedports']
+                )
+                trunk_ports = self.interface_list_conversion(
+                    '',
+                    vlan['taggedports'],
+                    ''
+                )
 
-            for port in access_ports:
-                result[port]['access-vlan'] = vlan['vlan']
+                for port in access_ports:
+                    result[port]['access-vlan'] = vlan['vlan']
 
-            for port in trunk_ports:
-                result[port].update({
-                    'tagged-native-vlan': True,
-                    'native-vlan': 1
-                })
-                result[port]['trunk-vlans'].append(vlan['vlan'])
-
-        # # Add ports with VLANs from VLLs
-        # if not self.show_mpls_config:
-        #     self.show_mpls_config = self.device.send_command('show mpls config')
-        # info = textfsm_extractor(
-        #     self, "show_mpls_config", self.show_mpls_config
-        # )
-        # for vll in info:
-        #     interface = self.standardize_interface_name(vll['interface'])
-        #     # Ignore VLLs with no interface
-        #     if interface:
-        #         result[interface]['access-vlan'] = vll['vlan']
+                for port in trunk_ports:
+                    result[port].update({
+                        'tagged-native-vlan': True,
+                        'native-vlan': 1
+                    })
+                    result[port]['trunk-vlans'].append(vlan['vlan'])
 
         return result
-
 
     def get_lldp_neighbors(self):
         """
@@ -1323,64 +1434,6 @@ class FastIronDriver(NetworkDriver):
                 'jitter': float(jitter)
             })
         return my_list
-
-    def get_interfaces_ip(self):
-
-        """
-        Returns all configured IP addresses on all interfaces as a dictionary of dictionaries.
-        Keys of the main dictionary represent the name of the interface.
-        Values of the main dictionary represent are dictionaries that may consist of two keys
-        'ipv4' and 'ipv6' (one, both or none) which are themselvs dictionaries witht the IP
-        addresses as keys.
-        Each IP Address dictionary has the following keys:
-            * prefix_length (int)
-        """
-        if self.image_type == "Switch":
-            print("Switch image does not have ip interface")
-            return {}
-
-        ip_interface = dict()
-        ip4_dict = dict()                                       # ip4 dict
-        ip6_dict = dict()                                       # ip6 dict
-        output = self.device.send_command('show ip interface')  # obtains ip4 information
-        ipv6_output = self.device.send_command('show ipv6 interface')   # obtains ip6 information
-        token = output.find('VRF') + len('VRF') + 4                 # finds when to start parsing
-        output = output[token:len(output)]              # grabs output within certain limits
-        n_line = FastIronDriver.__creates_list_of_nlines(output)
-        last_port = ""                                          # saves last port information
-
-        for index in range(len(n_line)):
-            pos = 0                             # if interface more than one IP, list is size 1
-            sentence = n_line[index].split()                    # creates word list from string
-
-            if len(sentence) == 0:                              # if empty skip
-                continue
-
-            if sentence[0] == 'ace':                            # skip header row
-                continue
-
-            if len(sentence) > 2:                               # parent interface,size not 1
-                last_port = sentence[0] + " " + sentence[1]     # grabs port description
-                last_port = FastIronDriver.__standardize_interface_name(last_port)
-                pos = 2                                         # New position of IP address
-
-                if last_port in ipv6_output:
-                    ip6_dict = FastIronDriver.__output_parser(ipv6_output, last_port)
-
-            ip4_dict.update({                                   # updates ipv4 dictionary
-                    sentence[pos]: {'prefix_length': None}
-            })
-
-            if index == (len(n_line) - 1) or len(n_line[index + 1].split()) > 2:
-                ip_interface.update({       # if new parent interface is next
-                    last_port: {            # save all current interfaces
-                        'ipv4': ip4_dict,
-                        'ipv6': ip6_dict}
-                })
-                ip4_dict = dict()           # resets dictionary
-                ip6_dict = dict()
-
-        return ip_interface
 
     def get_mac_address_table(self):
 
