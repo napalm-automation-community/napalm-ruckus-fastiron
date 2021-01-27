@@ -8,7 +8,7 @@ with open("requirements.txt", "r") as fs:
 
 setup(
     name="napalm-ruckus-fastiron",
-    version="1.0.26",
+    version="1.1.0",
     packages=find_packages(),
     author="Jesus Mendez",
     author_email="mendezj@staticoverride.us",
