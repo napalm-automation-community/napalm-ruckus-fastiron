@@ -61,6 +61,9 @@ class FastIronDriver(NetworkDriver):
         # Cache command output
         self.show_running_config = None
         self.show_lag_deployed = None
+        self.show_int = None
+        self.interface_map = None
+
 
 
     def __del__(self):
@@ -105,7 +108,8 @@ class FastIronDriver(NetworkDriver):
         """
         Closes the connection to the device.
         """
-        self.device.disconnect()
+        if self.device is not None:
+            self.device.disconnect()
 
     def is_alive(self):
         """
@@ -258,8 +262,7 @@ class FastIronDriver(NetworkDriver):
         serial = serial.replace('#:', '')
         return serial                               # returns serial number
 
-    @staticmethod
-    def __physical_interface_list(shw_int_brief, only_physical=True):
+    def __physical_interface_list(self, shw_int_brief, only_physical=True):
         interface_list = list()
         n_line_output = FastIronDriver.__creates_list_of_nlines(shw_int_brief)
 
@@ -271,29 +274,55 @@ class FastIronDriver(NetworkDriver):
             line_list = line.split()
             # Exclude header rows
             if only_physical == 1 and line_list[0] != 'Port':
-                interface_list.append(FastIronDriver.__standardize_interface_name(line_list[0]))
+                interface_list.append(self.__standardize_interface_name(line_list[0]))
         return interface_list
 
-    @staticmethod
-    def __standardize_interface_name(interface):
+    def _get_interface_map(self):
+        ''' Return dict mapping ethernet port numbers to full interface name, ie
+
+        {
+            "1/1": "GigabitEthernet1/1",
+            ...
+        }
+        '''
+
+        if not self.show_int:
+            self.show_int = self.device.send_command_timing('show interface', delay_factor=self._show_command_delay_factor)
+        info = textfsm_extractor(
+            self, "show_interface", self.show_int
+        )
+
+        result = {}
+        for interface in info:
+            if 'ethernet' in interface['port'].lower() and 'mgmt' not in interface['port'].lower():
+                ifnum = re.sub(r'^(?:\d+)?\D+([\d/]+)', '\\1', interface['port'])
+                result[ifnum] = interface['port']
+
+        return result
+
+    def __standardize_interface_name(self, interface):
+        if not self.interface_map:
+            self.interface_map = self._get_interface_map()
+
         interface = str(interface).strip()
         # Convert lbX to loopbackX
-        interface = re.sub('^lb(\d+)$', 'loopback\\1', interface)
-        # Convert Loopback 1 to loopback1
-        interface = re.sub('^Loopback (\d+)$', 'loopback\\1', interface)
-        # Convert tnX to tunnelX
-        interface = re.sub('^tn(\d+)$', 'tunnel\\1', interface)
-        # Convert Ve 10 to ve10
-        interface = re.sub('^Ve (\d+)$', 've\\1', interface)
-        # Convert mgmt1 to management1
-        if interface in ['mgmt1', 'Eth mgmt1']:
-            interface = 'management1'
+        interface = re.sub('^lb(\d+)$', 'Loopback\\1', interface)
+        # Convert Loopback 1 to Loopback1
+        interface = re.sub('^Loopback (\d+)$', 'Loopback\\1', interface)
+        # Convert loopback1 to Loopback1
+        interface = re.sub('^loopback(\d+)$', 'Loopback\\1', interface)
+        # Convert tnX to TunnelX
+        interface = re.sub('^tn(\d+)$', 'Tunnel\\1', interface)
+        # Convert Ve 10 to Ve10
+        interface = re.sub('^Ve (\d+)$', 'Ve\\1', interface)
+        # Convert ve10 to Ve10
+        interface = re.sub('^ve(\d+)$', 'Ve\\1', interface)
+        # Convert mgmt1 to Ethernetmgmt1
+        if interface in ['mgmt1', 'Eth mgmt1', 'management1']:
+            interface = 'Ethernetmgmt1'
         # Convert 1 to ethernet1
         if re.match(r'^[\d|\/]+$', interface):
-            interface = re.sub('^(.*)$', 'ethernet\\1', interface)
-        # Convert 10GigabitEthernet6 or GigbitEthernet8 to ethernetX
-        if re.match(r'.*Ether', interface):
-            interface = re.sub('.*(Ethernet|mgmt)([\d|\/]+)', '\\1\\2', interface).lower()
+            interface = self.interface_map[interface]
 
         return interface
 
@@ -665,7 +694,7 @@ class FastIronDriver(NetworkDriver):
     def interface_list_conversion(self, ve, taggedports, untaggedports):
         interfaces = []
         if ve:
-            interfaces.append('ve{}'.format(ve))
+            interfaces.append('Ve{}'.format(ve))
         if taggedports:
             interfaces.extend(self.interfaces_to_list(taggedports))
         if untaggedports:
@@ -869,7 +898,7 @@ class FastIronDriver(NetworkDriver):
             'fqdn': None,
             'os_version':  FastIronDriver.__facts_os_version(version_output),
             'serial_number':  FastIronDriver.__facts_serial(version_output),
-            'interface_list':  FastIronDriver.__physical_interface_list(interfaces_up)
+            'interface_list':  self.__physical_interface_list(interfaces_up)
         }
 
     def get_lags(self):
@@ -907,12 +936,14 @@ class FastIronDriver(NetworkDriver):
          * mac_address (string)
         """
         # Get loopback, mgmt, ethernet interfaces from show interface output
+        if not self.show_int:
+            self.show_int = self.device.send_command_timing('show interface', delay_factor=self._show_command_delay_factor)
         interfaces = textfsm_extractor(
-            self, "show_interface", self._send_command('show int')
+            self, "show_interface", self.show_int
         )
         result = {}
         for intf in interfaces:
-            port = FastIronDriver.__standardize_interface_name(intf['port'])
+            port = self.__standardize_interface_name(intf['port'])
             result[port] = {
                 'is_up': intf['link'] == 'up',
                 'is_enabled': intf['portstate'].lower() == 'forwarding',
@@ -930,7 +961,7 @@ class FastIronDriver(NetworkDriver):
             self, "show_running_config_interface", self.show_running_config
         )
         for intf in [i for i in running_config_interfaces if i['interface'] == 've']:
-            ifname = FastIronDriver.__standardize_interface_name("{}{}".format(intf['interface'], intf['interfacenum']))
+            ifname = self.__standardize_interface_name("{}{}".format(intf['interface'], intf['interfacenum']))
             if ifname not in result.keys():
                 show_intf = self.device.send_command('show interface {} {}'.format(
                     intf['interface'], intf['interfacenum']
@@ -973,7 +1004,7 @@ class FastIronDriver(NetworkDriver):
         )
 
         for intf in info:
-            port = intf['interface'] + intf['interfacenum']
+            port = self.__standardize_interface_name(intf['interface'] + intf['interfacenum'])
 
             if port not in interfaces:
                 interfaces[port] = {
@@ -1024,7 +1055,7 @@ class FastIronDriver(NetworkDriver):
         # Create interfaces structure and correct mode
         for interface in info:
             intf = self.__standardize_interface_name(interface['port'])
-            if interface['tag'] == 'No' or re.match(r'^ve', interface['port']):
+            if interface['tag'] == 'No' or re.match(r'^Ve', intf):
                 mode = "access"
             else:
                 mode = "trunk"
