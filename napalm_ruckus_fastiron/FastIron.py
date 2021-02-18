@@ -1117,16 +1117,21 @@ class FastIronDriver(NetworkDriver):
             * port
         """
         my_dict = {}
-        shw_int_neg = self.device.send_command('show lldp neighbors')
-        token = shw_int_neg.find('System Name') + len('System Name') + 1
-        my_input = shw_int_neg[token:len(shw_int_neg)]
-        my_test = FastIronDriver.__matrix_format(my_input)
+        shw_int_neg = self.device.send_command('show lldp neighbors detail')
+        info = textfsm_extractor(
+            self, "show_lldp_neighbors_detail", shw_int_neg
+        )
 
-        for seq in range(0, len(my_test)):
-            my_dict.update({my_test[seq][0]: {
-                'hostname': my_test[seq][len(my_test[seq])-1],
-                'port': my_test[seq][3],
-            }})
+        for result in info:
+            if result['remoteportid']:
+                port = result['remoteportid']
+            else:
+                port = result['remoteportdescription']
+            local_port = self.__standardize_interface_name(result['port'])
+            my_dict[local_port] = {
+                'hostname': re.sub('"', '', result['remotesystemname']),
+                'port': re.sub('"', '', port)
+            }
 
         return my_dict
 
