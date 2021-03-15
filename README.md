@@ -1,7 +1,4 @@
-[![PyPI](https://img.shields.io/pypi/v/napalm-ruckus-fastiron.svg)](https://pypi.python.org/pypi/napalm-ruckus-fastiron)
-[![PyPI](https://img.shields.io/pypi/dm/napalm-ruckus-fastiron.svg)](https://pypi.python.org/pypi/napalm-ruckus-fastiron)
-
-NAPALM (Network Automation and Programmability Abstraction Layer with Multivendor support) is a Python library that implements a set of functions to interact with different router vendor devices using a unified API.
+# Napalm Brocade Fastiron
 
 Current methods supported
 =======
@@ -15,22 +12,28 @@ Configuration Support Matrix
 
 Getters Support Matrix
 -----------------------------------
+- get_facts()
+- get_interfaces()
+- get_interfaces_ip()
+- get_interfaces_vlans()
+- get_lldp_neighbors()
+- get_lldp_neighbors_detail()
+- get_vlans()
+
+
+Imported from Ruckus Fastiron, not tested
+-----------------------------------
 - get_arp_table()
 - get_config()
 - get_environment()
-- get_facts()
-- get_interfaces()
+- IsAlive()
 - get_interfaces_counters()
-- get_interfaces_ip()
-- get_lldp_neighbors()
-- get_lldp_neighbors_detail()
 - get_mac_address_table()
 - get_network_instance()
 - get_ntp_peers()
 - get_ntp_servers()
 - get_ntp_stats()
 - get_users()
-- IsAlive()
 
 Currently Testing [not publicly available]
 =======
@@ -44,14 +47,9 @@ Currently Testing [not publicly available]
 - ping()
 - tracerroute()
 
-Roapmapped
-=======
-- get_ipv6_neighbors_table
-
 Requirements
 =======
 - Netmiko v2.0.2
-- FastIron v8.0.30
 
 Netmiko methods
 =======
@@ -67,3 +65,4 @@ Netmiko methods
 Authors
 =======
  * Jesús Mendez ([mendezj@staticoverride.us](mailto:mendezj@staticoverride.us))
+ * Johan van den Dorpe

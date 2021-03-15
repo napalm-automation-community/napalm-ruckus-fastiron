@@ -12,12 +12,12 @@
 # License for the specific language governing permissions and limitations under
 # the License.
 
-"""napalm-ruckus-fastiron package."""
+"""napalm-brocade-fastiron package."""
 import pkg_resources
-from napalm_ruckus_fastiron.FastIron import FastIronDriver
+from napalm_fastiron.FastIron import FastIronDriver
 
 try:
-    __version__ = pkg_resources.get_distribution('napalm-ruckus-fastiron').version
+    __version__ = pkg_resources.get_distribution('napalm-brocade-fastiron').version
 except pkg_resources.DistributionNotFound:
     __version__ = "Not installed"
 

@@ -84,7 +84,7 @@ class FastIronDriver(NetworkDriver):
             else:
                 secret = ''
 
-            self.device = ConnectHandler(device_type='ruckus_fastiron',
+            self.device = ConnectHandler(device_type='brocade_fastiron',
                                          ip=self.hostname,      # saves device parameters
                                          port=self.port,
                                          username=self.username,
@@ -892,7 +892,7 @@ class FastIronDriver(NetworkDriver):
 
         return{
             'uptime': FastIronDriver.__facts_uptime(version_output),    # time of device in sec
-            'vendor': 'Ruckus',                                         # Vendor of ICX switches
+            'vendor': 'Brocade',                                        # Vendor of ICX switches
             'model':  FastIronDriver.__facts_model(version_output),     # Model type of switch
             'hostname':  FastIronDriver.__facts_hostname(host_name),    # Host name if configured
             'fqdn': None,
