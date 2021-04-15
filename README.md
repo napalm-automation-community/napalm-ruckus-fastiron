@@ -19,6 +19,7 @@ Getters Support Matrix
 - get_lldp_neighbors()
 - get_lldp_neighbors_detail()
 - get_vlans()
+- get_mac_address_table()
 
 
 Imported from Ruckus Fastiron, not tested
@@ -28,7 +29,6 @@ Imported from Ruckus Fastiron, not tested
 - get_environment()
 - IsAlive()
 - get_interfaces_counters()
-- get_mac_address_table()
 - get_network_instance()
 - get_ntp_peers()
 - get_ntp_servers()

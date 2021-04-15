@@ -1487,27 +1487,28 @@ class FastIronDriver(NetworkDriver):
             * moves (int)
             * last_move (float)
         """
-        mac_tbl = list()                                            # creates list
-        output = self.device.send_command('show mac-address all')   # grabs mac address output
-        token = output.find('Action') + len('Action') + 1           # word used for parser
-        new_out = FastIronDriver.__creates_list_of_nlines(output[token: len(output)])
-        for words in new_out:                            # loop goes sentence by sentence
-            sentence = words.split()                                # breaks sentence into words
 
-            if sentence[2] == 'Dynamic':
+        show_mac_address_all = self.device.send_command_timing('show mac-address all', delay_factor=self._show_command_delay_factor)
+        macaddresses = textfsm_extractor(
+            self, "show_mac_address_all", show_mac_address_all
+        )
+
+        mac_tbl = list()
+        for mac in macaddresses:
+            if mac['type'] == 'Dynamic':
                 is_dynamic = True
             else:
                 is_dynamic = False
 
-            if sentence[4] == 'forward':
+            if mac['action'] == 'forward':
                 is_active = True
             else:
                 is_active = False
 
-            mac_tbl.append({                            # appends data
-                'mac': sentence[0],
-                'interface': sentence[1],
-                'vlan': int(sentence[3]),
+            mac_tbl.append({
+                'mac': mac['macaddress'],
+                'interface': self.__standardize_interface_name(mac['port']),
+                'vlan': int(mac['vlan']),
                 'static': is_dynamic,
                 'active': is_active,
                 'moves': None,
