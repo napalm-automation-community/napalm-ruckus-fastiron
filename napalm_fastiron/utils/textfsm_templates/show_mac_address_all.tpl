@@ -6,4 +6,4 @@ Value VLAN (\d+)
 Value Action (\S+)
 
 Start
-  ^${Macaddress}\s+${Port}\s+${Type}\s+${Index}\s+${VLAN}\s+${Action} -> Record
+  ^${Macaddress}\s+${Port}\s+${Type}\s+(${Index}\s+)?${VLAN}\s+${Action} -> Record
