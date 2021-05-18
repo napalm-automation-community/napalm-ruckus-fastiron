@@ -317,6 +317,8 @@ class FastIronDriver(NetworkDriver):
         interface = re.sub('^Ve (\d+)$', 'Ve\\1', interface)
         # Convert ve10 to Ve10
         interface = re.sub('^ve(\d+)$', 'Ve\\1', interface)
+        # Convert lg44 to lag44
+        interface = re.sub('^lg(\d+)$', 'lag\\1', interface)
         # Convert mgmt1 to Ethernetmgmt1
         if interface in ['mgmt1', 'Eth mgmt1', 'management1']:
             interface = 'Ethernetmgmt1'
