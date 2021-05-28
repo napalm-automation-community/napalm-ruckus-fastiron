@@ -1507,15 +1507,23 @@ class FastIronDriver(NetworkDriver):
             else:
                 is_active = False
 
-            mac_tbl.append({
-                'mac': mac['macaddress'],
-                'interface': self.__standardize_interface_name(mac['port']),
-                'vlan': int(mac['vlan']),
-                'static': is_dynamic,
-                'active': is_active,
-                'moves': None,
-                'last_move': None
-            })
+            # Handle port lists like 12-13 from TurboIrons
+            if '-' in mac['port']:
+                start, end = mac['port'].split('-')
+                ports = list(range(int(start), int(end) + 1))
+            else:
+                ports = [mac['port']]
+
+            for port in ports:
+                mac_tbl.append({
+                    'mac': mac['macaddress'],
+                    'interface': self.__standardize_interface_name(port),
+                    'vlan': int(mac['vlan']),
+                    'static': is_dynamic,
+                    'active': is_active,
+                    'moves': None,
+                    'last_move': None
+                })
 
         return mac_tbl
 
