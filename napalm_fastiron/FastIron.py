@@ -320,7 +320,7 @@ class FastIronDriver(NetworkDriver):
         # Convert lg44 to lag44
         interface = re.sub('^lg(\d+)$', 'lag\\1', interface)
         # Convert mgmt1 to Ethernetmgmt1
-        if interface in ['mgmt1', 'Eth mgmt1', 'management1']:
+        if interface in ['mgmt1', 'Eth mgmt1', 'management1', 'GigEthernetmgmt1']:
             interface = 'Ethernetmgmt1'
         # Convert 1 to ethernet1
         if re.match(r'^[\d|\/]+$', interface):
