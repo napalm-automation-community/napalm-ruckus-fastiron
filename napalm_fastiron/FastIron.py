@@ -1100,14 +1100,18 @@ class FastIronDriver(NetworkDriver):
                 )
 
                 for port in access_ports:
-                    result[port]['access-vlan'] = vlan['vlan']
+                    if int(vlan['vlan']) <= 4094:
+                        result[port]['access-vlan'] = vlan['vlan']
 
                 for port in trunk_ports:
-                    result[port].update({
-                        'tagged-native-vlan': True,
-                        'native-vlan': 1
-                    })
-                    result[port]['trunk-vlans'].append(vlan['vlan'])
+                    if int(vlan['vlan']) <= 4094:
+                        result[port]['trunk-vlans'].append(vlan['vlan'])
+
+        # Set native vlan for tagged ports
+        for port, data in result.items():
+            if data['trunk-vlans'] and data['access-vlan'] != -1:
+                result[port]['native-vlan'] = data['access-vlan']
+                result[port]['access-vlan'] = -1
 
         return result
 
