@@ -1638,10 +1638,14 @@ class FastIronDriver(NetworkDriver):
         }
 
         for vrf in vrf_detail:
+            rd = vrf['rd']
+            if rd == '(not':
+                rd = ''
+
             instances[vrf['name']] = {
                 'name': vrf['name'],
                 'type': 'L3VRF',
-                'state': {'route_distinguisher': vrf['rd']},
+                'state': {'route_distinguisher': rd},
                 'interfaces': {'interface': {}}
             }
 
