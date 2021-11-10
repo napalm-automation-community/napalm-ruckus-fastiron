@@ -1617,63 +1617,43 @@ class FastIronDriver(NetworkDriver):
         return config_dic
 
     def get_network_instances(self, name=''):
-        """Return a dictionary of network instances (VRFs) configured."""
-        vrf_dict = dict()                                           # Dictionary that will append
-        vrf_interface = dict()
-        check = self.device.send_command('show version')
 
-        if any(x in check for x in ["7150", "SPS"]):                # ICX7150 does not support VRF
-            return {}                                               # neither does switch image
+        instances = {}
 
-        if "7250" in check:
-            cur_version = FastIronDriver.__retrieve_all_locations(check, 'Version', 1)
+        show_vrf_detail = self.device.send_command('show vrf detail')
+        vrf_detail = textfsm_extractor(
+            self, "show_vrf_detail", show_vrf_detail
+        )
 
-            if cur_version.pop() > "8.0.50":
-                pass
+        show_ip_interface = self.device.send_command('show ip interface')
+        ip_interface = textfsm_extractor(
+            self, "show_ip_interface", show_ip_interface
+        )
+
+        instances['default'] = {
+            'name': 'default',
+            'type': 'DEFAULT_INSTANCE',
+            'state': {'route_distinguisher': ''},
+            'interfaces': {'interface': {}}
+        }
+
+        for vrf in vrf_detail:
+            instances[vrf['name']] = {
+                'name': vrf['name'],
+                'type': 'L3VRF',
+                'state': {'route_distinguisher': vrf['rd']},
+                'interfaces': {'interface': {}}
+            }
+
+        for interface in ip_interface:
+            intf = self.__standardize_interface_name(interface['interfacetype'] + interface['interfacenum'])
+
+            vrf_name = interface['vrf']
+            if vrf_name == 'default-vrf':
+                vrf = 'default'
             else:
-                return {}
+                vrf = [k for k in instances.keys() if vrf_name in k][0]
 
-        if name != '':                                              # Name was entered must look
-            output = self.device.send_command('show vrf ' + name)   # grabs vrf of specified name
-            token = output.find('Interfaces:') + len('Interfaces:') + 1
-            ioutput = output[token:len(output)]                     # limits scope of output range
-            sentence = ioutput.split()                              # returns strings of interest
-            rid = FastIronDriver.__retrieve_all_locations(output, 'RD', 0)[0]
-            rid = rid.replace(',', '')
+            instances[vrf]['interfaces']['interface'][intf] = {}
 
-            for interface in sentence:
-                vrf_interface.update({interface: {}})
-
-            return {
-                name: {
-                    u'name': name, u'type': 'L3VRF', u'state': {
-                        u'route_distinguisher': rid
-                    },
-                    u'interfaces': {
-                        vrf_interface
-                        }}}
-
-        else:
-            output = self.device.send_command('show vrf detail')
-            output = output.replace('|', ' ')
-            output = output.replace(',', '')
-            vrf_name_list = FastIronDriver.__retrieve_all_locations(output, 'VRF', 0)
-            vrf_rd = FastIronDriver.__retrieve_all_locations(output, 'RD', 0)
-
-        for interface in range(0, len(vrf_name_list)):
-            vrf = vrf_name_list.pop()                                   # pops the next vrf name
-            rd = vrf_rd.pop()                                           # pops the next router id
-            vrf_dict.update({                                           # updates the dictionary
-                vrf: {
-                    u'name': vrf, u'type': 'L3VRF', u'state': {
-                        u'route_distinguisher': rd
-                    },
-                    u'interfaces': {
-                        u'interface': {
-                            '': {}
-                        }
-                    }
-                }
-            })
-
-        return vrf_dict
+        return instances if not name else instances[name]
