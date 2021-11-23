@@ -1020,6 +1020,8 @@ class FastIronDriver(NetworkDriver):
             if intf['ipv6address']:
                 ipaddress, prefix = intf['ipv6address'].split('/')
                 interfaces[port]['ipv6'][ipaddress] = { 'prefix_length': prefix }
+            if intf['vrfname']:
+                interfaces[port]['vrf'] = intf['vrfname']
 
         return interfaces
 
