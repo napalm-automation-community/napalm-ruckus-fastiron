@@ -10,7 +10,7 @@ Value RemoteSystemCapabEnabled (.*)
 Start
   ^Local port: ${Port}
   ^\s+Neighbor: ${RemoteChassisId},
-  ^\s+\+ Port ID \(interface name\): ${RemotePortId}
+  ^\s+\+ Port ID \(.*\): ${RemotePortId}
   ^\s+\+ System name\s+: ${RemoteSystemName}
   ^\s+\+ Port description\s+: ${RemotePortDescription}
   ^\s+\+ System description\s+: ${RemoteSystemDescription}

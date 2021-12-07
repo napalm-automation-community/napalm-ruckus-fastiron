@@ -1130,8 +1130,14 @@ class FastIronDriver(NetworkDriver):
             self, "show_lldp_neighbors_detail", shw_int_neg
         )
 
+        port_regex = re.compile(
+            r".*eth|^\d+$|^\d+\/\d+|^\d+\/[A-Z]\d+|^[A-Z]\d+$|^te|^xe|^ge|^gi",
+            re.IGNORECASE,
+        )
+
         for result in info:
-            if result['remoteportid']:
+            # Try to determine if port name is in port-id or port-desc
+            if (" " not in result['remoteportid'] and ":" not in result['remoteportid'] and re.match(port_regex, result['remoteportid']) or not result['remoteportdescription']):
                 port = result['remoteportid']
             else:
                 port = result['remoteportdescription']
