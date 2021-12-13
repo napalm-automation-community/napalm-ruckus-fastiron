@@ -1,0 +1,184 @@
+Current configuration:
+!
+ver 07.3.00hT203
+!
+!
+!
+!
+vlan 1 name DEFAULT-VLAN by port
+!
+vlan 11 name ECMP-1 by port
+ tagged ethe 5 ethe 13 ethe 18 ethe 23
+!
+vlan 12 name LA-DIRECT by port
+ tagged ethe 5 ethe 7 ethe 13 ethe 18 ethe 21 ethe 23
+!
+vlan 33 name CORE by port
+ tagged ethe 2 ethe 7 ethe 21
+!
+!
+!
+!
+!
+!
+!
+interface loopback 1
+ ip address 20.6.29.19 255.255.255.255
+!
+interface management 1
+ ip address 10.6.1.66 255.255.255.0
+!
+interface ethernet 1
+ port-name TO:MR-OSV8-Z-1:P8
+ trust dscp
+ sflow forwarding
+!
+interface ethernet 2
+ port-name FO-CER2000-Z-1
+ trust dscp
+ sflow forwarding
+!
+interface ethernet 3
+ port-name SM-X9DBL4B-Z-2
+ trust dscp
+ sflow forwarding
+!
+interface ethernet 4
+ port-name SM-X10SRI4B-Z-2
+ trust dscp
+ sflow forwarding
+!
+interface ethernet 5
+ port-name MLXe8--TIX-6/4
+ link-aggregate active
+ trust dscp
+ sflow forwarding
+!
+interface ethernet 6
+ port-name CO::AR-7280SR248YC6-Z-1::Et11
+ trust dscp
+ sflow forwarding
+!
+interface ethernet 7
+ port-name 10G_TO_OLIVE
+ link-aggregate configure key 10009
+ link-aggregate active
+ trust dscp
+ sflow forwarding
+!
+interface ethernet 8
+ port-name 10G DE-R210II-Z-1
+ trust dscp
+ sflow forwarding
+!
+interface ethernet 9
+ port-name 10G DE-R210II-Z-2
+ trust dscp
+ sflow forwarding
+!
+interface ethernet 10
+ port-name AR-7280SR248YC6-Z-1
+ trust dscp
+ sflow forwarding
+!
+interface ethernet 11
+ port-name TO:MR-OS940-Z-1:P14
+ trust dscp
+ sflow forwarding
+!
+interface ethernet 12
+ port-name 10G DE-R210II-Z-2
+ trust dscp
+ sflow forwarding
+!
+interface ethernet 13
+ port-name CO::FO-MLXE8-Z-1
+ link-aggregate active
+ sflow forwarding
+!
+interface ethernet 14
+ port-name BAD-GOES-INTO-BLOCKING
+ disable
+ trust dscp
+ sflow forwarding
+!
+interface ethernet 15
+ port-name ALAMEDA-TO-MR-OSV8-Z-2
+ trust dscp
+ sflow forwarding
+!
+interface ethernet 16
+ port-name TO::MR-OS940-Z-2
+ trust dscp
+ sflow forwarding
+!
+interface ethernet 17
+ port-name LR-818-FO-TI24X
+ disable
+ trust dscp
+ sflow forwarding
+!
+interface ethernet 18
+ port-name FO-MLXE8-Z-1
+ link-aggregate active
+ sflow forwarding
+!
+interface ethernet 19
+ port-name SM-X9DBL4B-Z-3
+ trust dscp
+ sflow forwarding
+!
+interface ethernet 20
+ port-name SCANNER-LA-10G
+ trust dscp
+ sflow forwarding
+!
+interface ethernet 21
+ port-name CORE-BURBANK
+ link-aggregate configure key 10009
+ link-aggregate active
+ sflow forwarding
+!
+interface ethernet 22
+ port-name SM-X10SRW4B-Z-2
+ trust dscp
+ sflow forwarding
+!
+interface ethernet 23
+ port-name MLXe8--TX-1/23
+ link-aggregate active
+ sflow forwarding
+!
+interface ethernet 24
+ port-name TO::MR-OS940-Z-1
+ trust dscp
+ sflow forwarding
+!
+interface ethernet 25
+ port-name AVAILABLE-IF
+ trust dscp
+ sflow forwarding
+!
+interface ethernet 26
+ port-name AVAILABLE-IF
+ disable
+ trust dscp
+ sflow forwarding
+!
+interface ethernet 27
+ port-name AVAILABLE-IF
+ disable
+ trust dscp
+ sflow forwarding
+!
+interface ethernet 28
+ port-name AVAILABLE-IF
+ disable
+ trust dscp
+ sflow forwarding
+!
+interface ve 123
+ ip address 192.18.1.1 255.255.255.252
+ ip redirect
+!
+!exit

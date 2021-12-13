@@ -1,3 +1,4 @@
 napalm>=2.0.0
 netmiko>=2.0.2
 netaddr==0.8.0
+textfsm

@@ -1,0 +1,26 @@
+{
+  "Loopback1": {
+    "ipv4": {
+      "20.6.29.19": {
+        "prefix_length": 32
+      }
+    },
+    "ipv6": {}
+  },
+  "Ethernetmgmt1": {
+    "ipv4": {
+      "10.6.1.66": {
+        "prefix_length": 24
+      }
+    },
+    "ipv6": {}
+  },
+  "Ve123": {
+    "ipv4": {
+      "192.18.1.1": {
+        "prefix_length": 30
+      }
+    },
+    "ipv6": {}
+  }
+}

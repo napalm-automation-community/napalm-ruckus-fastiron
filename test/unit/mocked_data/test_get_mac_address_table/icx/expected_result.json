@@ -1,0 +1,389 @@
+[
+  {
+    "mac": "72bb.def1.9ed0",
+    "interface": "GigabitEthernet2/1/6",
+    "vlan": 194,
+    "static": true,
+    "active": true,
+    "moves": -1,
+    "last_move": -1
+  },
+  {
+    "mac": "d4ae.52c5.5e03",
+    "interface": "GigabitEthernet1/1/11",
+    "vlan": 1063,
+    "static": true,
+    "active": true,
+    "moves": -1,
+    "last_move": -1
+  },
+  {
+    "mac": "4a9d.fe3e.d1d2",
+    "interface": "lag33",
+    "vlan": 414,
+    "static": true,
+    "active": true,
+    "moves": -1,
+    "last_move": -1
+  },
+  {
+    "mac": "cc4e.2497.e000",
+    "interface": "10GigabitEthernet1/2/4",
+    "vlan": 505,
+    "static": true,
+    "active": true,
+    "moves": -1,
+    "last_move": -1
+  },
+  {
+    "mac": "0025.909e.0c55",
+    "interface": "GigabitEthernet2/1/43",
+    "vlan": 417,
+    "static": true,
+    "active": true,
+    "moves": -1,
+    "last_move": -1
+  },
+  {
+    "mac": "72b6.0556.2c29",
+    "interface": "lag33",
+    "vlan": 1817,
+    "static": true,
+    "active": true,
+    "moves": -1,
+    "last_move": -1
+  },
+  {
+    "mac": "e690.cb9a.ecbe",
+    "interface": "lag32",
+    "vlan": 3416,
+    "static": true,
+    "active": true,
+    "moves": -1,
+    "last_move": -1
+  },
+  {
+    "mac": "0cc4.7aea.1c40",
+    "interface": "lag41",
+    "vlan": 3417,
+    "static": true,
+    "active": true,
+    "moves": -1,
+    "last_move": -1
+  },
+  {
+    "mac": "969d.e070.1ff3",
+    "interface": "lag34",
+    "vlan": 3418,
+    "static": true,
+    "active": true,
+    "moves": -1,
+    "last_move": -1
+  },
+  {
+    "mac": "0020.1a03.f8bd",
+    "interface": "10GigabitEthernet1/2/4",
+    "vlan": 415,
+    "static": true,
+    "active": true,
+    "moves": -1,
+    "last_move": -1
+  },
+  {
+    "mac": "5e34.d963.5e13",
+    "interface": "lag33",
+    "vlan": 1892,
+    "static": true,
+    "active": true,
+    "moves": -1,
+    "last_move": -1
+  },
+  {
+    "mac": "9695.1614.2854",
+    "interface": "lag31",
+    "vlan": 194,
+    "static": true,
+    "active": true,
+    "moves": -1,
+    "last_move": -1
+  },
+  {
+    "mac": "62a2.e52e.3fa9",
+    "interface": "lag33",
+    "vlan": 1726,
+    "static": true,
+    "active": true,
+    "moves": -1,
+    "last_move": -1
+  },
+  {
+    "mac": "82ec.1519.0e17",
+    "interface": "lag34",
+    "vlan": 3416,
+    "static": true,
+    "active": true,
+    "moves": -1,
+    "last_move": -1
+  },
+  {
+    "mac": "0a5f.46a5.2db3",
+    "interface": "GigabitEthernet2/1/6",
+    "vlan": 194,
+    "static": true,
+    "active": true,
+    "moves": -1,
+    "last_move": -1
+  },
+  {
+    "mac": "d20d.94cd.f5a0",
+    "interface": "lag33",
+    "vlan": 3416,
+    "static": true,
+    "active": true,
+    "moves": -1,
+    "last_move": -1
+  },
+  {
+    "mac": "00c0.b7b4.f6b4",
+    "interface": "10GigabitEthernet1/2/4",
+    "vlan": 415,
+    "static": true,
+    "active": true,
+    "moves": -1,
+    "last_move": -1
+  },
+  {
+    "mac": "d203.980b.4b70",
+    "interface": "lag32",
+    "vlan": 1499,
+    "static": true,
+    "active": true,
+    "moves": -1,
+    "last_move": -1
+  },
+  {
+    "mac": "e652.0677.be54",
+    "interface": "lag31",
+    "vlan": 1083,
+    "static": true,
+    "active": true,
+    "moves": -1,
+    "last_move": -1
+  },
+  {
+    "mac": "0cc4.7aad.fc09",
+    "interface": "GigabitEthernet2/1/18",
+    "vlan": 417,
+    "static": true,
+    "active": true,
+    "moves": -1,
+    "last_move": -1
+  },
+  {
+    "mac": "d2eb.8f1c.2357",
+    "interface": "lag31",
+    "vlan": 3418,
+    "static": true,
+    "active": true,
+    "moves": -1,
+    "last_move": -1
+  },
+  {
+    "mac": "0cc4.7aa8.fa9a",
+    "interface": "GigabitEthernet2/1/8",
+    "vlan": 194,
+    "static": true,
+    "active": true,
+    "moves": -1,
+    "last_move": -1
+  },
+  {
+    "mac": "cc4e.2497.e000",
+    "interface": "10GigabitEthernet1/2/4",
+    "vlan": 1750,
+    "static": true,
+    "active": true,
+    "moves": -1,
+    "last_move": -1
+  },
+  {
+    "mac": "30b6.4f29.1fc0",
+    "interface": "GigabitEthernet2/1/9",
+    "vlan": 416,
+    "static": true,
+    "active": true,
+    "moves": -1,
+    "last_move": -1
+  },
+  {
+    "mac": "f2c1.de3c.94df",
+    "interface": "lag34",
+    "vlan": 3416,
+    "static": true,
+    "active": true,
+    "moves": -1,
+    "last_move": -1
+  },
+  {
+    "mac": "ee3e.c048.6e95",
+    "interface": "lag32",
+    "vlan": 1750,
+    "static": true,
+    "active": true,
+    "moves": -1,
+    "last_move": -1
+  },
+  {
+    "mac": "d62d.a2b8.2b6f",
+    "interface": "lag34",
+    "vlan": 906,
+    "static": true,
+    "active": true,
+    "moves": -1,
+    "last_move": -1
+  },
+  {
+    "mac": "ea9e.00d0.b748",
+    "interface": "lag34",
+    "vlan": 194,
+    "static": true,
+    "active": true,
+    "moves": -1,
+    "last_move": -1
+  },
+  {
+    "mac": "322f.d8bc.2450",
+    "interface": "lag34",
+    "vlan": 194,
+    "static": true,
+    "active": true,
+    "moves": -1,
+    "last_move": -1
+  },
+  {
+    "mac": "0021.5920.f400",
+    "interface": "10GigabitEthernet1/2/4",
+    "vlan": 1501,
+    "static": true,
+    "active": true,
+    "moves": -1,
+    "last_move": -1
+  },
+  {
+    "mac": "16cf.d4c8.fe0e",
+    "interface": "lag33",
+    "vlan": 194,
+    "static": true,
+    "active": true,
+    "moves": -1,
+    "last_move": -1
+  },
+  {
+    "mac": "5618.d869.0cb5",
+    "interface": "lag34",
+    "vlan": 3417,
+    "static": true,
+    "active": true,
+    "moves": -1,
+    "last_move": -1
+  },
+  {
+    "mac": "be09.05e9.139f",
+    "interface": "lag33",
+    "vlan": 194,
+    "static": true,
+    "active": true,
+    "moves": -1,
+    "last_move": -1
+  },
+  {
+    "mac": "1e66.0e3f.8345",
+    "interface": "lag32",
+    "vlan": 1112,
+    "static": true,
+    "active": true,
+    "moves": -1,
+    "last_move": -1
+  },
+  {
+    "mac": "0cc4.7aa9.f5a8",
+    "interface": "GigabitEthernet2/1/7",
+    "vlan": 194,
+    "static": true,
+    "active": true,
+    "moves": -1,
+    "last_move": -1
+  },
+  {
+    "mac": "4217.d6cc.fd30",
+    "interface": "lag33",
+    "vlan": 924,
+    "static": true,
+    "active": true,
+    "moves": -1,
+    "last_move": -1
+  },
+  {
+    "mac": "a460.3200.409e",
+    "interface": "10GigabitEthernet1/2/4",
+    "vlan": 415,
+    "static": true,
+    "active": true,
+    "moves": -1,
+    "last_move": -1
+  },
+  {
+    "mac": "30b6.4f2b.30c0",
+    "interface": "GigabitEthernet1/1/16",
+    "vlan": 416,
+    "static": true,
+    "active": true,
+    "moves": -1,
+    "last_move": -1
+  },
+  {
+    "mac": "00c0.b7ec.a739",
+    "interface": "GigabitEthernet2/1/44",
+    "vlan": 415,
+    "static": true,
+    "active": true,
+    "moves": -1,
+    "last_move": -1
+  },
+  {
+    "mac": "ce5d.f6fd.4145",
+    "interface": "lag32",
+    "vlan": 415,
+    "static": true,
+    "active": true,
+    "moves": -1,
+    "last_move": -1
+  },
+  {
+    "mac": "0a9f.6f8b.dc24",
+    "interface": "lag31",
+    "vlan": 3418,
+    "static": true,
+    "active": true,
+    "moves": -1,
+    "last_move": -1
+  },
+  {
+    "mac": "609c.9f85.4a00",
+    "interface": "10GigabitEthernet2/2/4",
+    "vlan": 506,
+    "static": true,
+    "active": true,
+    "moves": -1,
+    "last_move": -1
+  },
+  {
+    "mac": "169b.d7ff.2953",
+    "interface": "lag32",
+    "vlan": 3417,
+    "static": true,
+    "active": true,
+    "moves": -1,
+    "last_move": -1
+  }
+]

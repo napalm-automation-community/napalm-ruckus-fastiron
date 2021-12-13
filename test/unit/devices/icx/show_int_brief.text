@@ -1,0 +1,146 @@
+Port       Link    State   Dupl Speed Trunk Tag Pvid Pri MAC             Name
+1/1/1      Down    None    None None  None  Yes N/A  0   609c.9fc7.dad0  SM-X9DBL4B-S-1-
+1/1/2      Up      Forward Full 1G    None  Yes 415  0   609c.9fc7.dad0  SM-X9DBL36B-S-1
+1/1/3      Up      Forward Full 100M  None  Yes 402  0   609c.9fc7.dad0  DE-R210II-S-1-L
+1/1/4      Down    None    None None  None  No  422  0   609c.9fc7.dad3  SM-X9DBL4B-S-2-
+1/1/5      Down    None    None None  None  Yes 1501 0   609c.9fc7.dad4  SM-X10DRWIO8B-S
+1/1/6      Down    None    None None  None  Yes 1501 0   609c.9fc7.dad5  SM-X10DRWIO8B-S
+1/1/7      Down    None    None None  None  Yes 422  0   609c.9fc7.dad0  SM-X10DRWIO8B-S
+1/1/8      Up      Forward Full 1G    None  Yes N/A  0   609c.9fc7.dad0  SM-X10DRWIO14B-
+1/1/9      Up      Forward Full 1G    None  Yes N/A  0   609c.9fc7.dad0  SM-X10DRWIO14B-
+1/1/10     Up      Forward Full 1G    None  Yes 422  0   609c.9fc7.dad0  SM-X10DRWIO14B-
+1/1/11     Up      Forward Full 1G    None  Yes 1063 0   609c.9fc7.dada  DE-R210II-S-2-L
+1/1/12     Disable None    None None  None  Yes 1065 0   609c.9fc7.dadb  SM-X9DBL4B-S-5-
+1/1/13     Up      Forward Full 100M  None  No  101  0   609c.9fc7.dadc  DE-R210II-S-3-L
+1/1/14     Up      Forward Full 100M  None  No  154  0   609c.9fc7.dadd  DE-R210II-S-4-L
+1/1/15     Up      Forward Full 1G    None  Yes 494  0   609c.9fc7.dad0  SM-X10DRWIO14B-
+1/1/16     Up      Forward Full 1G    None  No  416  0   609c.9fc7.dadf  JU-SRX340-C-1-L
+1/1/17     Up      Forward Full 1G    None  Yes 417  0   609c.9fc7.dae0  SM-X10DRWIO14B-
+1/1/18     Up      Forward Full 1G    None  Yes 417  0   609c.9fc7.dae1  SM-X10DRWIO8B-S
+1/1/19     Up      Forward Full 1G    None  Yes 417  0   609c.9fc7.dae2  SM-X10DRWIO8B-S
+1/1/20     Down    None    None None  None  Yes 417  0   609c.9fc7.dae3  SM-X10DRWIO8B-S
+1/1/21     Up      Forward Full 100M  None  No  417  0   609c.9fc7.dae4  SM-X9DBL4B-S-3-
+1/1/22     Up      Forward Full 100M  None  No  417  0   609c.9fc7.dae5  SM-X9DBL4B-S-4-
+1/1/23     Up      Forward Full 100M  None  No  417  0   609c.9fc7.dae6  SM-X9DBL36B-S-1
+1/1/24     Up      Forward Full 1G    None  No  415  0   609c.9fc7.dad0  SM-X9DBL36B-S-1
+1/1/25     Down    None    None None  None  No  1    0   609c.9fc7.dae8
+1/1/26     Down    None    None None  None  No  1    0   609c.9fc7.dae9
+1/1/27     Down    None    None None  None  No  1    0   609c.9fc7.daea
+1/1/28     Down    None    None None  None  No  1    0   609c.9fc7.daeb
+1/1/29     Down    None    None None  None  No  1    0   609c.9fc7.daec
+1/1/30     Down    None    None None  None  No  1    0   609c.9fc7.daed
+1/1/31     Down    None    None None  None  No  1    0   609c.9fc7.daee
+1/1/32     Down    None    None None  None  No  1    0   609c.9fc7.daef
+1/1/33     Down    None    None None  None  No  1    0   609c.9fc7.daf0
+1/1/34     Down    None    None None  None  No  1    0   609c.9fc7.daf1
+1/1/35     Down    None    None None  None  No  1    0   609c.9fc7.daf2
+1/1/36     Down    None    None None  None  No  1    0   609c.9fc7.daf3
+1/1/37     Down    None    None None  None  No  1    0   609c.9fc7.daf4
+1/1/38     Down    None    None None  None  No  1    0   609c.9fc7.daf5
+1/1/39     Down    None    None None  None  No  1    0   609c.9fc7.daf6
+1/1/40     Down    None    None None  None  No  1    0   609c.9fc7.daf7
+1/1/41     Down    None    None None  None  No  1    0   609c.9fc7.daf8
+1/1/42     Down    None    None None  None  No  1    0   609c.9fc7.daf9
+1/1/43     Down    None    None None  None  No  1    0   609c.9fc7.dafa
+1/1/44     Down    None    None None  None  No  1    0   609c.9fc7.dafb
+1/1/45     Down    None    None None  None  No  1    0   609c.9fc7.dafc
+1/1/46     Down    None    None None  None  No  1    0   609c.9fc7.dafd
+1/1/47     Up      Forward Full 1G    None  No  415  0   609c.9fc7.dad0  OG-CM7148-D-1-L
+1/1/48     Up      Forward Full 100M  None  No  415  0   609c.9fc7.dad0  AP-AP8953-D-1-L
+1/2/1      Up      Forward Full 10G   None  No  N/A  0   609c.9fc7.db01
+1/2/2      Up      Forward Full 10G   None  No  N/A  0   609c.9fc7.db02
+1/2/3      Up      Blocked Full 10G   44    Yes N/A  0   609c.9fc7.dad0  SM-X9DRWIO36B-S
+1/2/4      Up      Forward Full 10G   None  Yes N/A  0   609c.9fc7.dad0  FO-MLXE4-I-1-LD
+1/3/1      Up      Forward Full 10G   31    Yes N/A  0   609c.9fc7.dad0  SM-X10DRWIO14B-
+1/3/2      Up      Forward Full 10G   32    Yes N/A  0   609c.9fc7.dad0  SM-X10DRWIO14B-
+1/3/3      Up      Forward Full 10G   33    Yes N/A  0   609c.9fc7.dad0  SM-X10DRWIO14B-
+1/3/4      Up      Forward Full 10G   34    Yes N/A  0   609c.9fc7.dad0  SM-X10DRWIO14B-
+1/4/1      Up      Forward Full 10G   41    Yes N/A  0   609c.9fc7.dad0  SM-X10DRWIO8B-S
+1/4/2      Up      Forward Full 10G   42    Yes N/A  0   609c.9fc7.dad0  SM-X10DRWIO8B-S
+1/4/3      Down    None    None None  43    Yes N/A  0   609c.9fc7.dad0  SM-X10DRWIO8B-S
+1/4/4      Disable None    None None  None  Yes N/A  0   609c.9fc7.dad0  lag-x44
+2/1/1      Up      Forward Full 1G    None  Yes N/A  0   609c.9fc7.dad0  SM-X9DBL4B-S-3-
+2/1/2      Up      Forward Full 1G    None  Yes 494  0   609c.9fc8.1cd1  SM-X9DBL4B-S-4-
+2/1/3      Down    None    None None  None  Yes 1502 0   609c.9fc8.1cd2  SM-X10DRWIO8B-S
+2/1/4      Down    None    None None  None  Yes 1502 0   609c.9fc8.1cd3  SM-X10DRWIO8B-S
+2/1/5      Down    None    None None  None  Yes 1502 0   609c.9fc8.1cd4  SM-X10DRWIO8B-S
+2/1/6      Up      Forward Full 1G    None  Yes 494  0   609c.9fc7.dad0  SM-X10DRWIO14B-
+2/1/7      Up      Forward Full 1G    None  Yes 494  0   609c.9fc8.1cd6  SM-X10DRWIO14B-
+2/1/8      Up      Forward Full 1G    None  Yes 494  0   609c.9fc7.dad0  SM-X10DRWIO14B-
+2/1/9      Up      Forward Full 1G    None  No  416  0   609c.9fc8.1cd8  RESERVED-JU-SRX
+2/1/10     Down    None    None None  None  No  1    0   609c.9fc8.1cd9  AVAILABLE-IF
+2/1/11     Down    None    None None  None  No  1    0   609c.9fc8.1cda  AVAILABLE-IF
+2/1/12     Down    None    None None  None  No  1    0   609c.9fc8.1cdb  AVAILABLE-IF
+2/1/13     Down    None    None None  None  No  1    0   609c.9fc8.1cdc  AVAILABLE-IF
+2/1/14     Down    None    None None  None  Yes N/A  0   609c.9fc8.1cdd  "FO-ICX725024-I
+2/1/15     Up      Forward Full 1G    None  Yes N/A  0   609c.9fc8.1cde  SM-X10DRWIO14B-
+2/1/16     Down    None    None None  None  No  1    0   609c.9fc8.1cdf  AVAILABLE-IF
+2/1/17     Up      Forward Full 100M  None  No  417  0   609c.9fc8.1ce0  SM-X9DBL4B-S-5-
+2/1/18     Up      Forward Full 1G    None  Yes 417  0   609c.9fc8.1ce1  SM-X10DRWIO14B-
+2/1/19     Down    None    None None  None  Yes 417  0   609c.9fc8.1ce2  AVAILABLE
+2/1/20     Down    None    None None  None  Yes 417  0   609c.9fc8.1ce3  SM-X10DRWIO14B-
+2/1/21     Down    None    None None  None  No  417  0   609c.9fc8.1ce4  SM-X9DBL4B-S-2-
+2/1/22     Down    None    None None  None  No  417  0   609c.9fc8.1ce5  SM-X9DBL36B-S-1
+2/1/23     Down    None    None None  None  Yes N/A  0   609c.9fc8.1ce6  SM-X9DBL4B-S-1-
+2/1/24     Down    None    None None  None  No  415  0   609c.9fc7.dad0  AP-AP8953-D-2-L
+2/1/25     Down    None    None None  None  No  1    0   609c.9fc8.1ce8
+2/1/26     Down    None    None None  None  No  1    0   609c.9fc8.1ce9
+2/1/27     Down    None    None None  None  No  1    0   609c.9fc8.1cea
+2/1/28     Down    None    None None  None  No  1    0   609c.9fc8.1ceb
+2/1/29     Down    None    None None  None  No  1    0   609c.9fc8.1cec
+2/1/30     Down    None    None None  None  No  1    0   609c.9fc8.1ced
+2/1/31     Down    None    None None  None  No  1    0   609c.9fc8.1cee
+2/1/32     Down    None    None None  None  No  1    0   609c.9fc8.1cef
+2/1/33     Down    None    None None  None  No  1    0   609c.9fc8.1cf0
+2/1/34     Down    None    None None  None  No  1    0   609c.9fc8.1cf1
+2/1/35     Down    None    None None  None  No  1    0   609c.9fc8.1cf2
+2/1/36     Down    None    None None  None  No  1    0   609c.9fc8.1cf3
+2/1/37     Down    None    None None  None  No  1    0   609c.9fc8.1cf4
+2/1/38     Down    None    None None  None  No  1    0   609c.9fc8.1cf5
+2/1/39     Down    None    None None  None  No  1    0   609c.9fc8.1cf6
+2/1/40     Down    None    None None  None  No  1    0   609c.9fc8.1cf7
+2/1/41     Up      Forward Full 1G    None  Yes 417  0   609c.9fc8.1cf8  SM-X10DRWIO14B-
+2/1/42     Up      Forward Full 1G    None  Yes 417  0   609c.9fc8.1cf9  SM-X10DRWIO14B-
+2/1/43     Up      Forward Full 100M  None  No  417  0   609c.9fc8.1cfa  SM-X9DBL36B-S-1
+2/1/44     Up      Forward Full 100M  None  No  415  0   609c.9fc7.dad0  AP-AP8953-D-2-L
+2/1/45     Down    None    None None  None  No  1    0   609c.9fc8.1cfc
+2/1/46     Down    None    None None  None  No  1    0   609c.9fc8.1cfd
+2/1/47     Up      Forward Full 1G    None  No  1    0   609c.9fc8.1cfe
+2/1/48     Down    None    None None  None  No  1    0   609c.9fc8.1cff
+2/2/1      Up      Forward Full 10G   None  No  N/A  0   609c.9fc8.1d01
+2/2/2      Up      Forward Full 10G   None  No  N/A  0   609c.9fc8.1d02
+2/2/3      Down    None    None None  None  Yes N/A  0   609c.9fc8.1d03  CO::FO-TI24X-I-
+2/2/4      Up      Forward Full 10G   None  Yes N/A  0   609c.9fc7.dad0  CO::FO-MLXE4-I-
+2/3/1      Up      Forward Full 10G   31    Yes N/A  0   609c.9fc7.dad0  SM-X10DRWIO14B-
+2/3/2      Up      Forward Full 10G   32    Yes N/A  0   609c.9fc7.dad0  SM-X10DRWIO14B-
+2/3/3      Up      Forward Full 10G   33    Yes N/A  0   609c.9fc7.dad0  SM-X10DRWIO14B-
+2/3/4      Up      Forward Full 10G   34    Yes N/A  0   609c.9fc7.dad0  SM-X10DRWIO14B-
+2/4/1      Up      Forward Full 10G   41    Yes N/A  0   609c.9fc7.dad0  SM-X10DRWIO8B-S
+2/4/2      Up      Forward Full 10G   42    Yes N/A  0   609c.9fc7.dad0  SM-X10DRWIO8B-S
+2/4/3      Down    None    None None  43    Yes N/A  0   609c.9fc7.dad0  SM-X10DRWIO8B-S
+2/4/4      Up      Forward Full 10G   44    Yes N/A  0   609c.9fc7.dad0  SM-X9DRWIO36B-S
+lg31       Up      Forward Full 20G   31    Yes N/A  0   609c.9fc7.dad0  SM-X10DRWIO14B-
+lg32       Up      Forward Full 20G   32    Yes N/A  0   609c.9fc7.dad0
+lg33       Up      Forward Full 20G   33    Yes N/A  0   609c.9fc7.dad0
+lg34       Up      Forward Full 20G   34    Yes N/A  0   609c.9fc7.dad0
+lg41       Up      Forward Full 20G   41    Yes N/A  0   609c.9fc7.dad0  SM-X10DRWIO8B-S
+lg42       Up      Forward Full 20G   42    Yes N/A  0   609c.9fc7.dad0  SM-X10DRWIO8B-S
+lg43       Down    None    None None  43    Yes N/A  0   609c.9fc7.dad0  SM-X10DRWIO8B-S
+lg44       Up      Forward Full 20G   44    Yes N/A  0   609c.9fc7.dad0  SM-X9DBL36B-S-1
+mgmt1      Disable None    None None  None  No  None 0   609c.9fc7.dad0
+
+Port       Link    State   Dupl Speed Trunk Tag Pvid Pri MAC             Name
+ve409      Up      N/A     N/A  N/A   None  N/A N/A  N/A 609c.9fc7.dad0  P2P-1
+ve415      Up      N/A     N/A  N/A   None  N/A N/A  N/A 609c.9fc7.dad0  CONTROL-IF
+ve459      Up      N/A     N/A  N/A   None  N/A N/A  N/A 609c.9fc7.dad0  SRX320
+ve3416     Up      N/A     N/A  N/A   None  N/A N/A  N/A 609c.9fc7.dad0  SE-GENERAL
+ve3417     Up      N/A     N/A  N/A   None  N/A N/A  N/A 609c.9fc7.dad0  ELASTICSEARCH
+ve3418     Up      N/A     N/A  N/A   None  N/A N/A  N/A 609c.9fc7.dad0  KAFKA
+ve3419     Up      N/A     N/A  N/A   None  N/A N/A  N/A 609c.9fc7.dad0  GRAPHITE
+ve3420     Up      N/A     N/A  N/A   None  N/A N/A  N/A 609c.9fc7.dad0
+ve3421     Down    N/A     N/A  N/A   None  N/A N/A  N/A 609c.9fc7.dad0
+ve3422     Up      N/A     N/A  N/A   None  N/A N/A  N/A 609c.9fc7.dad0
+ve3423     Up      N/A     N/A  N/A   None  N/A N/A  N/A 609c.9fc7.dad0
+
+Port       Link    State   Dupl Speed Trunk Tag Pvid Pri MAC             Name
+lb2        Up      N/A     N/A  N/A   None  N/A N/A  N/A N/A             uk-LOOPBACK

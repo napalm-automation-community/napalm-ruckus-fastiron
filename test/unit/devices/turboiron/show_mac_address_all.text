@@ -1,0 +1,26 @@
+Total active entries from all ports = 196
+MAC-Address     Port           Type         VLAN  Action
+44d9.e7b2.7e1f  2              Dynamic      880   forward
+68d7.9a50.5206  1              Dynamic      1020  forward
+0020.d2b9.f80e  16             Dynamic      563   forward
+1806.f5ef.f8a5  16             Dynamic      555   forward
+0020.d2b0.e8b9  16             Dynamic      1543  forward
+609c.9f84.0900  7-21           Dynamic      118   forward
+0024.38a4.8b00  5-23           Dynamic      563   forward
+ec3e.f7cc.6ee6  16             Dynamic      602   forward
+384f.492d.f805  16             Dynamic      1992  forward
+00d0.8b00.8d51  16             Dynamic      3301  forward
+24e9.b3b1.d485  20             Dynamic      2837  forward
+a460.3200.e293  16             Dynamic      1543  forward
+4437.0800.7710  16             Dynamic      553   forward
+00d0.8b00.5baf  16             Dynamic      3302  forward
+a460.3200.1f6f  16             Dynamic      1202  forward
+3cec.ef46.486c  2              Dynamic      850   forward
+0024.38a4.8b00  5-23           Dynamic      3301  forward
+48c0.938b.9f6f  2              Dynamic      880   forward
+8ef3.fbf8.9c24  2              Dynamic      858   forward
+MAC-Address     Port           Type         VLAN  Action
+609c.9fd6.12e8  16             Dynamic      604   forward
+e41d.2d10.2f31  16             Dynamic      1992  forward
+d4ae.52c9.a764  2              Dynamic      858   forward
+68d7.9a50.5207  1              Dynamic      1006  forward
