@@ -1,0 +1,54 @@
+  Copyright (c) 1996-2017 Brocade Communications Systems, Inc. All rights reserved.
+    UNIT 1: compiled on Jul  5 2017 at 19:06:36 labeled as SPR08061
+      (28313480 bytes) from Primary SPR08061.bin
+        SW: Version 08.0.61T213
+      Compressed Boot-Monitor Image size = 786944, Version:10.1.10T215 (spz10110)
+       Compiled on Sun Jun 25 09:26:29 2017
+    UNIT 2: compiled on Jul  5 2017 at 19:06:36 labeled as SPR08061
+      (28313480 bytes) from Primary SPR08061.bin
+        SW: Version 08.0.61T213
+      Compressed Boot-Monitor Image size = 786944, Version:10.1.10T215 (spz10110)
+
+  HW: Stackable ICX7450-48
+  Internal USB: Serial #: 1234567041000987
+      Vendor: ATP Electronics, Total size = 1919 MB
+==========================================================================
+UNIT 1: SL 1: ICX7450-48 48-port Management Module
+      Serial  #:CYQ1234N321
+      License: ICX7450_L3_SOFT_PACKAGE   (LID: easIIGLpFGG)
+      License Compliance: ICX7450-PREM-LIC-SW is Compliant
+      P-ASIC  0: type B548, rev 01  Chip BCM56548_A0
+==========================================================================
+UNIT 1: SL 2: ICX7400-4X10GF 4-port 40G Module
+      Serial  #:CYQ1234N321
+==========================================================================
+UNIT 1: SL 3: ICX7400-4X10GF 4-port 40G Module
+      Serial  #:CYQ1234N321
+==========================================================================
+UNIT 1: SL 4: ICX7400-4X10GF 4-port 40G Module
+      Serial  #:CYQ1234N321
+==========================================================================
+UNIT 2: SL 1: ICX7450-48 48-port Management Module
+      Serial  #:CYQ1234N321
+      License: ICX7450_L3_SOFT_PACKAGE   (LID: easIIGNpFII)
+      License Compliance: ICX7450-PREM-LIC-SW is Compliant
+==========================================================================
+UNIT 2: SL 2: ICX7400-4X10GF 4-port 40G Module
+      Serial  #:CYQ1234N321
+==========================================================================
+UNIT 2: SL 3: ICX7400-4X10GF 4-port 40G Module
+      Serial  #:CYQ1234N321
+==========================================================================
+UNIT 2: SL 4: ICX7400-4X10GF 4-port 40G Module
+      Serial  #:CYQ1234N321
+==========================================================================
+ 1000 MHz ARM processor ARMv7 88 MHz bus
+ 8192 KB boot flash memory
+ 2048 MB code flash memory
+ 2048 MB DRAM
+STACKID 1  system uptime is 172 day(s) 21 hour(s) 16 minute(s) 26 second(s)
+STACKID 2  system uptime is 149 day(s) 13 hour(s) 18 minute(s) 16 second(s)
+The system started at 06:15:57 GMT+00 Wed Jun 23 2021
+
+The system : started=warm start   reloaded=by "reload"
+My stack unit ID = 1, bootup role = active

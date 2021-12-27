@@ -1,0 +1,18 @@
+  SW: Version 07.3.00hT203 Copyright (c) 1996-2013 Brocade Communications Systems, Inc.
+      Compiled on Jan 23 2014 at 23:19:32 labeled as TIR07300h
+      (6633155 bytes) from Primary foundry/ti24x/TIR07300h.bin
+      Compressed Boot-Monitor Image size = 369366, Version:07.3.00T205 (trz07300)
+  HW: Stackable TurboIron-X24
+==========================================================================
+      Serial  #: BFF1234F89F
+      P-ASIC  0: type B820, rev 11  subrev 00
+==========================================================================
+  825 MHz Power PC processor MPC8541E (version 8020/0020) 330 MHz bus
+  512 KB boot flash memory
+31744 KB code flash memory
+  512 MB DRAM
+The system uptime is 413 days 2 hours 42 minutes 20 seconds
+The system started at 08:13:37 GMT+00 Mon Oct 26 2020
+
+The system :
+

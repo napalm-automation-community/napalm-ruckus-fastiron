@@ -1,0 +1,92 @@
+{
+  "default": {
+    "name": "default",
+    "type": "DEFAULT_INSTANCE",
+    "state": {
+      "route_distinguisher": ""
+    },
+    "interfaces": {
+      "interface": {
+        "Ve415": {},
+        "Ve1066": {},
+        "Ve1108": {},
+        "Ve275": {},
+        "Ve148": {},
+        "Ve924": {},
+        "Ve1442": {},
+        "Ve3432": {},
+        "Ve3433": {},
+        "Ve906": {},
+        "Ve1127": {},
+        "Ve1204": {},
+        "Ve1213": {},
+        "Ve1201": {},
+        "Ve1132": {},
+        "Ve1219": {},
+        "Ve1120": {},
+        "Ve1104": {},
+        "Ve1816": {},
+        "Ve1892": {},
+        "Ve1700": {},
+        "Ve1503": {},
+        "Ve1106": {},
+        "Ve998": {},
+        "Ve905": {},
+        "Ve923": {},
+        "Ve1498": {},
+        "Ve1112": {},
+        "Ve1490": {},
+        "Ve1294": {},
+        "Ve1392": {}
+      }
+    }
+  },
+  "chomp": {
+    "name": "chomp",
+    "type": "L3VRF",
+    "state": {
+      "route_distinguisher": "9999:1020"
+    },
+    "interfaces": {
+      "interface": {
+        "Ve1404": {},
+        "Ve3435": {},
+        "Ve3436": {},
+        "Ve402": {}
+      }
+    }
+  },
+  "mgmt": {
+    "name": "mgmt",
+    "type": "L3VRF",
+    "state": {
+      "route_distinguisher": "13336:1"
+    },
+    "interfaces": {
+      "interface": {}
+    }
+  },
+  "uk-vrf": {
+    "name": "uk-vrf",
+    "type": "L3VRF",
+    "state": {
+      "route_distinguisher": "6035:15"
+    },
+    "interfaces": {
+      "interface": {
+        "Ve409": {},
+        "Ve459": {},
+        "Ve3416": {},
+        "Ve3417": {},
+        "Ve3418": {},
+        "Ve3419": {},
+        "Ve3420": {},
+        "Ve3422": {},
+        "Ve3423": {},
+        "Ve505": {},
+        "Ve506": {},
+        "Loopback2": {}
+      }
+    }
+  }
+}

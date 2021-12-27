@@ -1,0 +1,37 @@
+Port    Link    State   Dupl Speed Trunk Tag Pvid Pri MAC            Name
+1       Up      Forward Full 10G   None  Yes N/A  0   0024.3817.928b  TO:MR-OS
+2       Up      Forward Full 10G   None  Yes N/A  0   0024.3817.928b  FO-CER20
+3       Up      Forward Full 10G   None  No  3869 0   0024.3817.928b  SM-X9DBL
+4       Up      Forward Full 10G   None  No  3869 0   0024.3817.928b  SM-X10SR
+5       Up      Forward Full 10G   5     Yes N/A  0   0024.3817.928b  MLXe8--T
+6       Up      Forward Full 10G   None  Yes N/A  0   0024.3817.9290  CO::AR-7
+7       Up      Forward Full 10G   7     Yes N/A  0   0024.3817.9291  10G_TO_O
+8       Up      Forward Full 10G   None  No  79   0   0024.3817.9292  10G SHAP
+9       Up      Forward Full 10G   None  No  81   0   0024.3817.9293  10G SHAP
+10      Up      Forward Full 10G   None  Yes N/A  0   0024.3817.9294  AR-7280S
+11      Up      Forward Full 10G   None  Yes N/A  0   0024.3817.9295  TO:MR-OS
+12      Down    None    None None  None  No  82   0   0024.3817.9296  10G SHAP
+13      Up      Forward Full 10G   5     Yes N/A  0   0024.3817.928b  CO::FO-M
+14      Disable None    None None  None  Yes N/A  0   0024.3817.9298  BAD-GOES
+15      Up      Forward Full 10G   None  Yes N/A  0   0024.3817.9299  TECHNIC1
+16      Up      Forward Full 10G   None  Yes N/A  0   0024.3817.928b  TO::MR-O
+17      Disable None    None None  None  No  1    0   0024.3817.929b  LR-919-F
+18      Up      Forward Full 10G   5     Yes N/A  0   0024.3817.928b  FO-MLXE8
+19      Up      Forward Full 10G   None  No  3869 0   0024.3817.928b  SM-X9DBL
+20      Up      Forward Full 10G   None  Yes N/A  0   0024.3817.929e  DIRECTLY
+21      Up      Forward Full 10G   7     Yes N/A  0   0024.3817.9291  FORE-159
+22      Up      Forward Full 10G   None  Yes N/A  0   0024.3817.92a0  SM-X10SR
+23      Up      Forward Full 10G   5     Yes N/A  0   0024.3817.928b  MLXe8--T
+24      Up      Forward Full 10G   None  Yes N/A  0   0024.3817.92a2  TO::MR-O
+25      Down    None    None None  None  No  1    0   0024.3817.92a3  AVAILABL
+26      Disable None    None None  None  No  1    0   0024.3817.92a4  AVAILABL
+27      Disable None    None None  None  No  1    0   0024.3817.92a5  AVAILABL
+28      Disable None    None None  None  No  1    0   0024.3817.92a6  AVAILABL
+mgmt1   Up      None    Full 100M  None  No  None 0   0024.3817.928b
+
+Port    Link    State   Dupl Speed Trunk Tag Pvid Pri MAC            Name
+ve123   Up      N/A     N/A  N/A   None  N/A N/A  N/A 0024.3817.928b
+ve3869  Up      N/A     N/A  N/A   None  N/A N/A  N/A 0024.3817.928b  BLURRYXX
+
+Port    Link    State   Dupl Speed Trunk Tag Pvid Pri MAC            Name
+lb1     Up      N/A     N/A  N/A   None  N/A N/A  N/A N/A

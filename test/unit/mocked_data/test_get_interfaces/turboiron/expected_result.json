@@ -1,0 +1,272 @@
+{
+  "10GigabitEthernet1": {
+    "is_up": true,
+    "is_enabled": true,
+    "description": "TO:MR-OSV8-C-1",
+    "last_flapped": -1,
+    "speed": 10000,
+    "mtu": 9216,
+    "mac_address": "0024.3817.928b"
+  },
+  "10GigabitEthernet2": {
+    "is_up": true,
+    "is_enabled": true,
+    "description": "FO-CER2000-I-1",
+    "last_flapped": -1,
+    "speed": 10000,
+    "mtu": 9216,
+    "mac_address": "0024.3817.928b"
+  },
+  "10GigabitEthernet3": {
+    "is_up": true,
+    "is_enabled": true,
+    "description": "SM-X9DBL4B-Z-2",
+    "last_flapped": -1,
+    "speed": 10000,
+    "mtu": 9216,
+    "mac_address": "0024.3817.928b"
+  },
+  "10GigabitEthernet4": {
+    "is_up": true,
+    "is_enabled": true,
+    "description": "SM-X10SRI4B-Z-2",
+    "last_flapped": -1,
+    "speed": 10000,
+    "mtu": 9216,
+    "mac_address": "0024.3817.928b"
+  },
+  "10GigabitEthernet5": {
+    "is_up": true,
+    "is_enabled": true,
+    "description": "MLXe8--TIXX",
+    "last_flapped": -1,
+    "speed": 10000,
+    "mtu": 9216,
+    "mac_address": "0024.3817.928b"
+  },
+  "10GigabitEthernet6": {
+    "is_up": true,
+    "is_enabled": true,
+    "description": "CO::AR-7280SR248YC6-I-1::Et54",
+    "last_flapped": -1,
+    "speed": 10000,
+    "mtu": 9216,
+    "mac_address": "0024.3817.9290"
+  },
+  "10GigabitEthernet7": {
+    "is_up": true,
+    "is_enabled": true,
+    "description": "10G_TO_BROWN",
+    "last_flapped": -1,
+    "speed": 10000,
+    "mtu": 9216,
+    "mac_address": "0024.3817.9291"
+  },
+  "10GigabitEthernet8": {
+    "is_up": true,
+    "is_enabled": true,
+    "description": "Dell Server",
+    "last_flapped": -1,
+    "speed": 10000,
+    "mtu": 9216,
+    "mac_address": "0024.3817.9292"
+  },
+  "10GigabitEthernet9": {
+    "is_up": true,
+    "is_enabled": true,
+    "description": "Dell Server 2",
+    "last_flapped": -1,
+    "speed": 10000,
+    "mtu": 9216,
+    "mac_address": "0024.3817.9293"
+  },
+  "10GigabitEthernet10": {
+    "is_up": true,
+    "is_enabled": true,
+    "description": "AR-7280SR248YC6-I-1",
+    "last_flapped": -1,
+    "speed": 10000,
+    "mtu": 9216,
+    "mac_address": "0024.3817.9294"
+  },
+  "10GigabitEthernet11": {
+    "is_up": true,
+    "is_enabled": true,
+    "description": "TO:MR-OS940-I-1--QinQ",
+    "last_flapped": -1,
+    "speed": 10000,
+    "mtu": 9216,
+    "mac_address": "0024.3817.9295"
+  },
+  "10GigabitEthernet12": {
+    "is_up": false,
+    "is_enabled": false,
+    "description": "Dell Server 3",
+    "last_flapped": -1,
+    "speed": 10000,
+    "mtu": 9216,
+    "mac_address": "0024.3817.9296"
+  },
+  "10GigabitEthernet13": {
+    "is_up": true,
+    "is_enabled": true,
+    "description": "CO::FO-MLXE8-I-1",
+    "last_flapped": -1,
+    "speed": 10000,
+    "mtu": 9216,
+    "mac_address": "0024.3817.928b"
+  },
+  "10GigabitEthernet14": {
+    "is_up": false,
+    "is_enabled": false,
+    "description": "BAD-GOES-INTO-BLOCKING",
+    "last_flapped": -1,
+    "speed": 10000,
+    "mtu": 9216,
+    "mac_address": "0024.3817.9298"
+  },
+  "10GigabitEthernet15": {
+    "is_up": true,
+    "is_enabled": true,
+    "description": "CUSTOMER",
+    "last_flapped": -1,
+    "speed": 10000,
+    "mtu": 9216,
+    "mac_address": "0024.3817.9299"
+  },
+  "10GigabitEthernet16": {
+    "is_up": true,
+    "is_enabled": true,
+    "description": "TO::MR-OS940-I-2",
+    "last_flapped": -1,
+    "speed": 10000,
+    "mtu": 9216,
+    "mac_address": "0024.3817.928b"
+  },
+  "10GigabitEthernet17": {
+    "is_up": false,
+    "is_enabled": false,
+    "description": "LR-919-FO-TI24X-I-1",
+    "last_flapped": -1,
+    "speed": 10000,
+    "mtu": 9216,
+    "mac_address": "0024.3817.929b"
+  },
+  "10GigabitEthernet18": {
+    "is_up": true,
+    "is_enabled": true,
+    "description": "FO-MLXE8-I-1-_ETH2/1",
+    "last_flapped": -1,
+    "speed": 10000,
+    "mtu": 9216,
+    "mac_address": "0024.3817.928b"
+  },
+  "10GigabitEthernet19": {
+    "is_up": true,
+    "is_enabled": true,
+    "description": "SM-X9DBL4B-Z-3",
+    "last_flapped": -1,
+    "speed": 10000,
+    "mtu": 9216,
+    "mac_address": "0024.3817.928b"
+  },
+  "10GigabitEthernet20": {
+    "is_up": true,
+    "is_enabled": true,
+    "description": "SCANNER-LA-10G",
+    "last_flapped": -1,
+    "speed": 10000,
+    "mtu": 9216,
+    "mac_address": "0024.3817.929e"
+  },
+  "10GigabitEthernet21": {
+    "is_up": true,
+    "is_enabled": true,
+    "description": "FORE-9900",
+    "last_flapped": -1,
+    "speed": 10000,
+    "mtu": 9216,
+    "mac_address": "0024.3817.9291"
+  },
+  "10GigabitEthernet22": {
+    "is_up": true,
+    "is_enabled": true,
+    "description": "SM-X10SRW4B-Z-2--vmnic3",
+    "last_flapped": -1,
+    "speed": 10000,
+    "mtu": 9216,
+    "mac_address": "0024.3817.92a0"
+  },
+  "10GigabitEthernet23": {
+    "is_up": true,
+    "is_enabled": true,
+    "description": "MLXe8",
+    "last_flapped": -1,
+    "speed": 10000,
+    "mtu": 9216,
+    "mac_address": "0024.3817.928b"
+  },
+  "10GigabitEthernet24": {
+    "is_up": true,
+    "is_enabled": true,
+    "description": "TO::MR-OS940-I-1-::E15",
+    "last_flapped": -1,
+    "speed": 10000,
+    "mtu": 9216,
+    "mac_address": "0024.3817.92a2"
+  },
+  "GigabitEthernet25": {
+    "is_up": false,
+    "is_enabled": false,
+    "description": "AVAILABLE-IF",
+    "last_flapped": -1,
+    "speed": 1000,
+    "mtu": 9216,
+    "mac_address": "0024.3817.92a3"
+  },
+  "GigabitEthernet26": {
+    "is_up": false,
+    "is_enabled": false,
+    "description": "AVAILABLE-IF",
+    "last_flapped": -1,
+    "speed": 1000,
+    "mtu": 9216,
+    "mac_address": "0024.3817.92a4"
+  },
+  "GigabitEthernet27": {
+    "is_up": false,
+    "is_enabled": false,
+    "description": "AVAILABLE-IF",
+    "last_flapped": -1,
+    "speed": 1000,
+    "mtu": 9216,
+    "mac_address": "0024.3817.92a5"
+  },
+  "GigabitEthernet28": {
+    "is_up": false,
+    "is_enabled": false,
+    "description": "AVAILABLE-IF",
+    "last_flapped": -1,
+    "speed": 1000,
+    "mtu": 9216,
+    "mac_address": "0024.3817.92a6"
+  },
+  "Ethernetmgmt1": {
+    "is_up": true,
+    "is_enabled": false,
+    "description": "",
+    "last_flapped": -1,
+    "speed": 1000,
+    "mtu": 1500,
+    "mac_address": "0024.3817.928b"
+  },
+  "Ve123": {
+    "is_up": true,
+    "is_enabled": true,
+    "description": "",
+    "last_flapped": -1,
+    "speed": 0,
+    "mtu": 9198,
+    "mac_address": "0024.3817.928b"
+  }
+}

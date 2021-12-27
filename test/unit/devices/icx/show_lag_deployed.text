@@ -1,0 +1,166 @@
+Total number of LAGs:          8
+Total number of deployed LAGs: 8
+Total number of trunks created:8 (248 available)
+LACP System Priority / ID:     1 / 609c.9fc7.dad0
+LACP Long timeout:             120, default: 120
+LACP Short timeout:            3, default: 3
+=== LAG "SM-X10DRWIO8B-Z-1" ID 41 (dynamic Deployed) ===
+LAG Configuration:
+   Ports:         e 1/4/1 e 2/4/1
+   Port Count:    2
+   Lag Interface: lg41
+   Trunk Type:    hash-based
+   LACP Key:      20041
+   LACP Timeout:  short
+Deployment: HW Trunk ID 5
+Port       Link    State   Dupl Speed Trunk Tag Pvid Pri MAC             Name
+1/4/1      Up      Forward Full 10G   41    Yes N/A  0   609c.9fc7.dad0  SM-X10DRWIO8B-S
+2/4/1      Up      Forward Full 10G   41    Yes N/A  0   609c.9fc7.dad0  SM-X10DRWIO8B-S
+Port       [Sys P] [Port P] [ Key ] [Act][Tio][Agg][Syn][Col][Dis][Def][Exp][Ope]
+1/4/1           1        1   20041   Yes   S   Agg  Syn  Col  Dis  No   No   Ope
+2/4/1           1        1   20041   Yes   S   Agg  Syn  Col  Dis  No   No   Ope
+ Partner Info and PDU Statistics
+Port          Partner         Partner     LACP      LACP
+             System ID         Key     Rx Count  Tx Count
+1/4/1    65535-0cc4.7aea.1c40       15 14958554  11810955
+2/4/1    65535-0cc4.7aea.1c40       15 14957818  11810277
+=== LAG "SM-X10DRWIO8B-Z-2" ID 42 (dynamic Deployed) ===
+LAG Configuration:
+   Ports:         e 1/4/2 e 2/4/2
+   Port Count:    2
+   Lag Interface: lg42
+   Trunk Type:    hash-based
+   LACP Key:      20042
+   LACP Timeout:  short
+Deployment: HW Trunk ID 6
+Port       Link    State   Dupl Speed Trunk Tag Pvid Pri MAC             Name
+1/4/2      Up      Forward Full 10G   42    Yes N/A  0   609c.9fc7.dad0  SM-X10DRWIO8B-S
+2/4/2      Up      Forward Full 10G   42    Yes N/A  0   609c.9fc7.dad0  SM-X10DRWIO8B-S
+Port       [Sys P] [Port P] [ Key ] [Act][Tio][Agg][Syn][Col][Dis][Def][Exp][Ope]
+1/4/2           1        1   20042   Yes   S   Agg  Syn  Col  Dis  No   No   Ope
+2/4/2           1        1   20042   Yes   S   Agg  Syn  Col  Dis  No   No   Ope
+ Partner Info and PDU Statistics
+Port          Partner         Partner     LACP      LACP
+             System ID         Key     Rx Count  Tx Count
+1/4/2    65535-0cc4.7a88.6cf0       15 15029806  11811550
+2/4/2    65535-0cc4.7a88.6cf0       15 15029073  11810870
+=== LAG "SM-X10DRWIO8B-Z-3" ID 43 (dynamic Deployed) ===
+LAG Configuration:
+   Ports:         e 1/4/3 e 2/4/3
+   Port Count:    2
+   Lag Interface: lg43
+   Trunk Type:    hash-based
+   LACP Key:      20043
+   LACP Timeout:  short
+Deployment: HW Trunk ID 7
+Port       Link    State   Dupl Speed Trunk Tag Pvid Pri MAC             Name
+1/4/3      Down    None    None None  43    Yes N/A  0   609c.9fc7.dad0  SM-X10DRWIO8B-S
+2/4/3      Down    None    None None  43    Yes N/A  0   609c.9fc7.dad0  SM-X10DRWIO8B-S
+Port       [Sys P] [Port P] [ Key ] [Act][Tio][Agg][Syn][Col][Dis][Def][Exp][Ope]
+1/4/3           1        1   20043   Yes   S   Agg  Syn  No   No   Def  No   Dwn
+2/4/3           1        1   20043   Yes   S   Agg  Syn  No   No   Def  No   Dwn
+ Partner Info and PDU Statistics
+Port          Partner         Partner     LACP      LACP
+             System ID         Key     Rx Count  Tx Count
+1/4/3    1-0000.0000.0000      194        0         0
+2/4/3    1-0000.0000.0000      450        0         0
+=== LAG "SM-X9DRWIO36B-Z-1" ID 44 (dynamic Deployed) ===
+LAG Configuration:
+   Ports:         e 1/2/3 e 2/4/4
+   Port Count:    2
+   Lag Interface: lg44
+   Trunk Type:    hash-based
+   LACP Key:      20044
+   LACP Timeout:  short
+Deployment: HW Trunk ID 8
+Port       Link    State   Dupl Speed Trunk Tag Pvid Pri MAC             Name
+1/2/3      Up      Blocked Full 10G   44    Yes N/A  0   609c.9fc7.dad0  SM-X9DRWIO36B-S
+2/4/4      Up      Forward Full 10G   44    Yes N/A  0   609c.9fc7.dad0  SM-X9DRWIO36B-S
+Port       [Sys P] [Port P] [ Key ] [Act][Tio][Agg][Syn][Col][Dis][Def][Exp][Ope]
+1/2/3           1        1   20044   Yes   S   Agg  Syn  Col  Dis  Def  No   Ina
+2/4/4           1        1   20044   Yes   S   Agg  Syn  Col  Dis  No   No   Ope
+ Partner Info and PDU Statistics
+Port          Partner         Partner     LACP      LACP
+             System ID         Key     Rx Count  Tx Count
+1/2/3    1-0000.0000.0000       66        0  11811562
+2/4/4    65535-0cc4.7a8f.d79d       15 15056762  11810870
+=== LAG "lag31" ID 31 (dynamic Deployed) ===
+LAG Configuration:
+   Ports:         e 1/3/1 e 2/3/1
+   Port Count:    2
+   Lag Interface: lg31
+   Trunk Type:    hash-based
+   LACP Key:      20031
+   LACP Timeout:  short
+Deployment: HW Trunk ID 1
+Port       Link    State   Dupl Speed Trunk Tag Pvid Pri MAC             Name
+1/3/1      Up      Forward Full 10G   31    Yes N/A  0   609c.9fc7.dad0  SM-X10DRWIO14B-
+2/3/1      Up      Forward Full 10G   31    Yes N/A  0   609c.9fc7.dad0  SM-X10DRWIO14B-
+Port       [Sys P] [Port P] [ Key ] [Act][Tio][Agg][Syn][Col][Dis][Def][Exp][Ope]
+1/3/1           1        1   20031   Yes   S   Agg  Syn  Col  Dis  No   No   Ope
+2/3/1           1        1   20031   Yes   S   Agg  Syn  Col  Dis  No   No   Ope
+ Partner Info and PDU Statistics
+Port          Partner         Partner     LACP      LACP
+             System ID         Key     Rx Count  Tx Count
+1/3/1    65534-0cc4.7a88.6cd6        1 15049731    432138
+2/3/1    65534-0cc4.7a88.6cd6        1 15048995    432092
+=== LAG "lag32" ID 32 (dynamic Deployed) ===
+LAG Configuration:
+   Ports:         e 1/3/2 e 2/3/2
+   Port Count:    2
+   Lag Interface: lg32
+   Trunk Type:    hash-based
+   LACP Key:      20032
+   LACP Timeout:  short
+Deployment: HW Trunk ID 2
+Port       Link    State   Dupl Speed Trunk Tag Pvid Pri MAC             Name
+1/3/2      Up      Forward Full 10G   32    Yes N/A  0   609c.9fc7.dad0  SM-X10DRWIO14B-
+2/3/2      Up      Forward Full 10G   32    Yes N/A  0   609c.9fc7.dad0  SM-X10DRWIO14B-
+Port       [Sys P] [Port P] [ Key ] [Act][Tio][Agg][Syn][Col][Dis][Def][Exp][Ope]
+1/3/2           1        1   20032   Yes   S   Agg  Syn  Col  Dis  No   No   Ope
+2/3/2           1        1   20032   Yes   S   Agg  Syn  Col  Dis  No   No   Ope
+ Partner Info and PDU Statistics
+Port          Partner         Partner     LACP      LACP
+             System ID         Key     Rx Count  Tx Count
+1/3/2    65534-0cc4.7aea.4690        1 15049991    432138
+2/3/2    65534-0cc4.7aea.4690        1 15049255    432092
+=== LAG "lag33" ID 33 (dynamic Deployed) ===
+LAG Configuration:
+   Ports:         e 1/3/3 e 2/3/3
+   Port Count:    2
+   Lag Interface: lg33
+   Trunk Type:    hash-based
+   LACP Key:      20033
+   LACP Timeout:  short
+Deployment: HW Trunk ID 3
+Port       Link    State   Dupl Speed Trunk Tag Pvid Pri MAC             Name
+1/3/3      Up      Forward Full 10G   33    Yes N/A  0   609c.9fc7.dad0  SM-X10DRWIO14B-
+2/3/3      Up      Forward Full 10G   33    Yes N/A  0   609c.9fc7.dad0  SM-X10DRWIO14B-
+Port       [Sys P] [Port P] [ Key ] [Act][Tio][Agg][Syn][Col][Dis][Def][Exp][Ope]
+1/3/3           1        1   20033   Yes   S   Agg  Syn  Col  Dis  No   No   Ope
+2/3/3           1        1   20033   Yes   S   Agg  Syn  Col  Dis  No   No   Ope
+ Partner Info and PDU Statistics
+Port          Partner         Partner     LACP      LACP
+             System ID         Key     Rx Count  Tx Count
+1/3/3    65534-0025.9093.5f58        1 15051324    432344
+2/3/3    65534-0025.9093.5f58        1 15050588    432299
+=== LAG "lag34" ID 34 (dynamic Deployed) ===
+LAG Configuration:
+   Ports:         e 1/3/4 e 2/3/4
+   Port Count:    2
+   Lag Interface: lg34
+   Trunk Type:    hash-based
+   LACP Key:      20034
+   LACP Timeout:  short
+Deployment: HW Trunk ID 4
+Port       Link    State   Dupl Speed Trunk Tag Pvid Pri MAC             Name
+1/3/4      Up      Forward Full 10G   34    Yes N/A  0   609c.9fc7.dad0  SM-X10DRWIO14B-
+2/3/4      Up      Forward Full 10G   34    Yes N/A  0   609c.9fc7.dad0  SM-X10DRWIO14B-
+Port       [Sys P] [Port P] [ Key ] [Act][Tio][Agg][Syn][Col][Dis][Def][Exp][Ope]
+1/3/4           1        1   20034   Yes   S   Agg  Syn  Col  Dis  No   No   Ope
+2/3/4           1        1   20034   Yes   S   Agg  Syn  Col  Dis  No   No   Ope
+ Partner Info and PDU Statistics
+Port          Partner         Partner     LACP      LACP
+             System ID         Key     Rx Count  Tx Count
+1/3/4    65534-0cc4.7a88.7662        1 15050741    432138
+2/3/4    65534-0cc4.7a88.7662        1 15050006    432092

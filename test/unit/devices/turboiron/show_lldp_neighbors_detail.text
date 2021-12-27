@@ -1,0 +1,78 @@
+Local port: 2
+  Neighbor: 0024.3851.c512, TTL 97 seconds
+    + Chassis ID (MAC address): 0024.3851.c4e0
+    + Port ID (MAC address): 0024.3851.c512
+    + Time to live: 120 seconds
+    + System name         : "FO-CER2000-Z-1"
+    + Port description    : "10GigabitEthernet2/2"
+    + Management address (IPv4): 20.0.1.1
+
+Local port: 5
+  Neighbor: 0024.38a4.8c07, TTL 101 seconds
+    + Chassis ID (MAC address): 0024.38a4.8b00
+    + Port ID (MAC address): 0024.38a4.8c07
+    + Time to live: 120 seconds
+    + System name         : "FO-MLXE8-Z-1"
+    + Port description    : "10GigabitEthernet6/24"
+    + Management address (IPv4): 20.0.1.1
+
+Local port: 6
+  Neighbor: 985d.8228.cf5e, TTL 104 seconds
+    + Chassis ID (MAC address): 985d.8228.cf53
+    + Port ID (interface name): "Ethernet11"
+    + Time to live: 120 seconds
+    + Port description    : "CO::FO-TI24X-Z-1::e6::AVAILABLE"
+    + System name         : "AR-7280SR248YC6-Z-1"
+
+Local port: 7
+  Neighbor: 609c.9f84.0966, TTL 95 seconds
+    + Chassis ID (MAC address): 609c.9f84.0900
+    + Port ID (MAC address): 609c.9f84.0966
+    + Time to live: 120 seconds
+    + System name         : "FO-MLXE4-Z-1"
+    + Port description    : "10GigabitEthernet3/7"
+    + Management address (IPv4): 20.0.1.1
+
+Local port: 10
+  Neighbor: 985d.8228.cf59, TTL 104 seconds
+    + Chassis ID (MAC address): 985d.8228.cf53
+    + Port ID (interface name): "Ethernet6"
+    + Time to live: 120 seconds
+    + Port description    : "FO-TI24X-Z-1-et10"
+    + System name         : "AR-7280SR248YC6-Z-1"
+
+Local port: 13
+  Neighbor: 0024.38a4.8b3a, TTL 101 seconds
+    + Chassis ID (MAC address): 0024.38a4.8b00
+    + Port ID (MAC address): 0024.38a4.8b3a
+    + Time to live: 120 seconds
+    + System name         : "FO-MLXE8-Z-1"
+    + Port description    : "10GigabitEthernet2/11"
+    + Management address (IPv4): 20.0.1.1
+
+Local port: 18
+  Neighbor: 0024.38a4.8b30, TTL 101 seconds
+    + Chassis ID (MAC address): 0024.38a4.8b00
+    + Port ID (MAC address): 0024.38a4.8b30
+    + Time to live: 120 seconds
+    + System name         : "FO-MLXE8-Z-1"
+    + Port description    : "10GigabitEthernet2/1"
+    + Management address (IPv4): 20.0.1.1
+
+Local port: 21
+  Neighbor: 609c.9f84.0969, TTL 118 seconds
+    + Chassis ID (MAC address): 609c.9f84.0900
+    + Port ID (MAC address): 609c.9f84.0969
+    + Time to live: 120 seconds
+    + System name         : "FO-MLXE4-Z-1"
+    + Port description    : "10GigabitEthernet3/10"
+    + Management address (IPv4): 20.0.1.1
+
+Local port: 23
+  Neighbor: 0024.38a4.8c06, TTL 101 seconds
+    + Chassis ID (MAC address): 0024.38a4.8b00
+    + Port ID (MAC address): 0024.38a4.8c06
+    + Time to live: 120 seconds
+    + System name         : "FO-MLXE8-Z-1"
+    + Port description    : "10GigabitEthernet6/23"
+    + Management address (IPv4): 20.0.1.1

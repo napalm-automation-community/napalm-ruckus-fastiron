@@ -1,0 +1,1 @@
+{"101": {"name": "DNS", "interfaces": ["GigabitEthernet1/1/1", "10GigabitEthernet1/2/4", "GigabitEthernet1/1/13"]}, "148": {"name": "TEST", "interfaces": ["Ve148", "GigabitEthernet1/1/15", "10GigabitEthernet1/2/4", "lag34"]}, "154": {"name": "AUTH", "interfaces": ["GigabitEthernet1/1/1", "10GigabitEthernet1/2/4", "GigabitEthernet1/1/14"]}}

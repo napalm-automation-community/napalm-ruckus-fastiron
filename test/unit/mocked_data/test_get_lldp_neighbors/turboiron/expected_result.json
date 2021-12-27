@@ -1,0 +1,56 @@
+{
+  "10GigabitEthernet2": [
+    {
+      "hostname": "FO-CER2000-Z-1",
+      "port": "10GigabitEthernet2/2"
+    }
+  ],
+  "10GigabitEthernet5": [
+    {
+      "hostname": "FO-MLXE8-Z-1",
+      "port": "10GigabitEthernet6/24"
+    }
+  ],
+  "10GigabitEthernet6": [
+    {
+      "hostname": "AR-7280SR248YC6-Z-1",
+      "port": "Ethernet11"
+    }
+  ],
+  "10GigabitEthernet7": [
+    {
+      "hostname": "FO-MLXE4-Z-1",
+      "port": "10GigabitEthernet3/7"
+    }
+  ],
+  "10GigabitEthernet10": [
+    {
+      "hostname": "AR-7280SR248YC6-Z-1",
+      "port": "Ethernet6"
+    }
+  ],
+  "10GigabitEthernet13": [
+    {
+      "hostname": "FO-MLXE8-Z-1",
+      "port": "10GigabitEthernet2/11"
+    }
+  ],
+  "10GigabitEthernet18": [
+    {
+      "hostname": "FO-MLXE8-Z-1",
+      "port": "10GigabitEthernet2/1"
+    }
+  ],
+  "10GigabitEthernet21": [
+    {
+      "hostname": "FO-MLXE4-Z-1",
+      "port": "10GigabitEthernet3/10"
+    }
+  ],
+  "10GigabitEthernet23": [
+    {
+      "hostname": "FO-MLXE8-Z-1",
+      "port": "10GigabitEthernet6/23"
+    }
+  ]
+}

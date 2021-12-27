@@ -1,0 +1,28 @@
+Total number of VRFs configured: 3
+
+VRF chomp, default RD 9999:1020, Table ID 4
+IP Router-Id: 94.3.128.6
+  Interfaces:
+     Use "show vrf chomp" to see the list of interfaces
+
+  Address Family IPv4
+    Max Routes: 512
+    Number of Unicast Routes: 105
+VRF mgmt, default RD 13336:1, Table ID 1
+IP Router-Id: 0.0.0.0
+  No interfaces
+
+  Address Family IPv4
+    Max Routes: 512
+    Number of Unicast Routes: 0
+VRF uk-vrf, default RD 6035:15, Table ID 2
+IP Router-Id: 10.3.2.2
+  Interfaces:
+     Use "show vrf uk-vrf" to see the list of interfaces
+
+  Address Family IPv4
+    Max Routes: 512
+    Number of Unicast Routes: 464
+
+Total number of IPv4 unicast route for all non-default VRF is 569
+Total number of IPv6 unicast route for all non-default VRF is 0

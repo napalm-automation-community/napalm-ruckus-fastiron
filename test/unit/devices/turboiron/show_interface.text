@@ -1,0 +1,692 @@
+10GigabitEthernet1 is up, line protocol is up
+  Hardware is 10GigabitEthernet, address is 0024.3817.928b (bia 0024.3817.928b)
+  Configured speed 10Gbit, actual 10Gbit, configured duplex fdx, actual fdx
+  Member of 3 L2 VLANs, port is tagged, port state is FORWARDING
+  BPDU guard is Disabled, ROOT protect is Disabled, Designated protect is Disabled
+  Link Error Dampening is Disabled
+  STP configured to ON, priority is level0
+  Flow Control is enabled
+  Mirror disabled, Monitor disabled
+  Not member of any active trunks
+  Not member of any configured trunks
+  Port name is TO:MR-OSV8-C-1
+  IPG XGMII 96 bits-time
+  MTU 9216 bytes, encapsulation ethernet
+  300 second input rate: 63968 bits/sec, 43 packets/sec, 0.00% utilization
+  300 second output rate: 101248 bits/sec, 40 packets/sec, 0.00% utilization
+  2862773743 packets input, 3919241182114 bytes, 0 no buffer
+  Received 1403168 broadcasts, 1378117 multicasts, 2859992452 unicasts
+  16 input errors, 0 CRC, 0 frame, 0 ignored
+  0 runts, 0 giants
+  1130362282 packets output, 801112877865 bytes, 0 underruns
+  Transmitted 22085701 broadcasts, 273904 multicasts, 1108002677 unicasts
+  0 output errors, 0 collisions
+  Relay Agent Information option: Disabled
+10GigabitEthernet2 is up, line protocol is up
+  Hardware is 10GigabitEthernet, address is 0024.3817.928b (bia 0024.3817.928c)
+  Configured speed 10Gbit, actual 10Gbit, configured duplex fdx, actual fdx
+  Member of 12 L2 VLANs, port is tagged, port state is FORWARDING
+  BPDU guard is Disabled, ROOT protect is Disabled, Designated protect is Disabled
+  Link Error Dampening is Disabled
+  STP configured to ON, priority is level0
+  Flow Control is enabled
+  Mirror disabled, Monitor disabled
+  Not member of any active trunks
+  Not member of any configured trunks
+  Port name is FO-CER2000-I-1
+  IPG XGMII 96 bits-time
+  MTU 9216 bytes, encapsulation ethernet
+  300 second input rate: 39353464 bits/sec, 6345 packets/sec, 0.39% utilization
+  300 second output rate: 48541392 bits/sec, 7954 packets/sec, 0.49% utilization
+  819928654089 packets input, 763386229016433 bytes, 0 no buffer
+  Received 387011695 broadcasts, 37708596 multicasts, 819466279011 unicasts
+  0 input errors, 0 CRC, 0 frame, 125607 ignored
+  0 runts, 0 giants
+  1219135442119 packets output, 1257119745165595 bytes, 0 underruns
+  Transmitted 9996508 broadcasts, 42385560 multicasts, 1219083060051 unicasts
+  402 output errors, 0 collisions
+  Relay Agent Information option: Disabled
+10GigabitEthernet3 is up, line protocol is up
+  Hardware is 10GigabitEthernet, address is 0024.3817.928b (bia 0024.3817.928d)
+  Configured speed 10Gbit, actual 10Gbit, configured duplex fdx, actual fdx
+  Member of L2 VLAN ID 3869, port is untagged, port state is FORWARDING
+  BPDU guard is Disabled, ROOT protect is Disabled, Designated protect is Disabled
+  Link Error Dampening is Disabled
+  STP configured to ON, priority is level0
+  Flow Control is enabled
+  Mirror disabled, Monitor disabled
+  Not member of any active trunks
+  Not member of any configured trunks
+  Port name is SM-X9DBL4B-Z-2
+  IPG XGMII 96 bits-time
+  MTU 9216 bytes, encapsulation ethernet
+  300 second input rate: 9571536 bits/sec, 1186 packets/sec, 0.09% utilization
+  300 second output rate: 18295840 bits/sec, 1606 packets/sec, 0.18% utilization
+  362442608834 packets input, 404475856047822 bytes, 0 no buffer
+  Received 7 broadcasts, 9762 multicasts, 362442599065 unicasts
+  0 input errors, 0 CRC, 0 frame, 4 ignored
+  0 runts, 0 giants
+  337782843546 packets output, 411014919077419 bytes, 0 underruns
+  Transmitted 797295 broadcasts, 1162343 multicasts, 337780883908 unicasts
+  1 output errors, 0 collisions
+  Relay Agent Information option: Disabled
+10GigabitEthernet4 is up, line protocol is up
+  Hardware is 10GigabitEthernet, address is 0024.3817.928b (bia 0024.3817.928e)
+  Configured speed 10Gbit, actual 10Gbit, configured duplex fdx, actual fdx
+  Member of L2 VLAN ID 3869, port is untagged, port state is FORWARDING
+  BPDU guard is Disabled, ROOT protect is Disabled, Designated protect is Disabled
+  Link Error Dampening is Disabled
+  STP configured to ON, priority is level0
+  Flow Control is enabled
+  Mirror disabled, Monitor disabled
+  Not member of any active trunks
+  Not member of any configured trunks
+  Port name is SM-X10SRI4B-Z-2
+  IPG XGMII 96 bits-time
+  MTU 9216 bytes, encapsulation ethernet
+  300 second input rate: 91758408 bits/sec, 8454 packets/sec, 0.92% utilization
+  300 second output rate: 38153640 bits/sec, 4634 packets/sec, 0.38% utilization
+  839129036635 packets input, 1111097007941105 bytes, 0 no buffer
+  Received 8 broadcasts, 9758 multicasts, 839129026869 unicasts
+  0 input errors, 0 CRC, 0 frame, 19 ignored
+  0 runts, 0 giants
+  430056108591 packets output, 415017411586158 bytes, 0 underruns
+  Transmitted 797576 broadcasts, 29277 multicasts, 430055281738 unicasts
+  10 output errors, 0 collisions
+  Relay Agent Information option: Disabled
+10GigabitEthernet5 is up, line protocol is up
+  Hardware is 10GigabitEthernet, address is 0024.3817.928b (bia 0024.3817.928f)
+  Configured speed 10Gbit, actual 10Gbit, configured duplex fdx, actual fdx
+  Member of 62 L2 VLANs, port is tagged, port state is FORWARDING
+  BPDU guard is Disabled, ROOT protect is Disabled, Designated protect is Disabled
+  Link Error Dampening is Disabled
+  STP configured to ON, priority is level0
+  Flow Control is enabled
+  Mirror disabled, Monitor disabled
+  Member of active trunk ports 5,13,18,23, primary port
+  Member of configured trunk ports 5,13,18,23, primary port
+  Port name is MLXe8--TIXX
+  IPG XGMII 96 bits-time
+  MTU 9216 bytes, encapsulation ethernet
+  300 second input rate: 446351632 bits/sec, 43299 packets/sec, 4.52% utilization
+  300 second output rate: 236346680 bits/sec, 26344 packets/sec, 2.40% utilization
+  2912820291365 packets input, 3417183055755078 bytes, 0 no buffer
+  Received 2 broadcasts, 19092023 multicasts, 2912801199340 unicasts
+  0 input errors, 0 CRC, 0 frame, 15459 ignored
+  0 runts, 0 giants
+  3414594781554 packets output, 4134063496598500 bytes, 0 underruns
+  Transmitted 284999259 broadcasts, 124028693 multicasts, 3414185753602 unicasts
+  411 output errors, 0 collisions
+  Relay Agent Information option: Disabled
+10GigabitEthernet6 is up, line protocol is up
+  Hardware is 10GigabitEthernet, address is 0024.3817.9290 (bia 0024.3817.9290)
+  Configured speed 10Gbit, actual 10Gbit, configured duplex fdx, actual fdx
+  Member of 1 L2 VLANs, port is tagged, port state is FORWARDING
+  BPDU guard is Disabled, ROOT protect is Disabled, Designated protect is Disabled
+  Link Error Dampening is Disabled
+  STP configured to ON, priority is level0
+  Flow Control is enabled
+  Mirror disabled, Monitor disabled
+  Not member of any active trunks
+  Not member of any configured trunks
+  Port name is CO::AR-7280SR248YC6-I-1::Et54
+  IPG XGMII 96 bits-time
+  MTU 9216 bytes, encapsulation ethernet
+  300 second input rate: 24 bits/sec, 0 packets/sec, 0.00% utilization
+  300 second output rate: 32 bits/sec, 0 packets/sec, 0.00% utilization
+  198000153 packets input, 96861758219 bytes, 0 no buffer
+  Received 102566 broadcasts, 1206669 multicasts, 196690918 unicasts
+  0 input errors, 0 CRC, 0 frame, 0 ignored
+  0 runts, 0 giants
+  472134249 packets output, 622157916033 bytes, 0 underruns
+  Transmitted 1135464 broadcasts, 2291527 multicasts, 468707258 unicasts
+  0 output errors, 0 collisions
+  Relay Agent Information option: Disabled
+10GigabitEthernet7 is up, line protocol is up
+  Hardware is 10GigabitEthernet, address is 0024.3817.9291 (bia 0024.3817.9291)
+  Configured speed 10Gbit, actual 10Gbit, configured duplex fdx, actual fdx
+  Member of 6 L2 VLANs, port is tagged, port state is FORWARDING
+  BPDU guard is Disabled, ROOT protect is Disabled, Designated protect is Disabled
+  Link Error Dampening is Disabled
+  STP configured to ON, priority is level0
+  Flow Control is enabled
+  Mirror disabled, Monitor disabled
+  Member of active trunk ports 7,21, primary port
+  Member of configured trunk ports 7,21, primary port
+  Port name is 10G_TO_BROWN
+  IPG XGMII 96 bits-time
+  MTU 9216 bytes, encapsulation ethernet
+  300 second input rate: 455930208 bits/sec, 41565 packets/sec, 4.62% utilization
+  300 second output rate: 152776 bits/sec, 111 packets/sec, 0.00% utilization
+  2864038952128 packets input, 3866804739330094 bytes, 0 no buffer
+  Received 362749 broadcasts, 31443783 multicasts, 2864004995065 unicasts
+  2498 input errors, 0 CRC, 0 frame, 0 ignored
+  0 runts, 0 giants
+  307006598470 packets output, 358178086794364 bytes, 0 underruns
+  Transmitted 118898 broadcasts, 17133258 multicasts, 306989346314 unicasts
+  3 output errors, 0 collisions
+  Relay Agent Information option: Disabled
+10GigabitEthernet8 is up, line protocol is up
+  Hardware is 10GigabitEthernet, address is 0024.3817.9292 (bia 0024.3817.9292)
+  Configured speed 10Gbit, actual 10Gbit, configured duplex fdx, actual fdx
+  Member of L2 VLAN ID 79, port is untagged, port state is FORWARDING
+  BPDU guard is Disabled, ROOT protect is Disabled, Designated protect is Disabled
+  Link Error Dampening is Disabled
+  STP configured to ON, priority is level0
+  Flow Control is enabled
+  Mirror disabled, Monitor disabled
+  Not member of any active trunks
+  Not member of any configured trunks
+  Port name is Dell Server
+  IPG XGMII 96 bits-time
+  MTU 9216 bytes, encapsulation ethernet
+  300 second input rate: 68176 bits/sec, 8 packets/sec, 0.00% utilization
+  300 second output rate: 1509159936 bits/sec, 139081 packets/sec, 15.30% utilization
+  4512436881 packets input, 6619169427708 bytes, 0 no buffer
+  Received 36 broadcasts, 3569319 multicasts, 4508867526 unicasts
+  0 input errors, 0 CRC, 0 frame, 0 ignored
+  0 runts, 0 giants
+  8217159756690 packets output, 10017310635820031 bytes, 0 underruns
+  Transmitted 196055 broadcasts, 3569709 multicasts, 8217155990926 unicasts
+  2 output errors, 0 collisions
+  Relay Agent Information option: Disabled
+10GigabitEthernet9 is up, line protocol is up
+  Hardware is 10GigabitEthernet, address is 0024.3817.9293 (bia 0024.3817.9293)
+  Configured speed 10Gbit, actual 10Gbit, configured duplex fdx, actual fdx
+  Member of L2 VLAN ID 81, port is untagged, port state is FORWARDING
+  BPDU guard is Disabled, ROOT protect is Disabled, Designated protect is Disabled
+  Link Error Dampening is Disabled
+  STP configured to ON, priority is level0
+  Flow Control is enabled
+  Mirror disabled, Monitor disabled
+  Not member of any active trunks
+  Not member of any configured trunks
+  Port name is Dell Server 2
+  IPG XGMII 96 bits-time
+  MTU 9216 bytes, encapsulation ethernet
+  300 second input rate: 86268440 bits/sec, 19351 packets/sec, 0.88% utilization
+  300 second output rate: 2824 bits/sec, 2 packets/sec, 0.00% utilization
+  4550063406558 packets input, 5025235477378958 bytes, 0 no buffer
+  Received 83 broadcasts, 3569291 multicasts, 4550059837184 unicasts
+  0 input errors, 0 CRC, 0 frame, 0 ignored
+  0 runts, 0 giants
+  91073326 packets output, 34779892084 bytes, 0 underruns
+  Transmitted 196365 broadcasts, 3569543 multicasts, 87307418 unicasts
+  0 output errors, 0 collisions
+  Relay Agent Information option: Disabled
+10GigabitEthernet10 is up, line protocol is up
+  Hardware is 10GigabitEthernet, address is 0024.3817.9294 (bia 0024.3817.9294)
+  Configured speed 10Gbit, actual 10Gbit, configured duplex fdx, actual fdx
+  Member of 1 L2 VLANs, port is tagged, port state is FORWARDING
+  BPDU guard is Disabled, ROOT protect is Disabled, Designated protect is Disabled
+  Link Error Dampening is Disabled
+  STP configured to ON, priority is level0
+  Flow Control is enabled
+  Mirror disabled, Monitor disabled
+  Not member of any active trunks
+  Not member of any configured trunks
+  Port name is AR-7280SR248YC6-I-1
+  IPG XGMII 96 bits-time
+  MTU 9216 bytes, encapsulation ethernet
+  300 second input rate: 24 bits/sec, 0 packets/sec, 0.00% utilization
+  300 second output rate: 32 bits/sec, 0 packets/sec, 0.00% utilization
+  17061797207 packets input, 20629742103972 bytes, 0 no buffer
+  Received 40391 broadcasts, 5470863 multicasts, 17055813962 unicasts
+  0 input errors, 0 CRC, 0 frame, 0 ignored
+  0 runts, 0 giants
+  15823612332 packets output, 12101834664699 bytes, 0 underruns
+  Transmitted 75124 broadcasts, 5531906 multicasts, 15818005302 unicasts
+  0 output errors, 0 collisions
+  Relay Agent Information option: Disabled
+10GigabitEthernet11 is up, line protocol is up
+  Hardware is 10GigabitEthernet, address is 0024.3817.9295 (bia 0024.3817.9295)
+  Configured speed 10Gbit, actual 10Gbit, configured duplex fdx, actual fdx
+  Member of 2 L2 VLANs, port is tagged, port state is FORWARDING
+  BPDU guard is Disabled, ROOT protect is Disabled, Designated protect is Disabled
+  Link Error Dampening is Disabled
+  STP configured to ON, priority is level0
+  Flow Control is enabled
+  Mirror disabled, Monitor disabled
+  Not member of any active trunks
+  Not member of any configured trunks
+  Port name is TO:MR-OS940-I-1--QinQ
+  IPG XGMII 96 bits-time
+  MTU 9216 bytes, encapsulation ethernet
+  300 second input rate: 40 bits/sec, 0 packets/sec, 0.00% utilization
+  300 second output rate: 2680 bits/sec, 4 packets/sec, 0.00% utilization
+  195340637859 packets input, 293810163013729 bytes, 0 no buffer
+  Received 8465 broadcasts, 210392 multicasts, 195340419002 unicasts
+  278 input errors, 0 CRC, 0 frame, 0 ignored
+  0 runts, 0 giants
+  179705699060 packets output, 270244371272386 bytes, 0 underruns
+  Transmitted 20787171 broadcasts, 50052 multicasts, 179684861837 unicasts
+  0 output errors, 0 collisions
+  Relay Agent Information option: Disabled
+10GigabitEthernet12 is down, line protocol is down
+  Hardware is 10GigabitEthernet, address is 0024.3817.9296 (bia 0024.3817.9296)
+  Configured speed 10Gbit, actual unknown, configured duplex fdx, actual unknown
+  Member of L2 VLAN ID 82, port is untagged, port state is BLOCKING
+  BPDU guard is Disabled, ROOT protect is Disabled, Designated protect is Disabled
+  Link Error Dampening is Disabled
+  STP configured to ON, priority is level0
+  Flow Control is enabled
+  Mirror disabled, Monitor disabled
+  Not member of any active trunks
+  Not member of any configured trunks
+  Port name is Dell Server 3
+  IPG XGMII 96 bits-time
+  MTU 9216 bytes, encapsulation ethernet
+  300 second input rate: 0 bits/sec, 0 packets/sec, 0.00% utilization
+  300 second output rate: 0 bits/sec, 0 packets/sec, 0.00% utilization
+  0 packets input, 0 bytes, 0 no buffer
+  Received 0 broadcasts, 0 multicasts, 0 unicasts
+  0 input errors, 0 CRC, 0 frame, 0 ignored
+  0 runts, 0 giants
+  0 packets output, 0 bytes, 0 underruns
+  Transmitted 0 broadcasts, 0 multicasts, 0 unicasts
+  0 output errors, 0 collisions
+  Relay Agent Information option: Disabled
+10GigabitEthernet13 is up, line protocol is up
+  Hardware is 10GigabitEthernet, address is 0024.3817.928b (bia 0024.3817.9297)
+  Configured speed 10Gbit, actual 10Gbit, configured duplex fdx, actual fdx
+  Member of 62 L2 VLANs, port is tagged, port state is FORWARDING
+  BPDU guard is Disabled, ROOT protect is Disabled, Designated protect is Disabled
+  Link Error Dampening is Disabled
+  STP configured to ON, priority is level0
+  Flow Control is enabled
+  Mirror disabled, Monitor disabled
+  Member of active trunk ports 5,13,18,23, secondary port, primary port is 5
+  Member of configured trunk ports 5,13,18,23, secondary port, primary port is 5
+  Port name is CO::FO-MLXE8-I-1
+  IPG XGMII 96 bits-time
+  MTU 9216 bytes, encapsulation ethernet
+  300 second input rate: 268244776 bits/sec, 28479 packets/sec, 2.72% utilization
+  300 second output rate: 429871312 bits/sec, 52506 packets/sec, 4.37% utilization
+  2728066261786 packets input, 3196371573928642 bytes, 0 no buffer
+  Received 1580 broadcasts, 27364098 multicasts, 2728038896108 unicasts
+  0 input errors, 0 CRC, 0 frame, 32314 ignored
+  0 runts, 0 giants
+  3445913586584 packets output, 4170098965862042 bytes, 0 underruns
+  Transmitted 3193432 broadcasts, 59608809 multicasts, 3445850784343 unicasts
+  347 output errors, 0 collisions
+  Relay Agent Information option: Disabled
+10GigabitEthernet14 is disabled, line protocol is down
+  Hardware is 10GigabitEthernet, address is 0024.3817.9298 (bia 0024.3817.9298)
+  Configured speed 10Gbit, actual unknown, configured duplex fdx, actual unknown
+  Member of 1 L2 VLANs, port is tagged, port state is DISABLED
+  BPDU guard is Disabled, ROOT protect is Disabled, Designated protect is Disabled
+  Link Error Dampening is Disabled
+  STP configured to ON, priority is level0
+  Flow Control is enabled
+  Mirror disabled, Monitor disabled
+  Not member of any active trunks
+  Not member of any configured trunks
+  Port name is BAD-GOES-INTO-BLOCKING
+  IPG XGMII 96 bits-time
+  MTU 9216 bytes, encapsulation ethernet
+  300 second input rate: 0 bits/sec, 0 packets/sec, 0.00% utilization
+  300 second output rate: 0 bits/sec, 0 packets/sec, 0.00% utilization
+  0 packets input, 0 bytes, 0 no buffer
+  Received 0 broadcasts, 0 multicasts, 0 unicasts
+  0 input errors, 0 CRC, 0 frame, 0 ignored
+  0 runts, 0 giants
+  0 packets output, 0 bytes, 0 underruns
+  Transmitted 0 broadcasts, 0 multicasts, 0 unicasts
+  0 output errors, 0 collisions
+  Relay Agent Information option: Disabled
+10GigabitEthernet15 is up, line protocol is up
+  Hardware is 10GigabitEthernet, address is 0024.3817.9299 (bia 0024.3817.9299)
+  Configured speed 10Gbit, actual 10Gbit, configured duplex fdx, actual fdx
+  Member of 1 L2 VLANs, port is tagged, port state is FORWARDING
+  BPDU guard is Disabled, ROOT protect is Disabled, Designated protect is Disabled
+  Link Error Dampening is Disabled
+  STP configured to ON, priority is level0
+  Flow Control is enabled
+  Mirror disabled, Monitor disabled
+  Not member of any active trunks
+  Not member of any configured trunks
+  Port name is CUSTOMER
+  IPG XGMII 96 bits-time
+  MTU 9216 bytes, encapsulation ethernet
+  300 second input rate: 1808 bits/sec, 1 packets/sec, 0.00% utilization
+  300 second output rate: 3776 bits/sec, 6 packets/sec, 0.00% utilization
+  1950479873 packets input, 1338516824804 bytes, 0 no buffer
+  Received 2275071 broadcasts, 737459 multicasts, 1947467343 unicasts
+  0 input errors, 0 CRC, 0 frame, 0 ignored
+  0 runts, 0 giants
+  3304154774 packets output, 3300388672114 bytes, 0 underruns
+  Transmitted 147618195 broadcasts, 300989 multicasts, 3156235590 unicasts
+  0 output errors, 0 collisions
+  Relay Agent Information option: Disabled
+10GigabitEthernet16 is up, line protocol is up
+  Hardware is 10GigabitEthernet, address is 0024.3817.928b (bia 0024.3817.929a)
+  Configured speed 10Gbit, actual 10Gbit, configured duplex fdx, actual fdx
+  Member of 15 L2 VLANs, port is tagged, port state is FORWARDING
+  BPDU guard is Disabled, ROOT protect is Disabled, Designated protect is Disabled
+  Link Error Dampening is Disabled
+  STP configured to ON, priority is level0
+  Flow Control is enabled
+  Mirror disabled, Monitor disabled
+  Not member of any active trunks
+  Not member of any configured trunks
+  Port name is TO::MR-OS940-I-2
+  IPG XGMII 96 bits-time
+  MTU 9216 bytes, encapsulation ethernet
+  300 second input rate: 31542576 bits/sec, 4834 packets/sec, 0.31% utilization
+  300 second output rate: 17658400 bits/sec, 2541 packets/sec, 0.17% utilization
+  648244356390 packets input, 732997847574989 bytes, 0 no buffer
+  Received 331203269 broadcasts, 241337312 multicasts, 647649350279 unicasts
+  0 input errors, 0 CRC, 0 frame, 0 ignored
+  0 runts, 0 giants
+  862675038195 packets output, 921154770669878 bytes, 0 underruns
+  Transmitted 261973837 broadcasts, 477486 multicasts, 862412586872 unicasts
+  10 output errors, 0 collisions
+  Relay Agent Information option: Disabled
+10GigabitEthernet17 is disabled, line protocol is down
+  Hardware is 10GigabitEthernet, address is 0024.3817.929b (bia 0024.3817.929b)
+  Configured speed 10Gbit, actual unknown, configured duplex fdx, actual unknown
+  Member of L2 VLAN ID 1, port is untagged, port state is DISABLED
+  BPDU guard is Disabled, ROOT protect is Disabled, Designated protect is Disabled
+  Link Error Dampening is Disabled
+  STP configured to ON, priority is level0
+  Flow Control is enabled
+  Mirror disabled, Monitor disabled
+  Not member of any active trunks
+  Not member of any configured trunks
+  Port name is LR-919-FO-TI24X-I-1
+  IPG XGMII 96 bits-time
+  MTU 9216 bytes, encapsulation ethernet
+  300 second input rate: 0 bits/sec, 0 packets/sec, 0.00% utilization
+  300 second output rate: 0 bits/sec, 0 packets/sec, 0.00% utilization
+  0 packets input, 0 bytes, 0 no buffer
+  Received 0 broadcasts, 0 multicasts, 0 unicasts
+  0 input errors, 0 CRC, 0 frame, 0 ignored
+  0 runts, 0 giants
+  0 packets output, 0 bytes, 0 underruns
+  Transmitted 0 broadcasts, 0 multicasts, 0 unicasts
+  0 output errors, 0 collisions
+  Relay Agent Information option: Disabled
+10GigabitEthernet18 is up, line protocol is up
+  Hardware is 10GigabitEthernet, address is 0024.3817.928b (bia 0024.3817.929c)
+  Configured speed 10Gbit, actual 10Gbit, configured duplex fdx, actual fdx
+  Member of 62 L2 VLANs, port is tagged, port state is FORWARDING
+  BPDU guard is Disabled, ROOT protect is Disabled, Designated protect is Disabled
+  Link Error Dampening is Disabled
+  STP configured to ON, priority is level0
+  Flow Control is enabled
+  Mirror disabled, Monitor disabled
+  Member of active trunk ports 5,13,18,23, secondary port, primary port is 5
+  Member of configured trunk ports 5,13,18,23, secondary port, primary port is 5
+  Port name is FO-MLXE8-I-1-_ETH2/1
+  IPG XGMII 96 bits-time
+  MTU 9216 bytes, encapsulation ethernet
+  300 second input rate: 229272600 bits/sec, 24275 packets/sec, 2.32% utilization
+  300 second output rate: 249624144 bits/sec, 26850 packets/sec, 2.53% utilization
+  2851169933901 packets input, 3401094459863581 bytes, 0 no buffer
+  Received 331434350 broadcasts, 53726101 multicasts, 2850737259293 unicasts
+  0 input errors, 0 CRC, 0 frame, 3966 ignored
+  0 runts, 0 giants
+  3527475237117 packets output, 4376111665992112 bytes, 0 underruns
+  Transmitted 30691430 broadcasts, 92575285 multicasts, 3527351970402 unicasts
+  495 output errors, 0 collisions
+  Relay Agent Information option: Disabled
+10GigabitEthernet19 is up, line protocol is up
+  Hardware is 10GigabitEthernet, address is 0024.3817.928b (bia 0024.3817.929d)
+  Configured speed 10Gbit, actual 10Gbit, configured duplex fdx, actual fdx
+  Member of L2 VLAN ID 3869, port is untagged, port state is FORWARDING
+  BPDU guard is Disabled, ROOT protect is Disabled, Designated protect is Disabled
+  Link Error Dampening is Disabled
+  STP configured to ON, priority is level0
+  Flow Control is enabled
+  Mirror disabled, Monitor disabled
+  Not member of any active trunks
+  Not member of any configured trunks
+  Port name is SM-X9DBL4B-Z-3
+  IPG XGMII 96 bits-time
+  MTU 9216 bytes, encapsulation ethernet
+  300 second input rate: 6549848 bits/sec, 740 packets/sec, 0.06% utilization
+  300 second output rate: 8091808 bits/sec, 750 packets/sec, 0.07% utilization
+  327702936185 packets input, 359998837860130 bytes, 0 no buffer
+  Received 92 broadcasts, 9760 multicasts, 327702926333 unicasts
+  0 input errors, 0 CRC, 0 frame, 0 ignored
+  0 runts, 0 giants
+  315499664434 packets output, 383998191473246 bytes, 0 underruns
+  Transmitted 796700 broadcasts, 29274 multicasts, 315498838460 unicasts
+  5 output errors, 0 collisions
+  Relay Agent Information option: Disabled
+10GigabitEthernet20 is up, line protocol is up
+  Hardware is 10GigabitEthernet, address is 0024.3817.929e (bia 0024.3817.929e)
+  Configured speed 10Gbit, actual 10Gbit, configured duplex fdx, actual fdx
+  Member of 6 L2 VLANs, port is tagged, port state is FORWARDING
+  BPDU guard is Disabled, ROOT protect is Disabled, Designated protect is Disabled
+  Link Error Dampening is Disabled
+  STP configured to ON, priority is level0
+  Flow Control is enabled
+  Mirror disabled, Monitor disabled
+  Not member of any active trunks
+  Not member of any configured trunks
+  Port name is SCANNER-LA-10G
+  IPG XGMII 96 bits-time
+  MTU 9216 bytes, encapsulation ethernet
+  300 second input rate: 147317624 bits/sec, 22873 packets/sec, 1.50% utilization
+  300 second output rate: 52371888 bits/sec, 12310 packets/sec, 0.53% utilization
+  951759804965 packets input, 750485740357934 bytes, 0 no buffer
+  Received 2778 broadcasts, 40070580 multicasts, 951719731607 unicasts
+  1476 input errors, 0 CRC, 0 frame, 0 ignored
+  4 runts, 0 giants
+  467418744438 packets output, 250628131456229 bytes, 0 underruns
+  Transmitted 203344086 broadcasts, 60972877 multicasts, 467154427475 unicasts
+  2 output errors, 0 collisions
+  Relay Agent Information option: Disabled
+10GigabitEthernet21 is up, line protocol is up
+  Hardware is 10GigabitEthernet, address is 0024.3817.9291 (bia 0024.3817.929f)
+  Configured speed 10Gbit, actual 10Gbit, configured duplex fdx, actual fdx
+  Member of 6 L2 VLANs, port is tagged, port state is FORWARDING
+  BPDU guard is Disabled, ROOT protect is Disabled, Designated protect is Disabled
+  Link Error Dampening is Disabled
+  STP configured to ON, priority is level0
+  Flow Control is enabled
+  Mirror disabled, Monitor disabled
+  Member of active trunk ports 7,21, secondary port, primary port is 7
+  Member of configured trunk ports 7,21, secondary port, primary port is 7
+  Port name is FORE-9900
+  IPG XGMII 96 bits-time
+  MTU 9216 bytes, encapsulation ethernet
+  300 second input rate: 362691784 bits/sec, 39713 packets/sec, 3.68% utilization
+  300 second output rate: 2625576 bits/sec, 1102 packets/sec, 0.02% utilization
+  2783789409669 packets input, 3771130777247123 bytes, 0 no buffer
+  Received 0 broadcasts, 2377212 multicasts, 2783787032457 unicasts
+  636 input errors, 0 CRC, 0 frame, 0 ignored
+  0 runts, 0 giants
+  144821336362 packets output, 163441362364733 bytes, 0 underruns
+  Transmitted 123991 broadcasts, 18777442 multicasts, 144802434929 unicasts
+  3 output errors, 0 collisions
+  Relay Agent Information option: Disabled
+10GigabitEthernet22 is up, line protocol is up
+  Hardware is 10GigabitEthernet, address is 0024.3817.92a0 (bia 0024.3817.92a0)
+  Configured speed 10Gbit, actual 10Gbit, configured duplex fdx, actual fdx
+  Member of 5 L2 VLANs, port is tagged, port state is FORWARDING
+  BPDU guard is Disabled, ROOT protect is Disabled, Designated protect is Disabled
+  Link Error Dampening is Disabled
+  STP configured to ON, priority is level0
+  Flow Control is enabled
+  Mirror disabled, Monitor disabled
+  Not member of any active trunks
+  Not member of any configured trunks
+  Port name is SM-X10SRW4B-Z-2--vmnic3
+  IPG XGMII 96 bits-time
+  MTU 9216 bytes, encapsulation ethernet
+  300 second input rate: 67616 bits/sec, 29 packets/sec, 0.00% utilization
+  300 second output rate: 58720 bits/sec, 27 packets/sec, 0.00% utilization
+  3393075585 packets input, 3601044016038 bytes, 0 no buffer
+  Received 132 broadcasts, 9733 multicasts, 3393065720 unicasts
+  0 input errors, 0 CRC, 0 frame, 0 ignored
+  0 runts, 0 giants
+  3337547150 packets output, 3460860752375 bytes, 0 underruns
+  Transmitted 52057364 broadcasts, 32412252 multicasts, 3253077534 unicasts
+  0 output errors, 0 collisions
+  Relay Agent Information option: Disabled
+10GigabitEthernet23 is up, line protocol is up
+  Hardware is 10GigabitEthernet, address is 0024.3817.928b (bia 0024.3817.92a1)
+  Configured speed 10Gbit, actual 10Gbit, configured duplex fdx, actual fdx
+  Member of 62 L2 VLANs, port is tagged, port state is FORWARDING
+  BPDU guard is Disabled, ROOT protect is Disabled, Designated protect is Disabled
+  Link Error Dampening is Disabled
+  STP configured to ON, priority is level0
+  Flow Control is enabled
+  Mirror disabled, Monitor disabled
+  Member of active trunk ports 5,13,18,23, secondary port, primary port is 5
+  Member of configured trunk ports 5,13,18,23, secondary port, primary port is 5
+  Port name is MLXe8
+  IPG XGMII 96 bits-time
+  MTU 9216 bytes, encapsulation ethernet
+  300 second input rate: 681072424 bits/sec, 64223 packets/sec, 6.90% utilization
+  300 second output rate: 277454616 bits/sec, 30812 packets/sec, 2.81% utilization
+  2963003184757 packets input, 3446338834344416 bytes, 0 no buffer
+  Received 571409 broadcasts, 8044914 multicasts, 2962994568434 unicasts
+  0 input errors, 0 CRC, 0 frame, 16324 ignored
+  0 runts, 0 giants
+  3453370147477 packets output, 4250153968757287 bytes, 0 underruns
+  Transmitted 111193289 broadcasts, 77691995 multicasts, 3453181262193 unicasts
+  498 output errors, 0 collisions
+  Relay Agent Information option: Disabled
+10GigabitEthernet24 is up, line protocol is up
+  Hardware is 10GigabitEthernet, address is 0024.3817.92a2 (bia 0024.3817.92a2)
+  Configured speed 10Gbit, actual 10Gbit, configured duplex fdx, actual fdx
+  Member of 15 L2 VLANs, port is tagged, port state is FORWARDING
+  BPDU guard is Disabled, ROOT protect is Disabled, Designated protect is Disabled
+  Link Error Dampening is Disabled
+  STP configured to ON, priority is level0
+  Flow Control is enabled
+  Mirror disabled, Monitor disabled
+  Not member of any active trunks
+  Not member of any configured trunks
+  Port name is TO::MR-OS940-I-1-::E15
+  IPG XGMII 96 bits-time
+  MTU 9216 bytes, encapsulation ethernet
+  300 second input rate: 48601544 bits/sec, 5583 packets/sec, 0.49% utilization
+  300 second output rate: 12452472 bits/sec, 4326 packets/sec, 0.12% utilization
+  1193307922860 packets input, 1440012650579320 bytes, 0 no buffer
+  Received 95093496 broadcasts, 13973926 multicasts, 1193198684048 unicasts
+  0 input errors, 0 CRC, 0 frame, 0 ignored
+  0 runts, 0 giants
+  669653955751 packets output, 598840530740019 bytes, 0 underruns
+  Transmitted 277451211 broadcasts, 301056 multicasts, 669376203484 unicasts
+  4 output errors, 0 collisions
+  Relay Agent Information option: Disabled
+GigabitEthernet25 is down, line protocol is down
+  Hardware is GigabitEthernet, address is 0024.3817.92a3 (bia 0024.3817.92a3)
+  Configured speed auto, actual unknown, configured duplex fdx, actual unknown
+  Configured mdi mode AUTO, actual unknown
+  Member of L2 VLAN ID 1, port is untagged, port state is BLOCKING
+  BPDU guard is Disabled, ROOT protect is Disabled, Designated protect is Disabled
+  Link Error Dampening is Disabled
+  STP configured to ON, priority is level0
+  Flow Control is config enabled, oper enabled, negotiation disabled
+  Mirror disabled, Monitor disabled
+  Not member of any active trunks
+  Not member of any configured trunks
+  Port name is AVAILABLE-IF
+  IPG MII 96 bits-time, IPG GMII 96 bits-time
+  MTU 9216 bytes, encapsulation ethernet
+  300 second input rate: 0 bits/sec, 0 packets/sec, 0.00% utilization
+  300 second output rate: 0 bits/sec, 0 packets/sec, 0.00% utilization
+  0 packets input, 0 bytes, 0 no buffer
+  Received 0 broadcasts, 0 multicasts, 0 unicasts
+  0 input errors, 0 CRC, 0 frame, 0 ignored
+  0 runts, 0 giants
+  0 packets output, 0 bytes, 0 underruns
+  Transmitted 0 broadcasts, 0 multicasts, 0 unicasts
+  0 output errors, 0 collisions
+  Relay Agent Information option: Disabled
+GigabitEthernet26 is disabled, line protocol is down
+  Hardware is GigabitEthernet, address is 0024.3817.92a4 (bia 0024.3817.92a4)
+  Configured speed auto, actual unknown, configured duplex fdx, actual unknown
+  Configured mdi mode AUTO, actual unknown
+  Member of L2 VLAN ID 1, port is untagged, port state is DISABLED
+  BPDU guard is Disabled, ROOT protect is Disabled, Designated protect is Disabled
+  Link Error Dampening is Disabled
+  STP configured to ON, priority is level0
+  Flow Control is config enabled, oper enabled, negotiation disabled
+  Mirror disabled, Monitor disabled
+  Not member of any active trunks
+  Not member of any configured trunks
+  Port name is AVAILABLE-IF
+  IPG MII 96 bits-time, IPG GMII 96 bits-time
+  MTU 9216 bytes, encapsulation ethernet
+  300 second input rate: 0 bits/sec, 0 packets/sec, 0.00% utilization
+  300 second output rate: 0 bits/sec, 0 packets/sec, 0.00% utilization
+  0 packets input, 0 bytes, 0 no buffer
+  Received 0 broadcasts, 0 multicasts, 0 unicasts
+  0 input errors, 0 CRC, 0 frame, 0 ignored
+  0 runts, 0 giants
+  0 packets output, 0 bytes, 0 underruns
+  Transmitted 0 broadcasts, 0 multicasts, 0 unicasts
+  0 output errors, 0 collisions
+  Relay Agent Information option: Disabled
+GigabitEthernet27 is disabled, line protocol is down
+  Hardware is GigabitEthernet, address is 0024.3817.92a5 (bia 0024.3817.92a5)
+  Configured speed auto, actual unknown, configured duplex fdx, actual unknown
+  Configured mdi mode AUTO, actual unknown
+  Member of L2 VLAN ID 1, port is untagged, port state is DISABLED
+  BPDU guard is Disabled, ROOT protect is Disabled, Designated protect is Disabled
+  Link Error Dampening is Disabled
+  STP configured to ON, priority is level0
+  Flow Control is config enabled, oper enabled, negotiation disabled
+  Mirror disabled, Monitor disabled
+  Not member of any active trunks
+  Not member of any configured trunks
+  Port name is AVAILABLE-IF
+  IPG MII 96 bits-time, IPG GMII 96 bits-time
+  MTU 9216 bytes, encapsulation ethernet
+  300 second input rate: 0 bits/sec, 0 packets/sec, 0.00% utilization
+  300 second output rate: 0 bits/sec, 0 packets/sec, 0.00% utilization
+  0 packets input, 0 bytes, 0 no buffer
+  Received 0 broadcasts, 0 multicasts, 0 unicasts
+  0 input errors, 0 CRC, 0 frame, 0 ignored
+  0 runts, 0 giants
+  0 packets output, 0 bytes, 0 underruns
+  Transmitted 0 broadcasts, 0 multicasts, 0 unicasts
+  0 output errors, 0 collisions
+  Relay Agent Information option: Disabled
+GigabitEthernet28 is disabled, line protocol is down
+  Hardware is GigabitEthernet, address is 0024.3817.92a6 (bia 0024.3817.92a6)
+  Configured speed auto, actual unknown, configured duplex fdx, actual unknown
+  Configured mdi mode AUTO, actual unknown
+  Member of L2 VLAN ID 1, port is untagged, port state is DISABLED
+  BPDU guard is Disabled, ROOT protect is Disabled, Designated protect is Disabled
+  Link Error Dampening is Disabled
+  STP configured to ON, priority is level0
+  Flow Control is config enabled, oper enabled, negotiation disabled
+  Mirror disabled, Monitor disabled
+  Not member of any active trunks
+  Not member of any configured trunks
+  Port name is AVAILABLE-IF
+  IPG MII 96 bits-time, IPG GMII 96 bits-time
+  MTU 9216 bytes, encapsulation ethernet
+  300 second input rate: 0 bits/sec, 0 packets/sec, 0.00% utilization
+  300 second output rate: 0 bits/sec, 0 packets/sec, 0.00% utilization
+  0 packets input, 0 bytes, 0 no buffer
+  Received 0 broadcasts, 0 multicasts, 0 unicasts
+  0 input errors, 0 CRC, 0 frame, 0 ignored
+  0 runts, 0 giants
+  0 packets output, 0 bytes, 0 underruns
+  Transmitted 0 broadcasts, 0 multicasts, 0 unicasts
+  0 output errors, 0 collisions
+  Relay Agent Information option: Disabled
+GigEthernetmgmt1 is up, line protocol is up
+  Hardware is GigEthernet, address is 0024.3817.928b (bia 0024.3817.92a7)
+  Configured speed auto, actual 100Mbit, configured duplex fdx, actual fdx
+  Configured mdi mode AUTO, actual none
+  Not a Member of any VLAN , port is untagged, port state is NONE
+  No port name
+  Internet address is 10.64.16.66/24, MTU 1500 bytes, encapsulation ethernet
+  300 second input rate: 2320 bits/sec, 2 packets/sec, 0.00% utilization
+  300 second output rate: 104472 bits/sec, 12 packets/sec, 0.09% utilization
+  97140857 packets input, 9556840787 bytes, 0 no buffer
+  Received 4715216 broadcasts, 21624922 multicasts, 70800719 unicasts
+  0 input errors, 0 CRC, 0 frame, 0 ignored
+  0 runts, 0 giants
+  476671859 packets output, 536901827572 bytes, 0 underruns
+  Transmitted 9971 broadcasts, 0 multicasts, 476661888 unicasts
+  0 output errors, 0 collisions
