@@ -260,6 +260,15 @@
     "mtu": 1500,
     "mac_address": "0024.3817.928b"
   },
+  "Loopback1": {
+    "description": "",
+    "is_enabled": true,
+    "is_up": true,
+    "last_flapped": -1.0,
+    "mac_address": "",
+    "mtu": 9216,
+    "speed": 0
+  },
   "Ve123": {
     "is_up": true,
     "is_enabled": true,
