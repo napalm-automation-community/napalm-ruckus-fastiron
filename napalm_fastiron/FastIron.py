@@ -1009,6 +1009,8 @@ class FastIronDriver(NetworkDriver):
                 interfaces[port]["ipv6"][ipaddress] = {"prefix_length": prefix}
             if intf["vrfname"]:
                 interfaces[port]["vrf"] = intf["vrfname"]
+            if intf["interfaceacl"]:
+                interfaces[port]["interfaceacl"] = intf["interfaceacl"]
 
         return interfaces
 
@@ -1656,3 +1658,22 @@ class FastIronDriver(NetworkDriver):
                 self._delete_keys_from_dict(v, lst_keys)
 
         return dict_del
+
+    def get_static_routes(self):
+
+        routes = []
+
+        show_running_config = self.device.send_command("show running-config")
+
+        static_routes_detail = textfsm_extractor(self, "static_route_details", show_running_config)
+
+        vrf_static_routes_details = textfsm_extractor(self, "vrf_static_route_details", show_running_config)
+
+        for route in static_routes_detail:
+            route["vrf"] = None
+            routes.append(route)
+
+        for route in vrf_static_routes_details:
+            routes.append(route)
+
+        return routes
