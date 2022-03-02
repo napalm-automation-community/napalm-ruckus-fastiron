@@ -945,11 +945,11 @@ class FastIronDriver(NetworkDriver):
                 "mac_address": intf["mac"],
             }
 
-        # Process ve interfaces from running config & show int ve
+        # Process ve & loopback interfaces from running config & show int ve
         if not self.show_running_config or "pytest" in sys.modules:
             self.show_running_config = self.device.send_command("show running-config")
         running_config_interfaces = textfsm_extractor(self, "show_running_config_interface", self.show_running_config)
-        for intf in [i for i in running_config_interfaces if i["interface"] == "ve"]:
+        for intf in [i for i in running_config_interfaces if i["interface"] in ["ve", "loopback"]]:
             ifname = self.__standardize_interface_name("{}{}".format(intf["interface"], intf["interfacenum"]))
             if ifname not in result.keys():
                 show_intf = self.device.send_command(
@@ -969,9 +969,6 @@ class FastIronDriver(NetworkDriver):
         # Get lags
         lags = self.get_lags()
         result.update(lags)
-
-        # import json
-        # print(json.dumps(result))
 
         # Remove extra keys to make tests pass
         if "pytest" in sys.modules:

@@ -1088,6 +1088,15 @@
     "mtu": 1500,
     "mac_address": "609c.9fc7.dad0"
   },
+  "Loopback2": {
+    "description": "",
+    "is_enabled": true,
+    "is_up": true,
+    "last_flapped": -1.0,
+    "mac_address": "",
+    "mtu": 9216,
+    "speed": 0
+  },
   "Ve148": {
     "is_up": true,
     "is_enabled": true,
