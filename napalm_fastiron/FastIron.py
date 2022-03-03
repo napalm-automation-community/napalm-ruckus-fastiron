@@ -1664,8 +1664,11 @@ class FastIronDriver(NetworkDriver):
         routes = []
 
         show_running_config = self.device.send_command("show running-config")
-
-        static_routes_detail = textfsm_extractor(self, "static_route_details", show_running_config)
+        
+        if "FESX" in self.hostname:
+            static_routes_detail = textfsm_extractor(self, "fesx_static_route_details", show_running_config)
+        else:
+            static_routes_detail = textfsm_extractor(self, "static_route_details", show_running_config)
 
         vrf_static_routes_details = textfsm_extractor(self, "vrf_static_route_details", show_running_config)
 
