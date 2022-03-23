@@ -380,7 +380,7 @@ class FastIronDriver(NetworkDriver):
         else:
             raise FastIronDriver.PortSpeedException(val)
 
-        return speed
+        return float(speed)
 
     @staticmethod
     def __unite_strings(output):
@@ -906,7 +906,7 @@ class FastIronDriver(NetworkDriver):
                 "is_enabled": True,
                 "description": lag["name"],
                 "last_flapped": float(-1),
-                "speed": 0,
+                "speed": float(0),
                 "mac_address": "",
                 "mtu": 0,
                 "children": self.interfaces_to_list(lag["ports"]),
@@ -961,7 +961,7 @@ class FastIronDriver(NetworkDriver):
                     "is_enabled": True,
                     "description": info["name"],
                     "last_flapped": float(-1),
-                    "speed": 0,
+                    "speed": float(0),
                     "mtu": int(info["mtu"]),
                     "mac_address": info["mac"],
                 }
@@ -1665,7 +1665,10 @@ class FastIronDriver(NetworkDriver):
 
         show_running_config = self.device.send_command("show running-config")
 
-        static_routes_detail = textfsm_extractor(self, "static_route_details", show_running_config)
+        if "FESX" in self.hostname or "TI24X" in self.hostname:
+            static_routes_detail = textfsm_extractor(self, "fesx_static_route_details", show_running_config)
+        else:
+            static_routes_detail = textfsm_extractor(self, "static_route_details", show_running_config)
 
         vrf_static_routes_details = textfsm_extractor(self, "vrf_static_route_details", show_running_config)
 
