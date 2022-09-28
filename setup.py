@@ -8,7 +8,7 @@ with open("requirements.txt", "r") as fs:
 
 setup(
     name="napalm-brocade-fastiron",
-    version="0.19",
+    version="0.20",
     packages=find_packages(),
     author="Johan van den Dorpe",
     description="Network Automation and Programmability Abstraction Layer with Multivendor support",

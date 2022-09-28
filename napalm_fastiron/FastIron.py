@@ -359,7 +359,7 @@ class FastIronDriver(NetworkDriver):
 
     @staticmethod
     def __get_interface_speed(val):
-        if val == "auto" or val == "1Gbit":  # appends speed hat
+        if val in ["auto", "unknown", "1Gbit"]:  # appends speed hat
             speed = 1000
         elif val == "10Mbit":
             speed = 10
@@ -378,6 +378,7 @@ class FastIronDriver(NetworkDriver):
         elif val == "100Gbit":
             speed = 100000
         else:
+            print(val)
             raise FastIronDriver.PortSpeedException(val)
 
         return float(speed)
@@ -935,12 +936,15 @@ class FastIronDriver(NetworkDriver):
         result = {}
         for intf in interfaces:
             port = self.__standardize_interface_name(intf["port"])
+            speed = intf["configuredspeed"]
+            if speed == 'optic-based':
+                speed = intf["actualspeed"]
             result[port] = {
                 "is_up": intf["link"] == "up",
                 "is_enabled": intf["portstate"].lower() == "forwarding",
                 "description": intf["name"].strip(),
                 "last_flapped": float(-1),
-                "speed": FastIronDriver.__get_interface_speed(intf["speed"]),
+                "speed": FastIronDriver.__get_interface_speed(speed),
                 "mtu": int(intf["mtu"]),
                 "mac_address": intf["mac"],
             }
