@@ -233,7 +233,7 @@ class FastIronDriver(NetworkDriver):
             elif m == "day(s)":
                 multiplier = 86400
             total_seconds = int(t_dictionary.get(m)) * multiplier + total_seconds
-        return total_seconds
+        return float(total_seconds)
 
     @staticmethod
     def __facts_model(string):
@@ -937,7 +937,7 @@ class FastIronDriver(NetworkDriver):
         for intf in interfaces:
             port = self.__standardize_interface_name(intf["port"])
             speed = intf["configuredspeed"]
-            if speed == 'optic-based':
+            if speed == "optic-based":
                 speed = intf["actualspeed"]
             result[port] = {
                 "is_up": intf["link"] == "up",
