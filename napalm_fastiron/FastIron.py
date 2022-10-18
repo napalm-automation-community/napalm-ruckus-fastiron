@@ -933,6 +933,8 @@ class FastIronDriver(NetworkDriver):
                 "show interface", delay_factor=self._show_command_delay_factor
             )
         interfaces = textfsm_extractor(self, "show_interface", self.show_int)
+        vlans = self.get_vlans()
+
         result = {}
         for intf in interfaces:
             port = self.__standardize_interface_name(intf["port"])
@@ -970,13 +972,24 @@ class FastIronDriver(NetworkDriver):
                     "mac_address": info["mac"],
                 }
 
+            # Add ve_children to VEs
+            if re.match(r"^Ve", ifname):
+                # Get list of interfaces with the same VLAN as the Ve, excluding the Ve.
+                # These are the physical interfaces that form the Ve.
+                result[ifname]["ve_children"] = []
+                for vlan, data in vlans.items():
+                    if ifname in data["interfaces"]:
+                        for interface in data["interfaces"]:
+                            if interface != ifname:
+                                result[ifname]["ve_children"].append(interface)
+
         # Get lags
         lags = self.get_lags()
         result.update(lags)
 
         # Remove extra keys to make tests pass
         if "pytest" in sys.modules:
-            return self._delete_keys_from_dict(result, ["children", "type"])
+            return self._delete_keys_from_dict(result, ["children", "type", "ve_children"])
 
         return result
 
