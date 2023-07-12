@@ -1,5 +1,5 @@
-Value Filldown Interface (\S+)
-Value Filldown InterfaceNum (\S+)
+Value Filldown,Required Interface (\S+)
+Value Filldown,Required InterfaceNum (\S+)
 Value VrfName (\S+)
 Value Ipv4address (\S+)
 Value Ipv6address (\S+)

@@ -9,10 +9,12 @@ vlan 1 name DEFAULT-VLAN by port
 vlan 101 name DNS by port
  tagged ethe 1/1/1 ethe 1/2/4
  untagged ethe 1/1/13
+ ip access-group STANDARD-IN-ACL in
 !
 vlan 148 name TEST by port
  tagged ethe 1/1/15 ethe 1/2/4 lag 34
  router-interface ve 148
+ ip access-group STANDARD-IN-ACL in
 !
 vlan 154 name AUTH by port
  tagged ethe 1/1/1 ethe 1/2/4
