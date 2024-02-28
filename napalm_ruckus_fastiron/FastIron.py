@@ -53,6 +53,7 @@ class FastIronDriver(NetworkDriver):
         self.config_merge = None
         self.rollback_cfg = optional_args.get('rollback_cfg', 'rollback_config.txt')
         self.use_secret = optional_args.get('use_secret', False)
+        self.secret = optional_args.get('secret', '')
         self.image_type = None
 
     def __del__(self):
@@ -71,7 +72,7 @@ class FastIronDriver(NetworkDriver):
             if self.use_secret:
                 secret = self.password
             else:
-                secret = ''
+                secret = self.secret
 
             self.device = ConnectHandler(device_type='ruckus_fastiron',
                                          ip=self.hostname,      # saves device parameters
