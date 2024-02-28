@@ -81,7 +81,6 @@ class FastIronDriver(NetworkDriver):
                                          timeout=self.timeout,
                                          secret=secret,
                                          verbose=True)
-            self.device.session_preparation()
             # image_type = self.device.send_command("show version")   # find the image type
             # if image_type.find("SPS") != -1:
             #     self.image_type = "Switch"
