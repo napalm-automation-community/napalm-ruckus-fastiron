@@ -37,7 +37,7 @@ from napalm.base import NetworkDriver
 class FastIronDriver(NetworkDriver):
     """Napalm driver for FastIron."""
 
-    def __init__(self, hostname, username, password, timeout=60, **optional_args):
+    def __init__(self, hostname, username, password, timeout=60, optional_args=dict()):
         """Constructor."""
 
         self.device = None
