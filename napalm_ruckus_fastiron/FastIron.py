@@ -55,6 +55,7 @@ class FastIronDriver(NetworkDriver):
         self.use_secret = optional_args.get('use_secret', False)
         self.secret = optional_args.get('secret', '')
         self.image_type = None
+        self.force_no_enable = optional_args.get("force_no_enable", False)
 
     def __del__(self):
         """
@@ -87,6 +88,10 @@ class FastIronDriver(NetworkDriver):
             #     self.image_type = "Switch"
             # else:
             #     self.image_type = "Router"
+            if not self.force_no_enable:
+                self.enable()
+                # disable_paging is only available in enable mode
+                self.disable_paging(command="skip-page-display")
 
         except Exception:
             raise ConnectionException("Cannot connect to switch: %s:%s" % (self.hostname,
