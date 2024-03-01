@@ -56,6 +56,7 @@ class FastIronDriver(NetworkDriver):
         self.secret = optional_args.get('secret', '')
         self.image_type = None
         self.force_no_enable = optional_args.get("force_no_enable", False)
+        self.next_page_string="--More--, next page: Space, next line: Return key, quit: Control-c"
 
     def __del__(self):
         """
@@ -81,6 +82,7 @@ class FastIronDriver(NetworkDriver):
                                          username=self.username,
                                          password=self.password,
                                          timeout=self.timeout,
+                                         next_page_string=self.next_page_string,
                                          secret=secret,
                                          verbose=True)
             # image_type = self.device.send_command("show version")   # find the image type
