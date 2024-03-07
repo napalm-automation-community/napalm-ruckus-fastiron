@@ -37,7 +37,7 @@ from napalm.base import NetworkDriver
 class FastIronDriver(NetworkDriver):
     """Napalm driver for FastIron."""
 
-    def __init__(self, hostname, username, password, timeout=60, **optional_args):
+    def __init__(self, hostname, username, password, timeout=60, optional_args=dict()):
         """Constructor."""
 
         self.device = None
@@ -53,7 +53,10 @@ class FastIronDriver(NetworkDriver):
         self.config_merge = None
         self.rollback_cfg = optional_args.get('rollback_cfg', 'rollback_config.txt')
         self.use_secret = optional_args.get('use_secret', False)
+        self.secret = optional_args.get('secret', '')
         self.image_type = None
+        self.force_no_enable = optional_args.get("force_no_enable", False)
+        self.next_page_string="--More--, next page: Space, next line: Return key, quit: Control-c"
 
     def __del__(self):
         """
@@ -71,7 +74,7 @@ class FastIronDriver(NetworkDriver):
             if self.use_secret:
                 secret = self.password
             else:
-                secret = ''
+                secret = self.secret
 
             self.device = ConnectHandler(device_type='ruckus_fastiron',
                                          ip=self.hostname,      # saves device parameters
@@ -79,14 +82,18 @@ class FastIronDriver(NetworkDriver):
                                          username=self.username,
                                          password=self.password,
                                          timeout=self.timeout,
+                                         next_page_string=self.next_page_string,
                                          secret=secret,
                                          verbose=True)
-            self.device.session_preparation()
             # image_type = self.device.send_command("show version")   # find the image type
             # if image_type.find("SPS") != -1:
             #     self.image_type = "Switch"
             # else:
             #     self.image_type = "Router"
+            if not self.force_no_enable:
+                self.enable()
+                # disable_paging is only available in enable mode
+                self.disable_paging(command="skip-page-display")
 
         except Exception:
             raise ConnectionException("Cannot connect to switch: %s:%s" % (self.hostname,
@@ -1325,14 +1332,13 @@ class FastIronDriver(NetworkDriver):
                 continue
 
             output = self.device.send_command(cmd)
-            n_line = FastIronDriver.__creates_list_of_nlines(output)
 
             if cmd == 'show running-config':
-                config_dic.update({'running': n_line})
+                config_dic.update({'running': output})
             elif cmd == '':
-                config_dic.update({'candidate': n_line})
+                config_dic.update({'candidate': output})
             else:
-                config_dic.update({'startup': n_line})
+                config_dic.update({'startup': output})
 
         return config_dic
 
