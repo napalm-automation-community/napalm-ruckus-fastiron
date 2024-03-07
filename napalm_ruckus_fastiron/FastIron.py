@@ -1332,14 +1332,13 @@ class FastIronDriver(NetworkDriver):
                 continue
 
             output = self.device.send_command(cmd)
-            n_line = FastIronDriver.__creates_list_of_nlines(output)
 
             if cmd == 'show running-config':
-                config_dic.update({'running': n_line})
+                config_dic.update({'running': output})
             elif cmd == '':
-                config_dic.update({'candidate': n_line})
+                config_dic.update({'candidate': output})
             else:
-                config_dic.update({'startup': n_line})
+                config_dic.update({'startup': output})
 
         return config_dic
 
